@@ -256,15 +256,9 @@
           general = true;
           gitPlugins = true;
           customPlugins = true;
-          test = true;
-          example = {
-            youCan = "add more than just booleans";
-            toThisSet = [
-              "and the contents of this categories set"
-              "will be accessible to your lua with"
-              "nixCats('path.to.value')"
-              "see :help nixCats"
-            ];
+          neo-tree = true;
+          treesitter = true;
+          cmp = true;
           };
         };
       };

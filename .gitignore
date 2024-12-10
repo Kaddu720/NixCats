@@ -1,0 +1,9 @@
+/result
+/tags
+/.luarc.json
+
+result/
+result/*
+
+.direnv/
+.direnv/*

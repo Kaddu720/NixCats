@@ -125,6 +125,12 @@
         nil
         alejandra
         deadnix
+
+        # Markdown
+        marksman
+
+        # Terraform
+        terraform-ls
       ];
 
       # This is for plugins that will load at startup without using packadd:
@@ -263,8 +269,8 @@
           treesitter = true;
           telescope = true;
           cmp = true;
-          };
         };
+      };
     };
     # In this section, the main thing you will need to do is change the default package name
     # to the name of the packageDefinitions entry you wish to use as the default.

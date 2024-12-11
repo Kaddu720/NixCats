@@ -17,6 +17,6 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = '[F]or[M]at'})
   end,
 }

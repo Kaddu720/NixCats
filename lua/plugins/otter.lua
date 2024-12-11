@@ -1,6 +1,7 @@
 return {
   "otter.nvim",
   event = "DeferredUIEnter",
+  ft = {"nix", "markdown"},
   after = function()
     local otter = require("otter")
     otter.setup({

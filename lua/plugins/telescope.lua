@@ -9,9 +9,10 @@ return {
     "telescope.nvim",
     after = function()
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>fw", builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = '[F]ind [F]ile'})
+      vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = '[F]ind [W]ord'})
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = '[F]ind [B]uffer'})
+      vim.keymap.set("n", "<leader>fh", '<Cmd>Telescope harpoon marks<CR>', { desc = '[F]ind [H]arpoon'})
 
       require("telescope").setup({
         extensions = {

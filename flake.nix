@@ -152,9 +152,12 @@
           none-ls-nvim
           nvim-autopairs
           nvim-lspconfig
+          obsidian-nvim
           oil-nvim
           otter-nvim
+          trouble-nvim
           tmux-navigator
+          which-key-nvim
         ];
 
         neo-tree = with pkgs.vimPlugins; [

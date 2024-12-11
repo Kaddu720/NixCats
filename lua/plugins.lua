@@ -8,16 +8,19 @@ return {
   { import = "plugins.noice" },
   { import = "plugins.none-ls" },
   { import = "plugins.nvim-autopairs" },
+  { import = "plugins.obsidian-nvim" },
   { import = "plugins.oil-nvim" },
   { import = "plugins.otter" },
   { import = "plugins.rose-pine" },
   { import = "plugins.telescope" },
+  { import = "plugins.trouble" },
   { import = "plugins.tmux-navigator" },
   { import = "plugins.treesitter" },
+  { import = "plugins.which-key" },
 }
 
     -- !./harpoon.nix
-    -- ./obsidian.nix
+    -- !./obsidian.nix
     -- ./trouble.nix
-    -- ./which-key.nix
+    -- !./which-key.nix
     -- descriptions for which-key

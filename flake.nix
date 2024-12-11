@@ -161,6 +161,7 @@
           obsidian-nvim
           oil-nvim
           otter-nvim
+          snacks-nvim
           trouble-nvim
           tmux-navigator
           which-key-nvim

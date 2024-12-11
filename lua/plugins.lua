@@ -12,6 +12,7 @@ return {
   { import = "plugins.oil-nvim" },
   { import = "plugins.otter" },
   { import = "plugins.rose-pine" },
+  { import = "plugins.snacks-nvim" },
   { import = "plugins.telescope" },
   { import = "plugins.tmux-navigator" },
   { import = "plugins.treesitter" },

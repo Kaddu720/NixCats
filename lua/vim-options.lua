@@ -21,7 +21,11 @@ vim.o.ignorecase = true      -- ignore case when Searching
 vim.o.smartcase = true       -- case matters if I use capital letters
 vim.opt.inccommand = "split" -- give an preview of commands before they are executed
 
--- Apperence
+-- Splits
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Appearence
 vim.opt.scrolloff = 10   -- minum number of lines abobe/bellow cursor
 vim.opt.showmode = false -- let lualine provide status
 vim.opt.conceallevel = 2 -- let obsidan conceal test with ui

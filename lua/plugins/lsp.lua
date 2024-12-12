@@ -36,7 +36,8 @@ servers.terraformls = {}
 return {
 	{
 		"nvim-lspconfig",
-		lazy = false,
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		after = function()
 			for server_name, config in pairs(servers) do
 				require("lspconfig")[server_name].setup({

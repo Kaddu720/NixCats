@@ -7,3 +7,6 @@ result/*
 
 .direnv/
 .direnv/*
+
+log.txt
+clean.txt

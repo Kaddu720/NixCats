@@ -1,5 +1,6 @@
 return {
   "otter.nvim",
+  on_plugin = "nvim-treesitter",
   event = "DeferredUIEnter",
   ft = {"nix", "markdown"},
   after = function()

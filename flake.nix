@@ -53,13 +53,10 @@
       startupPlugins = {
         general = with pkgs.vimPlugins; {
           always = [
-            lualine-nvim
             lze
             rose-pine
-            plenary-nvim
           ];
           extra = [
-            nvim-web-devicons
           ];
         };
       };
@@ -70,23 +67,22 @@
         general = with pkgs.vimPlugins; [
           git-blame-nvim
           harpoon
+          lualine-nvim
+          neo-tree-nvim
           noice-nvim
           none-ls-nvim
           nvim-autopairs
           nvim-lspconfig
+          nui-nvim
+          nvim-web-devicons
           obsidian-nvim
           oil-nvim
           otter-nvim
+          plenary-nvim
           snacks-nvim
           trouble-nvim
           tmux-navigator
           which-key-nvim
-        ];
-
-        neo-tree = with pkgs.vimPlugins; [
-          neo-tree-nvim
-          nui-nvim
-          nvim-web-devicons
         ];
 
         treesitter = with pkgs.vimPlugins; [

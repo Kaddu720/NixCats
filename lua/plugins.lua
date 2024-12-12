@@ -1,5 +1,6 @@
 return {
   { import = "plugins.completions" },
+  { import = "plugins.dependencies" },
   { import = "plugins.gitblame" },
   { import = "plugins.harpoon" },
   { import = "plugins.lualine" },

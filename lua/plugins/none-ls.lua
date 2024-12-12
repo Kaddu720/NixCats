@@ -1,5 +1,6 @@
 return {
   "none-ls.nvim",
+  event = "DeferredUIEnter",
   after = function()
     local null_ls = require("null-ls")
     null_ls.setup({

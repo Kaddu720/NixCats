@@ -1,5 +1,6 @@
 return {
   "lualine.nvim",
+  event = "DeferredUIEnter",
   after = function()
     local custom_rosepine = require('lualine.themes.rose-pine')
     custom_rosepine.normal.c.bg = 'None'

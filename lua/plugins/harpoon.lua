@@ -29,7 +29,5 @@ return {
     vim.keymap.set("n", "<leader>h4", function()
       require("harpoon.ui").nav_file(4) -- navigates to file 4
     end)
-
-    require("telescope").load_extension("harpoon")
   end,
 }

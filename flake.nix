@@ -35,6 +35,8 @@
         # Python
         pyright
         ruff
+        isort
+        mypy
 
         #Nix
         nixd

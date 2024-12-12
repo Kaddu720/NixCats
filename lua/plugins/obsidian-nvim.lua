@@ -1,7 +1,7 @@
 return {
 	"obsidian.nvim",
-	event = "DeferredUIEnter",
-	ft = "markdown",
+	event = "InsertEnter",
+  ft = "markdown",
 	after = function()
 		if vim.fn.hostname() == "DTLA-SYSOPS-NW-ML" then
 			Name = "WorkBrain"
@@ -37,7 +37,6 @@ return {
 				-- Trigger completion at 2 chars.
 				min_chars = 2,
 			},
-
 			follow_url_func = function(url)
 				-- Open the URL in the default web browser.
 				-- vim.fn.jobstart({ "open", url }) -- Mac OS

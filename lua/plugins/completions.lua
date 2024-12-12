@@ -7,12 +7,13 @@ return {
   {
     "cmp_luasnip",
     on_plugin = { "nvim-cmp" },
+    dep_of = { "luasnip" },
   },
   {
     "luasnip",
-    for_cat = "general.cmp",
+    on_plugin = { "nvim-cmp" },
     dep_of = { "nvim-cmp" },
-    after = function(plugin)
+    after = function()
       local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
       luasnip.config.setup({})
@@ -28,6 +29,8 @@ return {
   },
   {
     "nvim-cmp",
+    dep_of = { "obsidian.nvim" },
+    event = "InsertEnter",
     after = function()
       local cmp = require("cmp")
 

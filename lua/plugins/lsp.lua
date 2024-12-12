@@ -1,25 +1,25 @@
 local servers = {}
 servers.lua_ls = {
-  Lua = {
-    formatters = {
-      ignoreComments = false,
-    },
-    signatureHelp = { enabled = true },
-    diagnostics = {
-      disable = { "missing-fields" },
-    },
-  },
-  telemetry = { enabled = false },
-  filetypes = { "lua" },
+	Lua = {
+		formatters = {
+			ignoreComments = false,
+		},
+		signatureHelp = { enabled = true },
+		diagnostics = {
+			disable = { "missing-fields" },
+		},
+	},
+	telemetry = { enabled = false },
+	filetypes = { "lua" },
 }
 
 -- Nixos
 servers.nixd = {
-  nixd = {
-    formatting = {
-      command = { "nil" },
-    },
-  },
+	nixd = {
+		formatting = {
+			command = { "nil" },
+		},
+	},
 }
 servers.nil_ls = {}
 
@@ -34,37 +34,22 @@ servers.marksman = {}
 servers.terraformls = {}
 
 return {
-  {
-    "nvim-lspconfig",
-    lazy = false,
-    after = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	{
+		"nvim-lspconfig",
+		lazy = false,
+		after = function()
+			for server_name, config in pairs(servers) do
+				require("lspconfig")[server_name].setup({
+					capabilites = require("cmp_nvim_lsp").default_capabilities(),
+					settings = config,
+					filetypes = (config or {}).filetypes,
+					cmd = (config or {}).cmd,
+					root_pattern = (config or {}).root_pattern,
+				})
+			end
 
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilites = capabilities,
-      })
-      lspconfig.nixd.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.nil_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.ruff.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.marksman.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.terraformls.setup({
-        capabilities = capabilities,
-      })
-
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Code" })
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
-    end,
-  },
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Code" })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
+		end,
+	},
 }

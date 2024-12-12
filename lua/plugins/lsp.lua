@@ -21,6 +21,8 @@ servers.nixd = {
     },
   },
 }
+servers.nil_ls = {}
+
 -- Python
 servers.pyright = {}
 servers.ruff = {}
@@ -43,6 +45,9 @@ return {
         capabilites = capabilities,
       })
       lspconfig.nixd.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.nil_ls.setup({
         capabilities = capabilities,
       })
       lspconfig.pyright.setup({

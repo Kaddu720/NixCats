@@ -1,7 +1,6 @@
 return {
 	"oil.nvim",
-	-- equivlent of VeryLazy in lazy.nvim
-	event = "DeferredUIEnter",
+  lazy = false,
 	after = function()
 		require("oil").setup({
 			default_file_explorer = true,

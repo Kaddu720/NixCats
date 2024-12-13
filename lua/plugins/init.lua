@@ -1,7 +1,6 @@
 
 require("lze").load {
   { import = "plugins.completions" },
-  -- { import = "plugins.dependencies" },
   { import = "plugins.gitblame" },
   { import = "plugins.harpoon" },
   { import = "plugins.lualine" },
@@ -18,6 +17,7 @@ require("lze").load {
   { import = "plugins.telescope" },
   { import = "plugins.tmux-navigator" },
   { import = "plugins.treesitter" },
+  { import = "plugins.treewalker" },
   { import = "plugins.trouble" },
   { import = "plugins.which-key" },
 }

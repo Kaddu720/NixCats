@@ -101,8 +101,6 @@
           (nvim-treesitter.withPlugins (
             plugins:
               with plugins; [
-                nix
-                lua
               ]
           ))
         ];

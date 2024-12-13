@@ -1,4 +1,5 @@
-return {
+
+require("lze").load {
   { import = "plugins.completions" },
   -- { import = "plugins.dependencies" },
   { import = "plugins.gitblame" },

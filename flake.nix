@@ -4,8 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
+    };
+
+    "plugins-snacks" = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
     };
   };
 
@@ -84,10 +90,10 @@
           oil-nvim
           otter-nvim
           plenary-nvim
-          snacks-nvim
           trouble-nvim
           tmux-navigator
           which-key-nvim
+          pkgs.neovimPlugins.snacks
         ];
 
         treesitter = with pkgs.vimPlugins; [

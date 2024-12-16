@@ -41,7 +41,8 @@ return {
 		after = function()
 			for server_name, config in pairs(servers) do
 				require("lspconfig")[server_name].setup({
-					capabilites = require("cmp_nvim_lsp").default_capabilities(),
+					-- capabilites = require("cmp_nvim_lsp").default_capabilities(),
+          capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities),
 					settings = config,
 					filetypes = (config or {}).filetypes,
 					cmd = (config or {}).cmd,

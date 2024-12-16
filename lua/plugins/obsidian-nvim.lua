@@ -35,12 +35,6 @@ return {
         template = "~/WorkBrain/resources/templates/daily.md",
       },
 
-      completion = {
-        -- Set to false to disable completion.
-        nvim_cmp = true,
-        -- Trigger completion at 2 chars.
-        min_chars = 2,
-      },
       follow_url_func = function(url)
         -- Open the URL in the default web browser.
         -- vim.fn.jobstart({ "open", url }) -- Mac OS

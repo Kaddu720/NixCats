@@ -1,6 +1,6 @@
 
 require("lze").load {
-  { import = "plugins.completions" },
+  { import = "plugins.blink-cmp" },
   { import = "plugins.gitblame" },
   { import = "plugins.harpoon" },
   { import = "plugins.lualine" },

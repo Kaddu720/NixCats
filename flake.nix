@@ -76,6 +76,7 @@
       # use with packadd and an autocommand in config to achieve lazy loading
       optionalPlugins = {
         general = with pkgs.vimPlugins; [
+          blink-cmp
           git-blame-nvim
           harpoon
           lualine-nvim

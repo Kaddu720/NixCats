@@ -45,7 +45,6 @@ vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 
 -- Yanking from clipboard
-vim.api.nvim_set_option("clipboard","unnamed") 
 vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true, desc = "[p]aste from clipboard" })
 vim.keymap.set("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "[P]aste from clipboard" })

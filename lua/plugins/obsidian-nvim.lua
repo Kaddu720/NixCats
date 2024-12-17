@@ -3,12 +3,13 @@ return {
   event = "InsertEnter",
   ft = "markdown",
   after = function()
-    if vim.fn.hostname() == "DTLA-SYSOPS-NW-ML" then
-      Name = "WorkBrain"
-      Path = "~/WorkBrain"
-    else
+    if vim.fn.hostname() == "Home-Box" then
+
       Name = "Second_Brain"
       Path = "~/Second_Brain"
+    else
+      Name = "WorkBrain"
+      Path = "~/WorkBrain"
     end
     require("obsidian").setup({
       workspaces = {

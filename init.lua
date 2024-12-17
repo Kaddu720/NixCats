@@ -1,2 +1,1 @@
-require("vim-options")
-require("plugins")
+require ("config")

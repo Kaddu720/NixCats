@@ -19,8 +19,7 @@ return {
   },
   {
     "blink-cmp",
-    lazy = false,
-    -- blink handles it's own lazy loading
+    event = { "InsertEnter" },
     dep_of = { "nvim-lspconfig" },
     after = function()
       require("blink-cmp").setup({

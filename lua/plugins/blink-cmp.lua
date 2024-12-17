@@ -2,6 +2,7 @@ return {
   {
     "luasnip",
     dep_of = { "blink-cmp" },
+    on_plugin = { "blink-cmp" },
     after = function()
       local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -19,6 +20,7 @@ return {
   {
     "blink-cmp",
     lazy = false,
+    -- blink handles it's own lazy loading
     dep_of = { "nvim-lspconfig" },
     after = function()
       require("blink-cmp").setup({

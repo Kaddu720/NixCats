@@ -1,7 +1,7 @@
 return {
   {
     "telescope-ui-select.nvim",
-    on_plugin = "telescope.nvim",
+    on_plugin = "telescope.nvim",tles
   },
   {
     "telescope-fzf-native.nvim",
@@ -36,7 +36,7 @@ return {
         },
       })
       require("telescope").load_extension("ui-select")
-      -- require("telescope").load_extension("fzf-native")
+      require('telescope').load_extension('fzf')
     end,
   },
 }

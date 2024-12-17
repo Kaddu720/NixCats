@@ -42,6 +42,7 @@ return {
   },
   {
     "fzf-lua",
+    event = "DeferredUIEnter",
     -- optional for icon support
     after = function()
       -- calling `setup` is optional for customization

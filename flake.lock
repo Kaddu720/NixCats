@@ -232,6 +232,22 @@
         "type": "github"
       }
     },
+    "plugins-ecolog": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734359615,
+        "narHash": "sha256-nxlvptru+JGKEBjxL8D4LTf4PCFS0K3Jgk6Tmz5Jdo0=",
+        "owner": "philosofonusus",
+        "repo": "ecolog.nvim",
+        "rev": "04285b67fd15cca79c0f8cf6a04a4af6c6e004c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "philosofonusus",
+        "repo": "ecolog.nvim",
+        "type": "github"
+      }
+    },
     "plugins-snacks": {
       "flake": false,
       "locked": {
@@ -253,6 +269,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
+        "plugins-ecolog": "plugins-ecolog",
         "plugins-snacks": "plugins-snacks"
       }
     },

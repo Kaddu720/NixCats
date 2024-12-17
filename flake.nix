@@ -13,6 +13,11 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
+
+    "plugins-ecolog" = {
+      url = "github:philosofonusus/ecolog.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -80,6 +85,7 @@
           git-blame-nvim
           harpoon
           lualine-nvim
+          luasnip
           neo-tree-nvim
           noice-nvim
           none-ls-nvim
@@ -87,6 +93,8 @@
           nvim-lspconfig
           nui-nvim
           nvim-web-devicons
+          nvim-treesitter
+          nvim-treesitter-textobjects
           obsidian-nvim
           oil-nvim
           otter-nvim
@@ -95,29 +103,13 @@
           tmux-navigator
           which-key-nvim
           pkgs.neovimPlugins.snacks
-        ];
-
-        treesitter = with pkgs.vimPlugins; [
-          nvim-treesitter-textobjects
-          (nvim-treesitter.withPlugins (
-            plugins:
-              with plugins; [
-              ]
-          ))
+          pkgs.neovimPlugins.ecolog
         ];
 
         telescope = with pkgs.vimPlugins; [
           telescope-fzf-native-nvim
           telescope-ui-select-nvim
           telescope-nvim
-        ];
-
-        cmp = with pkgs.vimPlugins; [
-          cmp-nvim-lsp
-          cmp-treesitter
-          nvim-cmp
-          luasnip
-          cmp_luasnip
         ];
       };
 
@@ -186,12 +178,7 @@
         # (and other information to pass to lua)
         categories = {
           general = true;
-          gitPlugins = true;
-          customPlugins = true;
-          neo-tree = true;
-          treesitter = true;
           telescope = true;
-          cmp = true;
         };
       };
     };

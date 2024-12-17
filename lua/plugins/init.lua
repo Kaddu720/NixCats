@@ -19,4 +19,5 @@ require("lze").load {
   { import = "plugins.tmux-navigator" },
   { import = "plugins.trouble" },
   { import = "plugins.which-key" },
+  { import = "plugins.ecolog" },
 }

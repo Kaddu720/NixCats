@@ -54,7 +54,7 @@ return {
 
       vim.keymap.set("n", "<leader>fw", function()
         vim.cmd("wal")
-        require('fzf-lua').grep()
+        require('fzf-lua').live_grep()
       end, { desc = "[F]ind [W]ord" })
     end,
   },

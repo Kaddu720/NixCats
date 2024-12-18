@@ -3,8 +3,7 @@ return {
   event = "InsertEnter",
   ft = "markdown",
   after = function()
-    if vim.fn.hostname() == "Home-Box" then
-
+    if vim.fn.hostname() == "Home-Box" or "Mobile-Box" then
       Name = "Second_Brain"
       Path = "~/Second_Brain"
     else

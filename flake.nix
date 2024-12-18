@@ -39,7 +39,9 @@
 
     categoryDefinitions = {pkgs, ...} @ packageDef: {
       lspsAndRuntimeDeps.general = with pkgs; [
-        # General packages
+        # Fzf-lua dependencies
+        bat
+        fd
         ripgrep
 
         # Lua
@@ -96,6 +98,7 @@
           nvim-web-devicons
           nvim-treesitter
           nvim-treesitter-textobjects
+          nvim-treesitter-context
           obsidian-nvim
           oil-nvim
           otter-nvim

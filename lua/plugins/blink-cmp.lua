@@ -1,5 +1,9 @@
 return {
   {
+    "friendly-snippets",
+    dep_of = { "blink-cmp", "luasnip" },
+  },
+  {
     "luasnip",
     dep_of = { "blink-cmp" },
     on_plugin = { "blink-cmp" },

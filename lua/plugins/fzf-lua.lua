@@ -16,8 +16,8 @@ return {
         vim.cmd("wal")
         require("fzf-lua").buffers()
       end, { desc = "[F]z[F] buffer list" })
-      
-      -- Don't foret. If you hist C-g you can fuzzy search over your grep
+
+      -- Don't forget. If you hist C-g you can fuzzy search over your grep
       vim.keymap.set("n", "<leader>fw", function()
         vim.cmd("wal")
         require("fzf-lua").live_grep()

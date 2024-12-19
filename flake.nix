@@ -88,7 +88,7 @@
           blink-cmp
           fzf-lua
           git-blame-nvim
-          harpoon
+          harpoon2
           lualine-nvim
           luasnip
           neo-tree-nvim

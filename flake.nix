@@ -90,7 +90,6 @@
           git-blame-nvim
           harpoon2
           lualine-nvim
-          luasnip
           neo-tree-nvim
           noice-nvim
           none-ls-nvim

@@ -10,7 +10,7 @@
     };
 
     "plugins-snacks" = {
-      url = "github:folke/snacks.nvim";
+      url = "github:folke/snacks.nvim?ref=v2.11.0";
       flake = false;
     };
 

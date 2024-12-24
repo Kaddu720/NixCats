@@ -251,15 +251,16 @@
     "plugins-snacks": {
       "flake": false,
       "locked": {
-        "lastModified": 1734024770,
-        "narHash": "sha256-2i8N7WDARX1ZOKKciLkPkKpCehCoMfPfpvFkd3/pnx4=",
+        "lastModified": 1734253168,
+        "narHash": "sha256-0RLVkdV/R+9eXRCIj8MbpdAx7Tq4h6aRppEFzZC+ILw=",
         "owner": "folke",
         "repo": "snacks.nvim",
-        "rev": "52086010d3f72949a30c45c2cc4faa0b0286d097",
+        "rev": "6a837597b3570df88946c69cca7ab810ca7f05f5",
         "type": "github"
       },
       "original": {
         "owner": "folke",
+        "ref": "v2.11.0",
         "repo": "snacks.nvim",
         "type": "github"
       }

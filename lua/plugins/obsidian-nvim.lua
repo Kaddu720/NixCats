@@ -61,7 +61,7 @@ return {
 
     vim.keymap.set("n", "<leader>os", "<Cmd>! ./sync<CR>", { desc = "[O]bsidian [S]ync" })
     vim.keymap.set("n", "<leader>od", "<Cmd>ObsidianDailies<CR>", { desc = "[O]bsidian [D]aily" })
-    vim.keymap.set("n", "<leader>ot", "<Cmd>ObsidianTemplate<CR>", { desc = "[O]bsidian [T]emplates" })
+    vim.keymap.set("n", "<leader>ot", "<Cmd>ObsidianNewFromTemplate<CR>", { desc = "[O]bsidian [T]emplates" })
     vim.keymap.set("n", "<leader>on", "<Cmd>ObsidianNew<CR>", { desc = "[O]bsidian [N]ew Note" })
     vim.keymap.set("n", "<leader>fo", "<Cmd>ObsidianSearch<CR>", { desc = "[F]ind [O]bsidian file" })
   end,

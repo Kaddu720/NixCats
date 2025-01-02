@@ -63,6 +63,7 @@ return {
     vim.keymap.set("n", "<leader>od", "<Cmd>ObsidianDailies<CR>", { desc = "[O]bsidian [D]aily" })
     vim.keymap.set("n", "<leader>ot", "<Cmd>ObsidianNewFromTemplate<CR>", { desc = "[O]bsidian [T]emplates" })
     vim.keymap.set("n", "<leader>on", "<Cmd>ObsidianNew<CR>", { desc = "[O]bsidian [N]ew Note" })
+    vim.keymap.set("n", "<leader>ob", "<Cmd>ObsidianBacklinks<CR>", { desc = "[O]bsidian [B]acklinks" })
     vim.keymap.set("n", "<leader>fo", "<Cmd>ObsidianSearch<CR>", { desc = "[F]ind [O]bsidian file" })
     vim.keymap.set("n", "<leader>ft", "<Cmd>ObsidianTags<CR>", { desc = "[F]ind Obsidian [T]ags" })
   end,

@@ -43,11 +43,20 @@ servers.ruff = {}
 
 -- Markdown
 servers.marksman = {}
+servers.ltex = {
+  ltex = {
+    checkFrequency = "save",
+  },
+}
 
 -- Terraform
 servers.terraformls = {}
 
 return {
+  {
+    "ltex_extra.nvim",
+    ft = "markdown",
+  },
   {
     "nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
@@ -60,9 +69,14 @@ return {
           filetypes = (config or {}).filetypes,
           cmd = (config or {}).cmd,
           root_pattern = (config or {}).root_pattern,
+
+          on_attach = function()
+            if server_name == "ltex" then
+              require("ltex_extra").setup({})
+            end
+          end,
         })
       end
-
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Code" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
     end,

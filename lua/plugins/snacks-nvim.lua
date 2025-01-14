@@ -3,7 +3,6 @@ return {
   lazy = false,
   after = function()
     require("snacks").setup({
-      notifier = { enabled = true },
       scroll = { enabled = true },
       indent = {
         enabled = true, -- enable indent guides

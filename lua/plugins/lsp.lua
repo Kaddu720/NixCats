@@ -78,7 +78,6 @@ return {
         })
       end
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Code" })
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
     end,
   },
 }

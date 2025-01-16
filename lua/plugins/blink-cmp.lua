@@ -1,16 +1,16 @@
 return {
   {
     "friendly-snippets",
-    dep_of = { "blink-cmp" },
+    dep_of = { "blink.cmp" },
   },
   {
-    "blink-cmp",
+    "blink.cmp",
     event = { "InsertEnter" },
     dep_of = { "nvim-lspconfig" },
     after = function()
-      require("blink-cmp").setup({
+      require("blink.cmp").setup({
         -- keymap
-        keymap = { preset = "enter" },
+        -- keymap = { preset = "enter" },
 
         -- Styling
         completion = {
@@ -26,12 +26,12 @@ return {
             },
           },
 
-          list = {
-            selection = "auto_insert",
-          },
+          -- list = {
+          --   selection = "auto_insert",
+          -- },
         },
         sources = {
-          default = { "lsp", "path", "luasnip", "buffer" },
+          default = { "lsp", "path", "buffer" },
         },
       })
     end,

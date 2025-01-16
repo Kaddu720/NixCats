@@ -1,5 +1,5 @@
 return {
-  "snacks",
+  "snacks.nvim",
   lazy = false,
   after = function()
     require("snacks").setup({

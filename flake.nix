@@ -9,10 +9,10 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    "plugins-snacks" = {
-      url = "github:folke/snacks.nvim?ref=v2.11.0";
-      flake = false;
-    };
+    # "plugins-snacks" = {
+    #   url = "github:folke/snacks.nvim?ref=v2.11.0";
+    #   flake = false;
+    # };
 
     "plugins-ecolog" = {
       url = "github:philosofonusus/ecolog.nvim";
@@ -106,10 +106,11 @@
           oil-nvim
           otter-nvim
           plenary-nvim
+          snacks-nvim
           trouble-nvim
           tmux-navigator
           which-key-nvim
-          pkgs.neovimPlugins.snacks
+          # pkgs.neovimPlugins.snacks
           pkgs.neovimPlugins.ecolog
         ];
       };

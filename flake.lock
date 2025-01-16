@@ -214,11 +214,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1733749988,
-        "narHash": "sha256-+5qdtgXceqhK5ZR1YbP1fAUsweBIrhL38726oIEAtDs=",
+        "lastModified": 1736943799,
+        "narHash": "sha256-BYsp8PA1j691FupfrLVOQzm4CaYaKtkh4U+KuGMnBWw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bc27f0fde01ce4e1bfec1ab122d72b7380278e68",
+        "rev": "ae2fb9f1fb5fcf17fb59f25c2a881c170c501d6f",
         "type": "github"
       },
       "original": {
@@ -244,30 +244,12 @@
         "type": "github"
       }
     },
-    "plugins-snacks": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734253168,
-        "narHash": "sha256-0RLVkdV/R+9eXRCIj8MbpdAx7Tq4h6aRppEFzZC+ILw=",
-        "owner": "folke",
-        "repo": "snacks.nvim",
-        "rev": "6a837597b3570df88946c69cca7ab810ca7f05f5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "ref": "v2.11.0",
-        "repo": "snacks.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
-        "plugins-ecolog": "plugins-ecolog",
-        "plugins-snacks": "plugins-snacks"
+        "plugins-ecolog": "plugins-ecolog"
       }
     },
     "treefmt-nix": {

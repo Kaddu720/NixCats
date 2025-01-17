@@ -10,7 +10,7 @@ return {
     after = function()
       require("blink.cmp").setup({
         -- keymap
-        -- keymap = { preset = "enter" },
+        keymap = { preset = "enter" },
 
         -- Styling
         completion = {
@@ -25,13 +25,14 @@ return {
               border = "rounded",
             },
           },
-
-          -- list = {
-          --   selection = "auto_insert",
-          -- },
+          list = {
+            selection = {
+              preselect = false
+            }
+          }
         },
         sources = {
-          default = { "lsp", "path", "buffer" },
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
       })
     end,

@@ -9,7 +9,7 @@ return {
           name = "Second_Brain",
           path = "~/Second_Brain",
           overrides = {
-            notes_subdir = "resources/reference/notes",
+            notes_subdir = "resources/notes",
           },
         },
       },

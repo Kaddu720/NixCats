@@ -1,4 +1,5 @@
   return {
     "plenary.nvim",
-    on_plugin = {"harpoon", "obsidian.nvim"}
+    lazy = false,
+    -- on_plugin = {"harpoon", "obsidian.nvim"}
   }

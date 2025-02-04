@@ -42,7 +42,7 @@ servers.pyright = {}
 servers.ruff = {}
 
 -- Markdown
-servers.marksman = {}
+-- servers.marksman = {}
 servers.ltex = {
   ltex = {
     checkFrequency = "save",

@@ -52,6 +52,8 @@ servers.ltex = {
 -- Terraform
 servers.terraformls = {}
 
+servers.yamlls = {}
+
 return {
   {
     "ltex_extra.nvim",

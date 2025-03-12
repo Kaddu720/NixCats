@@ -1,6 +1,5 @@
 {
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -66,6 +65,9 @@
 
         # Terraform
         terraform-ls
+
+        # Yaml
+        yaml-language-server
       ];
 
       # This is for plugins that will load at startup without using packadd:

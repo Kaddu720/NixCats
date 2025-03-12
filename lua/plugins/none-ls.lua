@@ -15,6 +15,9 @@ return {
         -- nix
         null_ls.builtins.formatting.alejandra,
         null_ls.builtins.diagnostics.deadnix,
+
+        -- yaml
+        null_ls.builtins.formatting.prettier,
       },
     })
 

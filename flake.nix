@@ -68,6 +68,7 @@
 
         # Yaml
         yaml-language-server
+        yamllint
       ];
 
       # This is for plugins that will load at startup without using packadd:

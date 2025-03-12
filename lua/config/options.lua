@@ -41,22 +41,25 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.softtabstop = 2   -- Number of spaces that a <Tab> counts for while performing editing operations
     vim.opt_local.tabstop = 2       -- Number of spaces that a <Tab> in the file counts for
     vim.opt_local.expandtab = true  -- Expand tab to 2 spaces
-    vim.api.nvim_buf_set_keymap(0, "n", "<leader>yl", ":!yamllint %<CR>", { noremap = true, silent = true })
   end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
   callback = function()
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4    -- Number of spaces to use for each step of (auto)indent
+    vim.opt_local.softtabstop = 4   -- Number of spaces that a <Tab> counts for while performing editing operations
+    vim.opt_local.tabstop = 4       -- Number of spaces that a <Tab> in the file counts for
+    vim.opt_local.expandtab = true  -- Expand tab to 2 spaces
   end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2    -- Number of spaces to use for each step of (auto)indent
+    vim.opt_local.softtabstop = 2   -- Number of spaces that a <Tab> counts for while performing editing operations
+    vim.opt_local.tabstop = 2       -- Number of spaces that a <Tab> in the file counts for
+    vim.opt_local.expandtab = true  -- Expand tab to 2 spaces
   end,
 })

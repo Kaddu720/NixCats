@@ -7,6 +7,7 @@ return {
       sources = {
         -- lua
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.selene,
 
         -- python
         null_ls.builtins.formatting.isort,
@@ -18,6 +19,10 @@ return {
 
         -- yaml
         null_ls.builtins.diagnostics.yamllint,
+
+        -- bash
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.diagnostics.dotenv_linter
       },
     })
 

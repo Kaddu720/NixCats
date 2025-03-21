@@ -52,7 +52,11 @@ servers.ltex = {
 -- Terraform
 servers.terraformls = {}
 
+-- Yaml
 servers.yamlls = {}
+
+-- Bash
+servers.bashls = {}
 
 return {
   {

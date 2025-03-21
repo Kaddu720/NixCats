@@ -1,5 +1,5 @@
 {
-  description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -46,6 +46,7 @@
         # Lua
         lua-language-server
         stylua
+        selene
 
         # Python
         pyright
@@ -69,6 +70,11 @@
         # Yaml
         yaml-language-server
         yamllint
+
+        # Bash
+        bash-language-server
+        shfmt
+        dotenv-linter
       ];
 
       # This is for plugins that will load at startup without using packadd:

@@ -1,5 +1,4 @@
 {
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
@@ -79,14 +78,14 @@
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
-        general = with pkgs.vimPlugins; {
-          always = [
-            lze
-            rose-pine
-          ];
-          extra = [
-          ];
-        };
+        general = with pkgs.vimPlugins; [
+          lze
+          rose-pine
+          nvim-treesitter
+          dressing-nvim
+          plenary-nvim
+          nui-nvim
+        ];
       };
 
       # not loaded automatically at startup.
@@ -94,7 +93,7 @@
       optionalPlugins = {
         general = with pkgs.vimPlugins; [
           friendly-snippets
-
+          avante-nvim
           blink-cmp
           fzf-lua
           git-blame-nvim
@@ -106,15 +105,12 @@
           none-ls-nvim
           nvim-autopairs
           nvim-lspconfig
-          nui-nvim
           nvim-web-devicons
-          nvim-treesitter
           nvim-treesitter-textobjects
           nvim-treesitter-context
           obsidian-nvim
           oil-nvim
           otter-nvim
-          plenary-nvim
           snacks-nvim
           trouble-nvim
           tmux-navigator

@@ -1,23 +1,45 @@
-require("lze").load {
+require("lze").load({
+  -- Core plugins that should load immediately
   { import = "plugins.rose-pine" },
-  { import = "plugins.lualine" },
-  { import = "plugins.snacks-nvim" },
-  { import = "plugins.noice" },
-  { import = "plugins.blink-cmp" },
-  { import = "plugins.lsp" },
-  { import = "plugins.none-ls" },
-  { import = "plugins.treesitter" },
-  { import = "plugins.fzf-lua" },
-  { import = "plugins.oil-nvim" },
-  { import = "plugins.obsidian-nvim" },
-  { import = "plugins.harpoon" },
   { import = "plugins.plenary" },
-  { import = "plugins.gitblame" },
-  { import = "plugins.neo-tree" },
-  { import = "plugins.nvim-autopairs" },
-  { import = "plugins.otter" },
-  { import = "plugins.tmux-navigator" },
-  { import = "plugins.trouble" },
-  { import = "plugins.which-key" },
-  { import = "plugins.ecolog" },
-}
+
+  -- UI elements with lazy loading
+  { import = "plugins.lualine",        event = "VeryLazy" },
+  { import = "plugins.snacks-nvim",    event = "VeryLazy" },
+  { import = "plugins.noice",          event = "VeryLazy" },
+
+  -- Completion and LSP (load when needed)
+  { import = "plugins.blink-cmp",      event = "InsertEnter" },
+  { import = "plugins.lsp",            event = { "BufReadPre", "BufNewFile" } },
+  { import = "plugins.none-ls",        event = { "BufReadPre", "BufNewFile" } },
+
+  -- Syntax and parsing
+  { import = "plugins.treesitter",     event = { "BufReadPost", "BufNewFile" } },
+
+  -- File navigation and management (load on command or key)
+  { import = "plugins.fzf-lua",        event = "VeryLazy" },
+  { import = "plugins.oil-nvim",       cmd = "Oil" },
+  { import = "plugins.avante",         event = "VeryLazy" },
+  { import = "plugins.obsidian-nvim",  ft = "markdown" },
+  { import = "plugins.harpoon",        event = "VeryLazy" },
+
+  -- Git integration
+  { import = "plugins.gitblame",       event = { "BufReadPost", "BufNewFile" } },
+
+  -- File explorer and navigation
+  { import = "plugins.neo-tree",       cmd = "Neotree" },
+
+  -- Editing enhancements
+  { import = "plugins.nvim-autopairs", event = "InsertEnter" },
+  { import = "plugins.otter",          ft = { "markdown", "quarto" } },
+
+  -- Window management
+  { import = "plugins.tmux-navigator", event = "VeryLazy" },
+
+  -- Diagnostics and help
+  { import = "plugins.trouble",        cmd = { "Trouble", "TroubleToggle" } },
+  { import = "plugins.which-key",      event = "VeryLazy" },
+
+  -- Theme and visuals
+  { import = "plugins.ecolog",         event = "VeryLazy" },
+})

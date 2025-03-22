@@ -7,7 +7,11 @@ return {
       sources = {
         -- lua
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.selene,
+        null_ls.builtins.diagnostics.selene.with({
+          cwd = function(_params)
+            return vim.fn.getcwd()
+          end,
+        }),
 
         -- python
         null_ls.builtins.formatting.isort,

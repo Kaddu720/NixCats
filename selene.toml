@@ -1,0 +1,13 @@
+std = "lua51+vim"
+
+[rules]
+global_usage = "allow"
+shadowing = "allow"
+
+[lints]
+unused_variable = "allow"
+undefined_variable = "allow"
+
+[[assert.globals]]
+name = "vim"
+

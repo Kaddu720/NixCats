@@ -81,7 +81,6 @@
         general = with pkgs.vimPlugins; [
           lze
           rose-pine
-          nvim-treesitter
           dressing-nvim
           plenary-nvim
           nui-nvim
@@ -104,8 +103,8 @@
           noice-nvim
           none-ls-nvim
           nvim-autopairs
-          nvim-lspconfig
           nvim-web-devicons
+          nvim-treesitter
           nvim-treesitter-textobjects
           nvim-treesitter-context
           obsidian-nvim

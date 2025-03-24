@@ -10,7 +10,6 @@ require("lze").load({
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },
-	{ import = "plugins.lsp" },
 	{ import = "plugins.none-ls" },
 
 	-- Syntax and parsing

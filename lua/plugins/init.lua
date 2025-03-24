@@ -1,45 +1,45 @@
 require("lze").load({
-  -- Core plugins that should load immediately
-  { import = "plugins.rose-pine" },
-  { import = "plugins.plenary" },
+	-- Core plugins that should load immediately
+	{ import = "plugins.rose-pine" },
+	{ import = "plugins.plenary" },
 
-  -- UI elements with lazy loading
-  { import = "plugins.lualine",        event = "VeryLazy" },
-  { import = "plugins.snacks-nvim",    event = "VeryLazy" },
-  { import = "plugins.noice",          event = "VeryLazy" },
+	-- UI elements with lazy loading
+	{ import = "plugins.lualine" },
+	{ import = "plugins.snacks-nvim" },
+	{ import = "plugins.noice" },
 
-  -- Completion and LSP (load when needed)
-  { import = "plugins.blink-cmp",      event = "InsertEnter" },
-  { import = "plugins.lsp",            event = { "BufReadPre", "BufNewFile" } },
-  { import = "plugins.none-ls",        event = { "BufReadPre", "BufNewFile" } },
+	-- Completion and LSP (load when needed)
+	{ import = "plugins.blink-cmp" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.none-ls" },
 
-  -- Syntax and parsing
-  { import = "plugins.treesitter",     event = { "BufReadPost", "BufNewFile" } },
+	-- Syntax and parsing
+	{ import = "plugins.treesitter" },
 
-  -- File navigation and management (load on command or key)
-  { import = "plugins.fzf-lua",        event = "VeryLazy" },
-  { import = "plugins.oil-nvim",       cmd = "Oil" },
-  { import = "plugins.avante",         event = "VeryLazy" },
-  { import = "plugins.obsidian-nvim",  ft = "markdown" },
-  { import = "plugins.harpoon",        event = "VeryLazy" },
+	-- File navigation and management (load on command or key)
+	{ import = "plugins.fzf-lua"},
+	{ import = "plugins.oil-nvim"},
+	{ import = "plugins.avante"},
+	{ import = "plugins.obsidian-nvim"},
+	{ import = "plugins.harpoon"},
 
-  -- Git integration
-  { import = "plugins.gitblame",       event = { "BufReadPost", "BufNewFile" } },
+	-- Git integration
+	{ import = "plugins.gitblame"},
 
-  -- File explorer and navigation
-  { import = "plugins.neo-tree",       cmd = "Neotree" },
+	-- File explorer and navigation
+	{ import = "plugins.neo-tree"},
 
-  -- Editing enhancements
-  { import = "plugins.nvim-autopairs", event = "InsertEnter" },
-  { import = "plugins.otter",          ft = { "markdown", "quarto" } },
+	-- Editing enhancements
+	{ import = "plugins.nvim-autopairs" },
+	{ import = "plugins.otter"},
 
-  -- Window management
-  { import = "plugins.tmux-navigator", event = "VeryLazy" },
+	-- Window management
+	{ import = "plugins.tmux-navigator"},
 
-  -- Diagnostics and help
-  { import = "plugins.trouble",        cmd = { "Trouble", "TroubleToggle" } },
-  { import = "plugins.which-key",      event = "VeryLazy" },
+	-- Diagnostics and help
+	{ import = "plugins.trouble" },
+	{ import = "plugins.which-key"},
 
-  -- Theme and visuals
-  { import = "plugins.ecolog",         event = "VeryLazy" },
+	-- Theme and visuals
+	{ import = "plugins.ecolog" },
 })

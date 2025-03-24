@@ -60,7 +60,6 @@
         deadnix
 
         # Markdown
-        marksman
         ltex-ls
 
         # Terraform

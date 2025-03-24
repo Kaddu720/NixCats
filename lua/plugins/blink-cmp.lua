@@ -6,7 +6,6 @@ return {
   {
     "blink.cmp",
     event = { "InsertEnter" },
-    dep_of = { "nvim-lspconfig" },
     after = function()
       require("blink.cmp").setup({
         -- keymap

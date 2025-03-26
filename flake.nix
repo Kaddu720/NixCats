@@ -49,7 +49,7 @@
 
         # Python
         pyright
-        ruff
+        ruff-lsp
         isort
         mypy
 

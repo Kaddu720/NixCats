@@ -7,9 +7,8 @@ vim.opt.shadafile = "NONE" -- Don't read or write shada file on startup
 
 -- Load core configuration
 require("config.options")
-require("plugins")
 require("config.keymaps")
-require("config.lsp")
+require("plugins")
 
 -- Defer non-critical operations
 vim.defer_fn(function()

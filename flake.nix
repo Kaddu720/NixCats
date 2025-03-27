@@ -20,7 +20,6 @@
 
   # see :help nixCats.flake.outputs
   outputs = {
-    self,
     nixpkgs,
     nixCats,
     ...

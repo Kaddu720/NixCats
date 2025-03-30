@@ -95,8 +95,8 @@
           fzf-lua
           git-blame-nvim
           ltex_extra-nvim
+          mini-nvim
           none-ls-nvim
-          nvim-autopairs
           nvim-web-devicons
           nvim-treesitter
           nvim-treesitter-textobjects
@@ -108,7 +108,6 @@
           trouble-nvim
           tmux-navigator
           which-key-nvim
-          # pkgs.neovimPlugins.snacks
           pkgs.neovimPlugins.ecolog
         ];
       };

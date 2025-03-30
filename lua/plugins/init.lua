@@ -24,7 +24,7 @@ require("lze").load({
 	{ import = "plugins.gitblame" },
 
 	-- Editing enhancements
-	{ import = "plugins.nvim-autopairs" },
+	{ import = "plugins.mini-nvim" },
 	{ import = "plugins.otter" },
 
 	-- Window management

@@ -27,7 +27,7 @@ vim.opt.splitbelow = true
 
 -- Appearence
 vim.opt.scrolloff = 10 -- minum number of lines abobve/bellow cursor
-vim.opt.showmode = false -- let lualine provide status
+-- vim.opt.showmode = false -- let lualine provide status
 vim.opt.conceallevel = 2 -- let obsidan conceal test with ui
 
 -- Diagnostics

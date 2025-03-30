@@ -4,9 +4,8 @@ require("lze").load({
 	{ import = "plugins.plenary" },
 
 	-- UI elements with lazy loading
-	{ import = "plugins.lualine" },
+	{ import = "plugins.statusline" },
 	{ import = "plugins.snacks-nvim" },
-	{ import = "plugins.noice" },
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },
@@ -20,13 +19,9 @@ require("lze").load({
 	{ import = "plugins.oil-nvim" },
 	{ import = "plugins.avante" },
 	{ import = "plugins.obsidian-nvim" },
-	{ import = "plugins.harpoon" },
 
 	-- Git integration
 	{ import = "plugins.gitblame" },
-
-	-- File explorer and navigation
-	{ import = "plugins.neo-tree" },
 
 	-- Editing enhancements
 	{ import = "plugins.nvim-autopairs" },

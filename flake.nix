@@ -94,11 +94,7 @@
           blink-cmp
           fzf-lua
           git-blame-nvim
-          harpoon2
-          lualine-nvim
           ltex_extra-nvim
-          neo-tree-nvim
-          noice-nvim
           none-ls-nvim
           nvim-autopairs
           nvim-web-devicons

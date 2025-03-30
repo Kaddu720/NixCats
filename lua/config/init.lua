@@ -10,6 +10,8 @@ require("config.options")
 require("config.keymaps")
 require("plugins")
 
+
+
 -- Defer non-critical operations
 vim.defer_fn(function()
 	-- Re-enable shada after startup

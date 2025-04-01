@@ -2,16 +2,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
-    # "plugins-snacks" = {
-    #   url = "github:folke/snacks.nvim?ref=v2.11.0";
-    #   flake = false;
-    # };
-
     "plugins-ecolog" = {
       url = "github:philosofonusus/ecolog.nvim";
       flake = false;
@@ -82,6 +75,7 @@
           dressing-nvim
           plenary-nvim
           nui-nvim
+          oil-nvim
         ];
       };
 
@@ -102,7 +96,6 @@
           nvim-treesitter-textobjects
           nvim-treesitter-context
           obsidian-nvim
-          oil-nvim
           otter-nvim
           snacks-nvim
           trouble-nvim

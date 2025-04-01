@@ -12,7 +12,6 @@ require("lze").load({
 
 	-- -- File navigation and management (load on command or key)
 	{ import = "plugins.fzf-lua" },
-	{ import = "plugins.oil-nvim" },
 	{ import = "plugins.avante" },
 	{ import = "plugins.obsidian-nvim" },
 

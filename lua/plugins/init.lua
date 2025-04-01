@@ -34,6 +34,6 @@ require("lze").load({
 	{ import = "plugins.trouble" },
 	{ import = "plugins.which-key" },
 
-	-- Theme and visuals
+	-- Environmental Variables
 	{ import = "plugins.ecolog" },
 })

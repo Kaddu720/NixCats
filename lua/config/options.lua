@@ -1,6 +1,14 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Colorscheme
+require("rose-pine").setup({
+  styles = {
+    transparency = true,
+  }
+})
+vim.cmd.colorscheme "rose-pine"
+
 -- Line numbers
 vim.wo.number = true
 vim.wo.relativenumber = true

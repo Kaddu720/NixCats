@@ -1,8 +1,13 @@
 return {
   {
     "fzf-lua",
-    event = "DeferredUIEnter",
-    -- optional for icon support
+    -- event = "DeferredUIEnter",
+    keys = {
+      { "fa", mode = "n", desc = "[F]zf [A]ppend" },
+      { "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },
+      { "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
+      { "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
+    },
     after = function()
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({})
@@ -27,6 +32,7 @@ return {
         vim.cmd("wal")
         require("fzf-lua").live_grep()
       end, { desc = "[F]ind [W]ord" })
+
     end,
   },
 }

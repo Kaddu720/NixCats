@@ -3,11 +3,23 @@ vim.g.maplocalleader = " "
 
 -- Colorscheme
 require("rose-pine").setup({
-  styles = {
-    transparency = true,
-  }
+	styles = {
+		transparency = true,
+	},
 })
-vim.cmd.colorscheme "rose-pine"
+vim.cmd.colorscheme("rose-pine")
+
+-- -- Enable true color support
+-- vim.opt.termguicolors = true
+-- -- Set background to dark
+-- vim.opt.background = "dark"
+-- -- Set colorscheme
+-- vim.cmd("colorscheme quiet")
+-- -- Set highlight groups
+-- vim.api.nvim_set_hl(0, "Keyword", { bold = true })
+-- vim.api.nvim_set_hl(0, "Comment", { italic = true })
+-- vim.api.nvim_set_hl(0, "Constant", { fg = "#999999" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
 
 -- Line numbers
 vim.wo.number = true
@@ -58,6 +70,15 @@ vim.opt.updatetime = 100 -- faster update time for better UX
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300 -- faster timeout for keymaps
 vim.opt.ttimeoutlen = 10 -- faster timeout for terminal keys
+
+-- Configure Oil.nvim as default file manager
+require("oil").setup({
+	default_file_explorer = true,
+	view_options = {
+		show_hidden = true,
+	},
+})
+vim.keymap.set("n", "-", "<Cmd>Oil --float<CR>", {})
 
 -- Add LSP timeout to prevent hanging
 vim.lsp.buf.request_sync = function(method, params, timeout_ms, client_id)

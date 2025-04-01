@@ -1,12 +1,7 @@
 return {
 	"ecolog",
 	-- lazy loading is done internally
-	keys = {
-		{ "<leader>ge", "<cmd>EcologGoto<cr>", desc = "Go to env file" },
-		{ "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },
-		{ "<leader>es", "<cmd>EcologSelect<cr>", desc = "Switch env file" },
-		{ "<leader>ef", "<cmd>EcologFzf<cr>", desc = "Fuzzy find fiels" },
-	},
+	event = { "InsertEnter" },
 	after = function()
 		require("ecolog").setup({
 			integrations = {

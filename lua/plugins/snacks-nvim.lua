@@ -1,6 +1,6 @@
 return {
   "snacks.nvim",
-  lazy = false,
+	event = "DeferredUIEnter",
   after = function()
     require("snacks").setup({
       indent = {

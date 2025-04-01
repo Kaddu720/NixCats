@@ -1,6 +1,6 @@
 return {
   "obsidian.nvim",
-  event = "InsertEnter",
+  event = "UIEnter",
   ft = "markdown",
   after = function()
     require("obsidian").setup({

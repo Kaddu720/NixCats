@@ -1,5 +1,5 @@
 return {
-  cmd = { 'nil' },  -- 'nil' is the Nix language server
+  cmd = { 'nil' },
   filetypes = { 'nix' },
   root_markers = { 'flake.nix', 'shell.nix', 'default.nix' },
   formatters = {
@@ -8,16 +8,17 @@ return {
   settings = {
     ['nil'] = {
       formatting = {
-        command = { "nixpkgs-fmt" }  -- You can use "nixfmt" or other formatters instead
+        command = { "nixpkgs-fmt" }
       },
       diagnostics = {
-        -- ignored = [],
-        -- excludedFiles = []
+        -- Exclude specific files or inputs that cause issues
+        excludedFiles = { ".*nvim-config.*", ".*nix-homebrew.*" }
       },
       nix = {
         flake = {
           autoArchive = true,
-          autoEvalInputs = true;
+          -- Completely disable auto-evaluation of inputs
+          autoEvalInputs = true
         }
       }
     }

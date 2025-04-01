@@ -14,7 +14,7 @@ require("lze").load({
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.oil-nvim" },
 	{ import = "plugins.avante" },
-	-- { import = "plugins.obsidian-nvim" },
+	{ import = "plugins.obsidian-nvim" },
 
 	-- -- Git integration
 	{ import = "plugins.gitblame" },

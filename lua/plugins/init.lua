@@ -8,7 +8,6 @@ require("lze").load({
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
 	{ import = "plugins.snacks-nvim" },
-  { import = "plugins.nvim-hlslens" },
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },
@@ -20,7 +19,7 @@ require("lze").load({
 	-- File navigation and management (load on command or key)
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.avante" },
-	{ import = "plugins.obsidian-nvim" },
+  { import = "plugins.nvim-hlslens" },
 
 	-- Git integration
 	{ import = "plugins.gitblame" },
@@ -28,6 +27,7 @@ require("lze").load({
 	-- Editing enhancements
 	{ import = "plugins.mini-surround" },
 	{ import = "plugins.otter" },
+	{ import = "plugins.obsidian-nvim" },
 
 	-- Window management
 	{ import = "plugins.tmux-navigator" },

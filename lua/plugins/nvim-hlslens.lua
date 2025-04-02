@@ -1,6 +1,12 @@
 return {
   "nvim-hlslens",
-  event = "DeferredUIEnter",
+  keys = {
+    {"/", mode = "n", desc = "Search of text" },
+    {"*", mode = "n", desc = "Serch for whole hovered word decending" },
+    {"#", mode = "n", desc = "Serch for whole hovered word decending" },
+    {"g*", mode = "n", desc = "Serch for any match decending" },
+    {"g#", mode = "n", desc = "Serch for any match decending" },
+    },
   after = function()
     require("hlslens").setup()
 

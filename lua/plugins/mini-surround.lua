@@ -1,5 +1,5 @@
 return {
-	"mini.nvim",
+	"mini.surround",
 	keys = {
 		{ "sa", mode = { "n", "v" }, desc = "[S]uround [A]dd" },
 		{ "sd", mode = "n", desc = "[S]uround [D]elete" },

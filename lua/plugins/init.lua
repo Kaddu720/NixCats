@@ -1,4 +1,10 @@
 require("lze").load({
+	-- Ui Dependencies
+	{ "dressing-nvim", dep_of = "avante.nvim" },
+	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian.nvim" } },
+	{ "nui.nvim", dep_of = "avante.nvim" },
+	{ "nvim-web-devicons", dep_of = { "avante.nvim", "fzf-lua" } },
+
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
 	{ import = "plugins.snacks-nvim" },
@@ -19,7 +25,7 @@ require("lze").load({
 	{ import = "plugins.gitblame" },
 
 	-- Editing enhancements
-	{ import = "plugins.mini-nvim" },
+	{ import = "plugins.mini-surround" },
 	{ import = "plugins.otter" },
 
 	-- Window management

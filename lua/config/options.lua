@@ -62,7 +62,7 @@ vim.diagnostic.config({
 })
 
 -- Performance options
--- vim.opt.lazyredraw = true         -- don't redraw screen during macros
+vim.opt.lazyredraw = true         -- don't redraw screen during macros
 vim.opt.hidden = true -- allow switching buffers without saving
 vim.g.startup_time_enabled = true -- enable startup time measurement
 vim.opt.history = 100 -- limit command history

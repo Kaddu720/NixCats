@@ -1,6 +1,5 @@
 return {
-  "obsidian.nvim",
-  event = "UIEnter",
+  { "obsidian.nvim",
   ft = "markdown",
   after = function()
     require("obsidian").setup({
@@ -66,5 +65,5 @@ return {
     vim.keymap.set("n", "<leader>ob", "<Cmd>ObsidianBacklinks<CR>", { desc = "[O]bsidian [B]acklinks" })
     vim.keymap.set("n", "<leader>fo", "<Cmd>ObsidianSearch<CR>", { desc = "[F]ind [O]bsidian file" })
     vim.keymap.set("n", "<leader>ft", "<Cmd>ObsidianTags<CR>", { desc = "[F]ind Obsidian [T]ags" })
-  end,
+  end, }
 }

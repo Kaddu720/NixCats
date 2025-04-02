@@ -71,10 +71,7 @@
       startupPlugins = {
         general = with pkgs.vimPlugins; [
           lze
-          rose-pine
-          dressing-nvim
-          plenary-nvim
-          nui-nvim
+          # rose-pine
           oil-nvim
         ];
       };
@@ -83,19 +80,26 @@
       # use with packadd and an autocommand in config to achieve lazy loading
       optionalPlugins = {
         general = with pkgs.vimPlugins; [
-          friendly-snippets
           avante-nvim
+          dressing-nvim
+          plenary-nvim
+          nui-nvim
+          nvim-web-devicons
+
           blink-cmp
+          friendly-snippets
+          
+          obsidian-nvim
+
           fzf-lua
+
           git-blame-nvim
           ltex_extra-nvim
-          mini-nvim
+          mini-surround
           none-ls-nvim
-          nvim-web-devicons
           nvim-treesitter
           nvim-treesitter-textobjects
           nvim-treesitter-context
-          obsidian-nvim
           otter-nvim
           snacks-nvim
           trouble-nvim

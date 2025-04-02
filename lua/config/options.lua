@@ -15,15 +15,18 @@ vim.opt.termguicolors = true
 -- Set colorscheme
 vim.cmd("colorscheme quiet")
 -- Set highlight groups
-vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#ff0088"  })
+vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#eb6f92"  })
 
-vim.api.nvim_set_hl(0, "Constant", { fg = "#999999" })
-vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#999999" })
-vim.api.nvim_set_hl(0, "Operator", { fg = "#999999" })
+
+vim.api.nvim_set_hl(0, "Normal", { italic = true, fg = "#e0def4"  })
+
+vim.api.nvim_set_hl(0, "Constant", { fg = "#908caa" })
+vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#908caa" })
+vim.api.nvim_set_hl(0, "Operator", { fg = "#908caa" })
 
 -- Set background
-vim.cmd[[highlight Normal guibg=#121212 ctermbg=233]]
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#121212" })
+vim.cmd[[highlight Normal guibg=#191724 ctermbg=233]]
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191724" })
 
 -- Line numbers
 vim.wo.number = true

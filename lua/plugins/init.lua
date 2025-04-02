@@ -1,13 +1,14 @@
 require("lze").load({
 	-- Ui Dependencies
 	{ "dressing-nvim", dep_of = "avante.nvim" },
-	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian.nvim" } },
+	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian.nvim", "none-ls.nvim" } },
 	{ "nui.nvim", dep_of = "avante.nvim" },
 	{ "nvim-web-devicons", dep_of = { "avante.nvim", "fzf-lua" } },
 
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
 	{ import = "plugins.snacks-nvim" },
+  { import = "plugins.nvim-hlslens" },
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },

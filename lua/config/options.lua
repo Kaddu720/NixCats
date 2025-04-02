@@ -14,19 +14,23 @@ vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 -- Set colorscheme
 vim.cmd("colorscheme quiet")
+
+-- Set background
+vim.cmd([[highlight Normal guibg=#191724 ctermbg=233]])
+
 -- Set highlight groups
-vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#eb6f92"  })
+vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#eb6f92" })
 
-
-vim.api.nvim_set_hl(0, "Normal", { italic = true, fg = "#e0def4"  })
+vim.api.nvim_set_hl(0, "Normal", { italic = true, fg = "#e0def4" })
 
 vim.api.nvim_set_hl(0, "Constant", { fg = "#908caa" })
 vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#908caa" })
 vim.api.nvim_set_hl(0, "Operator", { fg = "#908caa" })
 
--- Set background
-vim.cmd[[highlight Normal guibg=#191724 ctermbg=233]]
+-- Floating windows
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191724" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191724", fg = "#6e6a86" })
+
 
 -- Line numbers
 vim.wo.number = true
@@ -65,7 +69,7 @@ vim.diagnostic.config({
 })
 
 -- Performance options
-vim.opt.lazyredraw = true         -- don't redraw screen during macros
+vim.opt.lazyredraw = true -- don't redraw screen during macros
 vim.opt.hidden = true -- allow switching buffers without saving
 vim.g.startup_time_enabled = true -- enable startup time measurement
 vim.opt.history = 100 -- limit command history
@@ -83,6 +87,17 @@ require("oil").setup({
 	default_file_explorer = true,
 	view_options = {
 		show_hidden = true,
+	},
+	float = {
+		-- Other float settings...
+
+		-- Set winblend to 0 to avoid any background color issues
+		winblend = 0,
+
+		-- Directly set win_options
+		win_options = {
+			winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+		},
 	},
 })
 vim.keymap.set("n", "-", "<Cmd>Oil --float<CR>", {})

@@ -2,24 +2,28 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Colorscheme
-require("rose-pine").setup({
-	styles = {
-		transparency = true,
-	},
-})
-vim.cmd.colorscheme("rose-pine")
-
--- -- Enable true color support
--- vim.opt.termguicolors = true
--- -- Set background to dark
--- vim.opt.background = "dark"
--- -- Set colorscheme
--- vim.cmd("colorscheme quiet")
--- -- Set highlight groups
--- vim.api.nvim_set_hl(0, "Keyword", { bold = true })
--- vim.api.nvim_set_hl(0, "Comment", { italic = true })
--- vim.api.nvim_set_hl(0, "Constant", { fg = "#999999" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
+-- require("rose-pine").setup({
+-- 	styles = {
+-- 		transparency = true,
+-- 	},
+-- })
+-- vim.cmd.colorscheme("rose-pine")
+
+-- Enable true color support
+vim.opt.termguicolors = true
+-- Set colorscheme
+vim.cmd("colorscheme quiet")
+-- Set highlight groups
+vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#ff0088"  })
+
+vim.api.nvim_set_hl(0, "Constant", { fg = "#999999" })
+vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#999999" })
+vim.api.nvim_set_hl(0, "Operator", { fg = "#999999" })
+
+-- Set background
+vim.cmd[[highlight Normal guibg=#121212 ctermbg=233]]
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#121212" })
 
 -- Line numbers
 vim.wo.number = true

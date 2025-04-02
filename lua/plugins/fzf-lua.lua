@@ -1,9 +1,8 @@
 return {
   {
     "fzf-lua",
-    -- event = "DeferredUIEnter",
     keys = {
-      { "fa", mode = "n", desc = "[F]zf [A]ppend" },
+      { "<leader>fa", mode = "n", desc = "[F]zf [A]ppend" },
       { "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },
       { "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
       { "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
@@ -12,7 +11,7 @@ return {
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({})
 
-      vim.keymap.set("n", "fa", function()
+      vim.keymap.set("n", "<leader>fa", function()
         vim.cmd("wal")
         require("fzf-lua").files()
       end, { desc = "[F]zf [A]ppend" })

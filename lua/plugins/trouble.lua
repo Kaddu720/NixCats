@@ -1,6 +1,5 @@
 return {
 	"trouble.nvim",
-	event = "DeferredUIEnter",
 	keys = {
 		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
 		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" }

@@ -1,7 +1,6 @@
 return {
   "nvim-treesitter",
-  -- event = VeryLazy
-  event = "DeferredUIEnter",
+  event = "BufRead",
   after = function()
     local config = require("nvim-treesitter.configs")
     config.setup({

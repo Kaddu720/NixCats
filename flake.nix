@@ -71,7 +71,6 @@
       startupPlugins = {
         general = with pkgs.vimPlugins; [
           lze
-          # rose-pine
           oil-nvim
         ];
       };
@@ -90,6 +89,7 @@
           friendly-snippets
           
           obsidian-nvim
+          rose-pine
 
           fzf-lua
 

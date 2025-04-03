@@ -2,14 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Colorscheme
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
--- require("rose-pine").setup({
--- 	styles = {
--- 		transparency = true,
--- 	},
--- })
--- vim.cmd.colorscheme("rose-pine")
-
 -- Enable true color support
 vim.opt.termguicolors = true
 -- Set colorscheme

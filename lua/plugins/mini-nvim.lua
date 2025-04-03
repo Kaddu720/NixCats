@@ -12,9 +12,16 @@ return {
 	},
 	{
 		"mini.pairs",
-		event = "InsertEnter",
+		keys = {
+			{ "[", mode = "i" },
+			{ "{", mode = "i" },
+			{ "'", mode = "i" },
+			{ '"', mode = "i" },
+			{ "<", mode = "i" },
+			{ "(", mode = "i" },
+		},
 		after = function()
 			require("mini.pairs").setup()
-		end, 
+		end,
 	},
 }

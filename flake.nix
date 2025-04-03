@@ -95,6 +95,7 @@
 
           git-blame-nvim
           ltex_extra-nvim
+          mini-pairs
           mini-surround
           none-ls-nvim
           nvim-hlslens

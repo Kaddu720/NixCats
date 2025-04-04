@@ -13,7 +13,7 @@ return {
 
 		local function statusline()
 			local set_color_1 = "%#PmenuSel#"
-			local branch = git_branch()
+			local branch = "" .. git_branch()
 			local set_color_2 = "%#LineNr#"
 			local file_name = " %f"
 			local modified = "%m"
@@ -25,7 +25,7 @@ return {
 			local linecol = " %l:%c"
 
 			return string.format(
-				"%s %s %s%s%s%s%s%s%s%s%s",
+				" %s %s %s%s%s%s%s%s%s%s%s",
 				set_color_1,
 				branch,
 				set_color_2,

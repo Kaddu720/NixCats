@@ -94,6 +94,7 @@
           fzf-lua
 
           git-blame-nvim
+          lualine-nvim
           ltex_extra-nvim
           mini-pairs
           mini-surround

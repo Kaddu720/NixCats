@@ -20,9 +20,9 @@ vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#908caa" })
 vim.api.nvim_set_hl(0, "Operator", { fg = "#908caa" })
 
 -- Floating windows
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191724" })
+vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#e0def4", bg = "#191724" })
+vim.api.nvim_set_hl(0, "BlinkCmpKind", { fg = "#e0def4", bg = "#191724" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191724", fg = "#6e6a86" })
-
 
 -- Line numbers
 vim.wo.number = true

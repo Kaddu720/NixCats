@@ -23,12 +23,12 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "branch", "%f" },
+				lualine_a = { "branch" },
 				lualine_b = {},
-				lualine_c = {},
+				lualine_c = { "%f" },
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = { "encoding", { "filetype", colored = false }, "progress", "location" },
+				lualine_z = { { "filetype", colored = false }, "encoding", "fileformat", "progress", "location" },
 			},
 			inactive_sections = {
 				lualine_a = {},

@@ -17,8 +17,12 @@ return {
 		"ltex_extra.nvim",
 		dep_of = "obsidian.nvim",
 		after = function()
-			require("ltex_extra").setup({
-      })
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("MarkdownLspConfig", {}),
+				callback = function(args)
+					require("ltex_extra").setup({})
+				end,
+			})
 		end,
 	},
 	{

@@ -146,6 +146,22 @@
           general = true;
         };
       };
+      nvim-dev = {pkgs, ...}: {
+        # they contain a settings set defined above
+        # see :help nixCats.flake.outputs.settings
+        settings = {
+          wrapRc = false;
+          # IMPORTANT:
+          # your alias may not conflict with your other packages.
+          aliases = ["vim"];
+          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+        };
+        # and a set of categories that you want
+        # (and other information to pass to lua)
+        categories = {
+          general = true;
+        };
+      };
     };
     # In this section, the main thing you will need to do is change the default package name
     # to the name of the packageDefinitions entry you wish to use as the default.
@@ -160,6 +176,7 @@
         categoryDefinitions
         packageDefinitions;
       defaultPackage = nixCatsBuilder defaultPackageName;
+      devPackage = nixCatsBuilder "nvim-dev";
       # this is just for using utils such as pkgs.mkShell
       # The one used to build neovim is resolved inside the builder
       # and is passed to our categoryDefinitions and packageDefinitions
@@ -175,8 +192,8 @@
       # and add whatever else you want in it.
       devShells = {
         default = pkgs.mkShell {
-          name = defaultPackageName;
-          packages = [defaultPackage];
+          name = "nvim-dev";
+          packages = [devPackage];
           inputsFrom = [];
           shellHook = ''
           '';

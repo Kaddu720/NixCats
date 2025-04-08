@@ -2,6 +2,7 @@ return {
 	{
 		"rose-pine",
 		dep_of = "obsidian.nvim",
+    ft = "markdown",
 		name = "rose-pine",
 		after = function()
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
@@ -16,6 +17,7 @@ return {
 	{
 		"ltex_extra.nvim",
 		dep_of = "obsidian.nvim",
+    ft = "markdown",
 		after = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("MarkdownLspConfig", {}),

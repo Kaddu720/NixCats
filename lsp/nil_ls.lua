@@ -18,7 +18,7 @@ return {
         flake = {
           autoArchive = true,
           -- Completely disable auto-evaluation of inputs
-          autoEvalInputs = true
+          autoEvalInputs = false
         }
       }
     }

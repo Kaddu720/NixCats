@@ -2,24 +2,6 @@
 local start_time = vim.fn.reltime()
 
 require("config")
-vim.lsp.enable({
-	-- lua
-	"luals",
-	-- nix
-	"nil_ls",
-	"nixd",
-	-- python
-	"pyright",
-	"ruff",
-	-- markdown
-	"ltex",
-	-- terraform
-	"terraformls",
-	-- yaml
-	"yamlls",
-	-- bash
-	"bashls",
-})
 
 -- Print startup time
 if vim.g.startup_time_enabled then

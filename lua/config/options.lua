@@ -1,32 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Colorscheme
--- Enable true color support
-vim.opt.termguicolors = true
--- Set colorscheme
-vim.cmd("colorscheme quiet")
-
--- Set background
-vim.cmd([[highlight Normal guibg=#191724 ctermbg=233]])
-
--- Set highlight groups
-vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#eb6f92" })
-
-vim.api.nvim_set_hl(0, "Normal", { italic = true, fg = "#e0def4" })
-
-vim.api.nvim_set_hl(0, "Constant", { fg = "#908caa" })
-vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#908caa" })
-vim.api.nvim_set_hl(0, "Operator", { fg = "#908caa" })
-
--- Floating windows
-vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#e0def4", bg = "#191724" })
-vim.api.nvim_set_hl(0, "BlinkCmpKind", { fg = "#e0def4", bg = "#191724" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191724", fg = "#6e6a86" })
-
--- Splits
-vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#191724", fg = "#6e6a86", bold = true })
-
 -- Line numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -53,7 +24,6 @@ vim.opt.splitbelow = true
 
 -- Appearence
 vim.opt.scrolloff = 10 -- minum number of lines abobve/bellow cursor
--- vim.opt.showmode = false -- let lualine provide status
 vim.opt.conceallevel = 2 -- let obsidan conceal test with ui
 
 -- Diagnostics
@@ -108,34 +78,3 @@ vim.lsp.buf.request_sync = function(method, params, timeout_ms, client_id)
 	return vim.lsp.buf_request_sync(0, method, params, timeout_ms)
 end
 
--- Language Specific settings
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "yaml",
-	callback = function()
-		vim.opt_local.cursorcolumn = true -- Highlight the current column
-		vim.opt_local.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "python",
-	callback = function()
-		vim.opt_local.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 4 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
-	end,
-})

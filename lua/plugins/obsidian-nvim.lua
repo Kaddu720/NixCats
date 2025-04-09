@@ -29,7 +29,6 @@ return {
 	},
 	{
 		"obsidian.nvim",
-    event = "BufEnter",
 		ft = "markdown",
 		after = function()
 			require("obsidian").setup({

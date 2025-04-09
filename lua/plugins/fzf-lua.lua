@@ -26,7 +26,7 @@ return {
         require("fzf-lua").lsp_code_actions()
       end, { desc = "[C]ode [A]ctions" })
 
-      -- Don't forget. If you hist C-g you can fuzzy search over your grep
+      -- Don't forget. If you hit C-g you can fuzzy search over your grep
       vim.keymap.set("n", "<leader>fw", function()
         vim.cmd("wal")
         require("fzf-lua").live_grep()

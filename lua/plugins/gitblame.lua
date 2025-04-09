@@ -1,4 +1,4 @@
 return {
   "git-blame.nvim",
-  event = "InsertEnter",
+  event = "BufEnter",
 }

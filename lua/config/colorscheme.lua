@@ -10,7 +10,7 @@ vim.cmd([[highlight Normal guibg=#191724 ctermbg=233]])
 -- Set highlight groups
 vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#eb6f92" })
 
-vim.api.nvim_set_hl(0, "Normal", { italic = true, fg = "#e0def4" })
+vim.api.nvim_set_hl(0, "Normal", { fg = "#e0def4" })
 
 vim.api.nvim_set_hl(0, "Constant", { fg = "#908caa" })
 vim.api.nvim_set_hl(0, "Keyword", { bold = true, fg = "#908caa" })

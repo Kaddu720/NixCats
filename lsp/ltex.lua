@@ -1,6 +1,6 @@
 return {
-  cmd = { 'ltex-ls' },
-  filetypes = { 'markdown', 'text', 'latex', 'tex' },
+  cmd = { "ltex-ls-plus" },
+  filetypes = { "markdown", "text", "latex", "tex" },
   root_markers = {},
   formatters = {
     ignoreComments = false,
@@ -8,6 +8,6 @@ return {
   settings = {
     ltex = {
       checkFrequency = "save",
-    }
-  }
+    },
+  },
 }

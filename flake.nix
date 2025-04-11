@@ -52,7 +52,7 @@
         deadnix
 
         # Markdown
-        ltex-ls
+        ltex-ls-plus
 
         # Terraform
         terraform-ls

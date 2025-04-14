@@ -7,7 +7,7 @@ return {
   },
   settings = {
     ltex = {
-      checkFrequency = "save",
+      -- checkFrequency = "save",
     },
   },
 }

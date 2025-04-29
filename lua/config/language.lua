@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.lsp.enable({ "nil_ls", "nixd" })
 
 -- markdown
-vim.lsp.enable({ "ltex" })
+vim.lsp.enable({ "ltex-plus" })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()

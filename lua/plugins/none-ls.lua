@@ -26,7 +26,10 @@ return {
 
         -- bash
         null_ls.builtins.formatting.shfmt,
-        null_ls.builtins.diagnostics.dotenv_linter
+        null_ls.builtins.diagnostics.dotenv_linter,
+
+        -- markdown
+        null_ls.builtins.diagnostics.vale
       },
     })
 

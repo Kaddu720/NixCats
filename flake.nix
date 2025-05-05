@@ -53,6 +53,7 @@
 
         # Markdown
         ltex-ls-plus
+        vale
 
         # Terraform
         terraform-ls

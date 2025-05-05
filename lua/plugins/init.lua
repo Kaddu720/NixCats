@@ -1,7 +1,7 @@
 require("lze").load({
 	-- Ui Dependencies
 	{ "dressing-nvim", dep_of = "avante.nvim" },
-	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian.nvim", "none-ls.nvim" } },
+	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian", "none-ls.nvim" } },
 	{ "nui.nvim", dep_of = "avante.nvim" },
 	{ "nvim-web-devicons", dep_of = { "avante.nvim", "fzf-lua" } },
 
@@ -27,7 +27,7 @@ require("lze").load({
 	-- Editing enhancements
 	{ import = "plugins.mini-nvim" },
 	{ import = "plugins.otter" },
-	{ import = "plugins.obsidian-nvim" },
+	{ import = "plugins.obsidian" },
 
 	-- Window management
 	{ import = "plugins.tmux-navigator" },

@@ -1,7 +1,7 @@
 return {
 	{
 		"rose-pine",
-		dep_of = "obsidian.nvim",
+		dep_of = "obsidian",
     ft = "markdown",
 		name = "rose-pine",
 		after = function()
@@ -16,7 +16,7 @@ return {
 	},
 	{
 		"ltex_extra.nvim",
-		dep_of = "obsidian.nvim",
+		dep_of = "obsidian",
     ft = "markdown",
 		after = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -28,7 +28,7 @@ return {
 		end,
 	},
 	{
-		"obsidian.nvim",
+		"obsidian",
 		ft = "markdown",
 		after = function()
 			require("obsidian").setup({

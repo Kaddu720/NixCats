@@ -9,6 +9,11 @@
       url = "github:philosofonusus/ecolog.nvim";
       flake = false;
     };
+
+    "plugins-obsidian" = {
+      url = "github:obsidian-nvim/obsidian.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -89,7 +94,7 @@
           blink-cmp
           friendly-snippets
           
-          obsidian-nvim
+          pkgs.neovimPlugins.obsidian
           rose-pine
 
           fzf-lua

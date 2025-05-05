@@ -47,11 +47,28 @@
         "type": "github"
       }
     },
+    "plugins-obsidian": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746453557,
+        "narHash": "sha256-5bNNQKKjneKASS3sWfnprHewa9MaIUznWkBfXpCrxHk=",
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
+        "rev": "0d053cb65fd308cac08cfa942ad12695ee25297f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-ecolog": "plugins-ecolog"
+        "plugins-ecolog": "plugins-ecolog",
+        "plugins-obsidian": "plugins-obsidian"
       }
     }
   },

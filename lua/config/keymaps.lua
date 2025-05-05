@@ -16,3 +16,9 @@ vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 
 -- Turn of Highlights
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { noremap = true })
+
+-- Turn off Virtual line diagnostics
+vim.keymap.set('n', 'cd', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })

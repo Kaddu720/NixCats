@@ -2,11 +2,11 @@
   "nodes": {
     "nixCats": {
       "locked": {
-        "lastModified": 1745808494,
-        "narHash": "sha256-5Pr92pP0IaWaFCh6KLAzg+4PJ91HQGjnvvYAk8rxCL4=",
+        "lastModified": 1745981676,
+        "narHash": "sha256-KGkNQbZaX+1KKBjUoltOby36+rH2CPNLFpm1blZ5Li4=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "8b584f12aa289b00e653fe8a4e386109934d3a24",
+        "rev": "a4b78fc624b31b68536cdead4699c27bcb9e655a",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1744868846,
-        "narHash": "sha256-5RJTdUHDmj12Qsv7XOhuospjAjATNiTMElplWnJE9Hs=",
+        "lastModified": 1746397377,
+        "narHash": "sha256-5oLdRa3vWSRbuqPIFFmQBGGUqaYZBxX+GGtN9f/n4lU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c",
+        "rev": "ed30f8aba41605e3ab46421e3dcb4510ec560ff8",
         "type": "github"
       },
       "original": {
@@ -34,11 +34,11 @@
     "plugins-ecolog": {
       "flake": false,
       "locked": {
-        "lastModified": 1743440547,
-        "narHash": "sha256-yyKZ5ZAggwjCoSJXT2I7N1WwNQ51oieQfD47m7X9BAA=",
+        "lastModified": 1745420613,
+        "narHash": "sha256-orzuZ/vZRGaWOWs/2qOzhs6V7MRblvhQ2oXsh3+FtIo=",
         "owner": "philosofonusus",
         "repo": "ecolog.nvim",
-        "rev": "5ba7aed7670e8bb0ed58de17c7e48c8acfb6b367",
+        "rev": "cfd19e7a8841c538fdb706ee6ba3a22943d45ca6",
         "type": "github"
       },
       "original": {

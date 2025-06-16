@@ -2,11 +2,11 @@
   "nodes": {
     "nixCats": {
       "locked": {
-        "lastModified": 1748230488,
-        "narHash": "sha256-CktYY2rcFPJ3Tbz5H/nDnkhaO18nrLGdWa1mH7V9X5Q=",
+        "lastModified": 1749615682,
+        "narHash": "sha256-3T2Yl+xSnx7snXZkMaQNHCvlj0CB+lyAj+Q/+eeh+Ns=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "2a2f15a6c085524ac121f5da9a73ee2155c53d70",
+        "rev": "c0148957e961100bff3fd213b8a4bc5f669f3028",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1748248602,
-        "narHash": "sha256-LanRAm0IRpL36KpCKSknEwkBFvTLc9mDHKeAmfTrHwg=",
+        "lastModified": 1749903597,
+        "narHash": "sha256-jp0D4vzBcRKwNZwfY4BcWHemLGUs4JrS3X9w5k/JYDA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ad331efcaf680eb1c838cb339472399ea7b3cdab",
+        "rev": "41da1e3ea8e23e094e5e3eeb1e6b830468a7399e",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
     "plugins-obsidian": {
       "flake": false,
       "locked": {
-        "lastModified": 1748005201,
-        "narHash": "sha256-KYFb4hYhCGV7AAliv+sPwWbXnOqgtNDg2GIvsvsOdq4=",
+        "lastModified": 1750098442,
+        "narHash": "sha256-nj9UxcRzlSu4LdX/RllPKcr+5w1Y6cQIPZXsb/NTgrY=",
         "owner": "obsidian-nvim",
         "repo": "obsidian.nvim",
-        "rev": "f6f349d76e84c73753bfabeb7123bc1c66c27809",
+        "rev": "d03b45e93d6f98912ca20f4a370563fe9a02ddb9",
         "type": "github"
       },
       "original": {

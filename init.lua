@@ -1,6 +1,12 @@
 -- Measure startup time
 local start_time = vim.fn.reltime()
 
+-- Set up performance options early
+vim.opt.laststatus = 0 -- disable default status line
+-- vim.opt.lazyredraw = true
+vim.opt.shadafile = "NONE" -- Don't read or write shada file on startup
+
+
 require("config")
 
 -- Print startup time

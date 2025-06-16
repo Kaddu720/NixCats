@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter",
-  event = "BufRead",
+  event = "BufReadPost",
   after = function()
     local config = require("nvim-treesitter.configs")
     config.setup({

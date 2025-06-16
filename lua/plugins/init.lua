@@ -17,6 +17,7 @@ require("lze").load({
 	{ import = "plugins.treesitter" },
 
 	-- File navigation and management (load on command or key)
+  { import = "plugins.oil" },
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.avante" },
   { import = "plugins.nvim-hlslens" },

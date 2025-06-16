@@ -77,7 +77,6 @@
       startupPlugins = {
         general = with pkgs.vimPlugins; [
           lze
-          oil-nvim
         ];
       };
 
@@ -98,6 +97,8 @@
           rose-pine
 
           fzf-lua
+
+          oil-nvim
 
           git-blame-nvim
           lualine-nvim

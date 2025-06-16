@@ -1,8 +1,4 @@
 
--- Set up performance options early
--- vim.opt.lazyredraw = true
-vim.opt.shadafile = "NONE" -- Don't read or write shada file on startup
-
 -- Load core configuration
 require("config.options")
 require("config.keymaps")

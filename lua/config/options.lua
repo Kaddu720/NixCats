@@ -46,26 +46,10 @@ vim.opt.updatetime = 100 -- faster update time for better UX
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300 -- faster timeout for keymaps
 vim.opt.ttimeoutlen = 10 -- faster timeout for terminal keys
-
--- Configure Oil.nvim as default file manager
-require("oil").setup({
-	default_file_explorer = true,
-	view_options = {
-		show_hidden = true,
-	},
-	float = {
-		-- Other float settings...
-
-		-- Set winblend to 0 to avoid any background color issues
-		winblend = 0,
-
-		-- Directly set win_options
-		win_options = {
-			winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
-		},
-	},
-})
-vim.keymap.set("n", "-", "<Cmd>Oil --float<CR>", {})
+vim.g.loaded_netrw = 1-- Disable default Netrw if you use another file explorer
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_matchparen = 1-- Disable MatchParen if you use a Treesitter-based highlighter
+vim.g.loaded_matchit = 1
 
 -- Add LSP timeout to prevent hanging
 vim.lsp.buf.request_sync = function(method, params, timeout_ms, client_id)

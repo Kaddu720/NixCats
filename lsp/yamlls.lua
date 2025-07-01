@@ -7,7 +7,9 @@ return {
 	},
 	settings = {
 		yaml = {
-			schemas = {},
+			schemas = {
+				["kubernetes"] = "*.k8s.yaml",
+			},
 			validate = true,
 		},
 	},

@@ -21,6 +21,7 @@ require("lze").load({
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.avante" },
   { import = "plugins.nvim-hlslens" },
+	{ import = "plugins.comfy-line-numbers" },
 
 	-- Git integration
 	{ import = "plugins.gitblame" },

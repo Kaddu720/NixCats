@@ -14,6 +14,11 @@
       url = "github:obsidian-nvim/obsidian.nvim";
       flake = false;
     };
+
+    "plugins-comfy-line-numbers" = {
+      url = "github:mluders/comfy-line-numbers.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -116,6 +121,7 @@
           tmux-navigator
           which-key-nvim
           pkgs.neovimPlugins.ecolog
+          pkgs.neovimPlugins.comfy-line-numbers
         ];
       };
 

@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-comfy-line-numbers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748363509,
+        "narHash": "sha256-KaHhmm7RhJEtWedKE7ab+Aioe3jJLP0TUlnokszU5DY=",
+        "owner": "mluders",
+        "repo": "comfy-line-numbers.nvim",
+        "rev": "eb1c966e22fbabe3a3214c78bda9793ccf9d2a5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mluders",
+        "repo": "comfy-line-numbers.nvim",
+        "type": "github"
+      }
+    },
     "plugins-ecolog": {
       "flake": false,
       "locked": {
@@ -67,6 +83,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-comfy-line-numbers": "plugins-comfy-line-numbers",
         "plugins-ecolog": "plugins-ecolog",
         "plugins-obsidian": "plugins-obsidian"
       }

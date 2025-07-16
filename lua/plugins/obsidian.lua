@@ -42,6 +42,18 @@ return {
 					},
 				},
 
+				-- Disable legacy commands to avoid deprecation warnings
+				legacy_commands = false,
+
+				-- Configure picker to use fzf-lua
+				picker = {
+					name = "fzf-lua",
+					tag_mappings = {
+						tag_note = "<c-x>",
+						insert_tag = "<c-l>",
+					},
+				},
+
 				templates = {
 					folder = "resources/templates",
 				},

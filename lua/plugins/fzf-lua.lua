@@ -1,6 +1,7 @@
 return {
   {
     "fzf-lua",
+		dep_of = { "obsidian" },
     keys = {
       { "<leader>fa", mode = "n", desc = "[F]zf [A]ppend" },
       { "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },

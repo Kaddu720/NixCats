@@ -2,7 +2,7 @@ return {
 	{
 		"rose-pine",
 		dep_of = "obsidian",
-    ft = "markdown",
+		ft = "markdown",
 		name = "rose-pine",
 		after = function()
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
@@ -17,7 +17,7 @@ return {
 	{
 		"ltex_extra.nvim",
 		dep_of = "obsidian",
-    ft = "markdown",
+		ft = "markdown",
 		after = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("MarkdownLspConfig", {}),
@@ -48,10 +48,6 @@ return {
 				-- Configure picker to use fzf-lua
 				picker = {
 					name = "fzf-lua",
-					tag_mappings = {
-						tag_note = "<c-x>",
-						insert_tag = "<c-l>",
-					},
 				},
 
 				templates = {

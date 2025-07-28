@@ -1,7 +1,7 @@
 require("lze").load({
 	-- Ui Dependencies
 	{ "dressing-nvim", dep_of = "avante.nvim" },
-	{ "plenary.nvim", dep_of = { "avante.nvim", "obsidian", "none-ls.nvim" } },
+	{ "plenary.nvim", dep_of = { "avante.nvim", "none-ls.nvim" } },
 	{ "nui.nvim", dep_of = "avante.nvim" },
 	{ "nvim-web-devicons", dep_of = { "avante.nvim", "fzf-lua" } },
 

@@ -113,7 +113,6 @@
           mini-pairs
           mini-surround
           none-ls-nvim
-          nvim-hlslens
           nvim-treesitter
           nvim-treesitter-textobjects
           nvim-treesitter-context

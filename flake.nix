@@ -105,6 +105,8 @@
 
           oil-nvim
 
+          flash-nvim
+
           git-blame-nvim
           lualine-nvim
           ltex_extra-nvim

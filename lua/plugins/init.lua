@@ -17,11 +17,12 @@ require("lze").load({
 	{ import = "plugins.treesitter" },
 
 	-- File navigation and management (load on command or key)
-  { import = "plugins.oil" },
+	{ import = "plugins.oil" },
 	{ import = "plugins.fzf-lua" },
-	{ import = "plugins.avante" },
-  { import = "plugins.nvim-hlslens" },
+	{ import = "plugins.flash" },
+	{ import = "plugins.nvim-hlslens" },
 	{ import = "plugins.comfy-line-numbers" },
+	{ import = "plugins.avante" },
 
 	-- Git integration
 	{ import = "plugins.gitblame" },

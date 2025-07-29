@@ -89,33 +89,29 @@
       # use with packadd and an autocommand in config to achieve lazy loading
       optionalPlugins = {
         general = with pkgs.vimPlugins; [
-          avante-nvim
-          dressing-nvim
-          plenary-nvim
-          nui-nvim
-          nvim-web-devicons
-
           blink-cmp
           friendly-snippets
           
           pkgs.neovimPlugins.obsidian
           rose-pine
 
+          none-ls-nvim
+          plenary-nvim
+
           fzf-lua
+          nvim-web-devicons
+
+          nvim-treesitter
+          nvim-treesitter-textobjects
+          nvim-treesitter-context
 
           oil-nvim
-
           flash-nvim
-
           git-blame-nvim
           lualine-nvim
           ltex_extra-nvim
           mini-pairs
           mini-surround
-          none-ls-nvim
-          nvim-treesitter
-          nvim-treesitter-textobjects
-          nvim-treesitter-context
           otter-nvim
           snacks-nvim
           trouble-nvim

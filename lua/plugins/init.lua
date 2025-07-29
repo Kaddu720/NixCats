@@ -1,9 +1,7 @@
 require("lze").load({
 	-- Ui Dependencies
-	{ "dressing-nvim", dep_of = "avante.nvim" },
-	{ "plenary.nvim", dep_of = { "avante.nvim", "none-ls.nvim" } },
-	{ "nui.nvim", dep_of = "avante.nvim" },
-	{ "nvim-web-devicons", dep_of = { "avante.nvim", "fzf-lua" } },
+	{ "plenary.nvim", dep_of = { "none-ls.nvim" } },
+	{ "nvim-web-devicons", dep_of = { "fzf-lua" } },
 
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
@@ -21,7 +19,6 @@ require("lze").load({
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.flash" },
 	{ import = "plugins.comfy-line-numbers" },
-	{ import = "plugins.avante" },
 
 	-- Git integration
 	{ import = "plugins.gitblame" },

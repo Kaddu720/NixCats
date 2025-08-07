@@ -112,7 +112,7 @@
           ltex_extra-nvim
           mini-pairs
           mini-surround
-          nvim-hslens
+          nvim-hlslens
           otter-nvim
           snacks-nvim
           trouble-nvim

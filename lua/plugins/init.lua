@@ -18,7 +18,7 @@ require("lze").load({
 	{ import = "plugins.oil" },
 	{ import = "plugins.fzf-lua" },
 	{ import = "plugins.flash" },
-	{ import = "plugins.nvim-hslens" },
+	{ import = "plugins.nvim-hlslens" },
 	{ import = "plugins.comfy-line-numbers" },
 
 	-- Git integration

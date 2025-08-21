@@ -15,7 +15,7 @@ vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 
 -- Turn of Highlights
-vim.keymap.set("n", "<C-l>", "<Cmd>noh<CR>", { noremap = true })
+vim.keymap.set("n", "<C-l>", "<Cmd>noh<CR>", { noremap = true, silent = true })
 
 -- Turn off Virtual line diagnostics
 vim.keymap.set('n', 'cd', function()

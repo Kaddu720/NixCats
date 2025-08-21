@@ -14,7 +14,7 @@ return {
 			require("flash").setup({
 				modes = {
 					search = {
-						enabled = true,
+						enabled = false,
 					},
 					char = {
 						jump_labels = true,
@@ -34,6 +34,7 @@ return {
 				require("flash").treesitter_search()
 			end, { desc = "Treesitter Search" })
 
+			-- When it command mode (search mode) Ctrl+S with toggle flash on and off
 			vim.keymap.set({ "c" }, "<c-s>", function()
 				require("flash").toggle()
 			end, { desc = "Toggle Flash Search" })

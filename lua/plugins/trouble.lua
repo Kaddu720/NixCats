@@ -2,7 +2,7 @@ return {
 	"trouble.nvim",
 	keys = {
 		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
-		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" }
+		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
 	},
 	after = function()
 		local trouble = require("trouble")
@@ -20,11 +20,7 @@ return {
 		--   symbols.get,
 		--   cond = symbols.has,
 		-- })
-		vim.keymap.set(
-			"n",
-			"<leader>tt",
-			"<Cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>"
-		)
+		vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>")
 		vim.keymap.set("n", "<leader>tf", "<Cmd>Trouble diagnostics focus=true<CR>")
 	end,
 }

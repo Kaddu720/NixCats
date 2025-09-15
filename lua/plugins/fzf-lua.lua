@@ -15,6 +15,12 @@ return {
 					preview = {
 						delay = 100, -- Performance: Delay preview updates
 					},
+					backdrop = 100, -- Keep background consistent
+				},
+				fzf_colors = {
+					["bg"] = { "bg", "Normal" },
+					["bg+"] = { "bg", "Normal" },
+					["gutter"] = { "bg", "Normal" },
 				},
 			})
 			require("fzf-lua").register_ui_select()

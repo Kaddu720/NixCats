@@ -29,5 +29,5 @@ hl("FloatBorder", { fg = colors.border, bg = colors.bg })
 
 -- Interface elements
 hl("WinSeparator", { fg = colors.border, bg = colors.bg, bold = true })
-hl("CursorLine", { bg = "NONE" })
+hl("CursorLine", { bg = "#26233a" }) -- Rose-pine overlay color
 hl("CursorLineNr", { fg = colors.fg, bg = "NONE", bold = true })

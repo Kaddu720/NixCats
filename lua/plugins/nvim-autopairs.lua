@@ -2,7 +2,7 @@ return {
 	"nvim-autopairs",
 	event = "InsertEnter",
 	keys = {
-		{ "<leader>s", mode = "i", desc = "Fast wrap with autopairs" },
+		{ "<C-s>", mode = "i", desc = "Fast wrap with autopairs" },
 	},
 	after = function()
 		local npairs = require("nvim-autopairs")
@@ -15,7 +15,7 @@ return {
 			},
 			disable_filetype = { "TelescopePrompt", "spectre_panel" },
 			fast_wrap = {
-				map = "<leader>s",
+				map = "<C-s>",
 				chars = { "{", "[", "(", '"', "'" },
 				pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
 				offset = 0,

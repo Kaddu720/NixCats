@@ -1,52 +1,5 @@
 return {
 	{
-		"rose-pine",
-		dep_of = "obsidian",
-		ft = "markdown",
-		name = "rose-pine",
-		after = function()
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#333333" })
-			require("rose-pine").setup({
-				styles = {
-					transparency = true,
-				},
-			})
-			vim.cmd.colorscheme("rose-pine")
-		end,
-	},
-	{
-		"ltex_extra.nvim",
-		dep_of = "obsidian",
-		ft = "markdown",
-		after = function()
-			local ltex_extra_setup_done = false
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("LtexExtraConfig", { clear = true }),
-				callback = function(args)
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if
-						client
-						and (client.name == "ltex" or client.name == "ltex_plus")
-						and not ltex_extra_setup_done
-					then
-						local ok, ltex_extra = pcall(require, "ltex_extra")
-						if ok then
-							pcall(ltex_extra.setup, {
-								load_langs = { "en-US" },
-								init_check = true,
-								path = vim.fn.expand("~/.local/share/ltex"),
-								log_level = "none",
-							})
-							ltex_extra_setup_done = true
-						else
-							vim.notify("Failed to load ltex_extra.nvim", vim.log.levels.WARN)
-						end
-					end
-				end,
-			})
-		end,
-	},
-	{
 		"obsidian",
 		ft = "markdown",
 		after = function()
@@ -54,12 +7,25 @@ return {
 				workspaces = {
 					{
 						name = "Second_Brain",
-						path = "~/Second_Brain",
+						path = "~/Vaults/Second_Brain",
 						overrides = {
-							notes_subdir = "resources/notes",
+							daily_notes = {
+								template = "~/Vaults/Second_Brain/resources/templates/neovim/daily.md",
+							},
 						},
 					},
+					-- {
+					-- 	name = "Work_Brain",
+					-- 	path = "~/Vaults/Work_Brain",
+					-- 	overrides = {
+					-- 		daily_notes = {
+					-- 			template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
+					-- 		},
+					-- 	},
+					-- },
 				},
+
+				notes_subdir = "resources/notes",
 
 				-- Disable legacy commands to avoid deprecation warnings
 				legacy_commands = false,
@@ -82,15 +48,13 @@ return {
 					alias_format = "%B %-d, %Y",
 					-- Optional, default tags to add to each new daily note created.
 					default_tags = { "daily-notes" },
-					-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-					template = "~/Second_Brain/resources/templates/neovim/daily.md",
 				},
 
 				-- Quick Notes
 				new_notes_location = "notes_subdir",
 
 				note_id_func = function(title)
-					-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+					-- Create note IDs in a Vaults format with a timestamp and a suffix.
 					-- In this case a note with the title 'My new note' will be given an ID that looks
 					-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
 					local suffix = ""

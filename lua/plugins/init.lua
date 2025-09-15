@@ -27,7 +27,11 @@ require("lze").load({
 	-- Editing enhancements
 	{ import = "plugins.nvim-autopairs" },
 	{ import = "plugins.otter" },
+
+  -- Obsidian
 	{ import = "plugins.obsidian" },
+	{ import = "plugins.rose-pine" },
+	{ import = "plugins.ltex_extra" },
 
 	-- Window management
 	{ import = "plugins.tmux-navigator" },

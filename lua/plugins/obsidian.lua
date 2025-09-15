@@ -14,15 +14,15 @@ return {
 							},
 						},
 					},
-					-- {
-					-- 	name = "Work_Brain",
-					-- 	path = "~/Vaults/Work_Brain",
-					-- 	overrides = {
-					-- 		daily_notes = {
-					-- 			template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
-					-- 		},
-					-- 	},
-					-- },
+					{
+						name = "Work_Brain",
+						path = "~/Vaults/Work_Brain",
+						overrides = {
+							daily_notes = {
+								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
+							},
+						},
+					},
 				},
 
 				notes_subdir = "resources/notes",
@@ -83,6 +83,7 @@ return {
 			vim.keymap.set("n", "<leader>ot", "<Cmd>Obsidian template<CR>", { desc = "[O]bsidian [T]emplates" })
 			vim.keymap.set("n", "<leader>on", "<Cmd>Obsidian new<CR>", { desc = "[O]bsidian [N]ew Note" })
 			vim.keymap.set("n", "<leader>ob", "<Cmd>Obsidian backlinks<CR>", { desc = "[O]bsidian [B]acklinks" })
+			vim.keymap.set("n", "<leader>ow", "<Cmd>Obsidian workspace<CR>", { desc = "[O]bsidian [W]orkspace" })
 			vim.keymap.set("n", "<leader>fo", "<Cmd>Obsidian search<CR>", { desc = "[F]ind [O]bsidian file" })
 			vim.keymap.set("n", "<leader>ft", "<Cmd>Obsidian tags<CR>", { desc = "[F]ind Obsidian [T]ags" })
 			vim.keymap.set("n", "<leader>fl", "<Cmd>Obsidian follow_link<CR>", { desc = "[F]ollow Obsidian [L]ink" })

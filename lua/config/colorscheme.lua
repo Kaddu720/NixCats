@@ -21,3 +21,7 @@ vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191724", fg = "#6e6a86" })
 
 -- Splits
 vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#191724", fg = "#6e6a86", bold = true })
+
+-- Cursor line - only highlight line number, keep background transparent
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#e0def4", bg = "NONE", bold = true })

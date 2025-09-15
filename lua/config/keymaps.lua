@@ -41,3 +41,15 @@ vim.keymap.set("n", "cd", function()
 		})
 	end
 end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
+
+-- Buffer navigation
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
+
+-- Better indenting
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
+-- Move lines
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })

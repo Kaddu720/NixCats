@@ -110,8 +110,8 @@
           git-blame-nvim
           lualine-nvim
           ltex_extra-nvim
-          mini-pairs
-          mini-surround
+          nvim-autopairs
+
           nvim-hlslens
           otter-nvim
           snacks-nvim

@@ -54,7 +54,7 @@ vim.opt.maxmempattern = 1000 -- Performance: Limit memory usage for patterns
 vim.opt.undolevels = 100 -- Performance: Limit undo history for memory
 vim.g.loaded_netrw = 1 -- Disable default Netrw if you use another file explorer
 vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_matchparen = 1-- Disable MatchParen if you use a Treesitter-based highlighter
+
 vim.g.loaded_matchit = 1
 
 

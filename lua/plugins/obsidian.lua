@@ -3,7 +3,13 @@ return {
 		"obsidian",
 		ft = "markdown",
 		after = function()
-			require("obsidian").setup({
+			-- Get hostname to determine default workspace order
+			local hostname = vim.fn.hostname()
+			local is_home = hostname == "Home-Box" or hostname == "Mobile-Box"
+			
+			local workspaces
+			if is_home then
+				-- Second_Brain first (default) for home machines
 				workspaces = {
 					{
 						name = "Second_Brain",
@@ -23,7 +29,33 @@ return {
 							},
 						},
 					},
-				},
+				}
+			else
+				-- Work_Brain first (default) for work machines
+				workspaces = {
+					{
+						name = "Work_Brain",
+						path = "~/Vaults/Work_Brain",
+						overrides = {
+							daily_notes = {
+								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
+							},
+						},
+					},
+					{
+						name = "Second_Brain",
+						path = "~/Vaults/Second_Brain",
+						overrides = {
+							daily_notes = {
+								template = "~/Vaults/Second_Brain/resources/templates/neovim/daily.md",
+							},
+						},
+					},
+				}
+			end
+
+			require("obsidian").setup({
+				workspaces = workspaces,
 
 				notes_subdir = "resources/notes",
 

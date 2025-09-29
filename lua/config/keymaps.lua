@@ -45,6 +45,8 @@ end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
 -- Buffer navigation
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Force delete buffer" })
 
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
@@ -53,3 +55,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
 vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
+
+-- LSP keymaps
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })

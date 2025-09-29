@@ -5,6 +5,9 @@ return {
 	formatters = {
 		ignoreComments = false,
 	},
+	flags = {
+		debounce_text_changes = 300,
+	},
 	settings = {
 		yaml = {
 			schemas = {

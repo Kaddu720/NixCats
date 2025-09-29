@@ -8,11 +8,9 @@ return {
   settings = {
     ['nixd'] = {
       formatting = {
-        command = { "nixpkgs-fmt" }  -- You can use "nixfmt" or other formatters instead
+        command = { "alejandra" }
       },
       diagnostics = {
-        -- ignored = [],
-        -- excludedFiles = []
       },
       nix = {
         flake = {

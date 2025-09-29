@@ -38,7 +38,6 @@ vim.diagnostic.config({
 })
 
 -- Performance options
-vim.opt.lazyredraw = true -- don't redraw screen during macros
 vim.opt.hidden = true -- allow switching buffers without saving
 vim.g.startup_time_enabled = true -- enable startup time measurement
 vim.opt.history = 100 -- limit command history
@@ -51,7 +50,7 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 300 -- faster timeout for keymaps
 vim.opt.ttimeoutlen = 10 -- faster timeout for terminal keys
 vim.opt.maxmempattern = 1000 -- Performance: Limit memory usage for patterns
-vim.opt.undolevels = 100 -- Performance: Limit undo history for memory
+vim.opt.undolevels = 1000
 vim.g.loaded_netrw = 1 -- Disable default Netrw if you use another file explorer
 vim.g.loaded_netrwPlugin = 1
 

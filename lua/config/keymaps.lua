@@ -14,9 +14,6 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 
--- Turn of Highlights
-vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { noremap = true })
-
 -- Turn off Virtual line diagnostics
 vim.keymap.set("n", "cd", function()
 	-- Get the current diagnostic configuration
@@ -45,10 +42,6 @@ end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
-
--- Move lines
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
 
 -- LSP keymaps
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

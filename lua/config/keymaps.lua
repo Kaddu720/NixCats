@@ -42,12 +42,6 @@ vim.keymap.set("n", "cd", function()
 	end
 end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
 
--- Buffer navigation
-vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Force delete buffer" })
-
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })

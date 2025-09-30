@@ -10,17 +10,27 @@ return {
 		},
 		after = function()
 			require("fzf-lua").setup({
-				-- Performance: Optimize for speed
 				winopts = {
+					border = "rounded",
 					preview = {
-						delay = 100, -- Performance: Delay preview updates
+						delay = 100,
+						border = "rounded",
+						layout = "horizontal",
+						horizontal = "right:60%",
 					},
-					backdrop = 100, -- Keep background consistent
+					backdrop = 100,
+				},
+				fzf_opts = {
+					["--layout"] = "reverse",
+					["--prompt"] = ">  ",
 				},
 				fzf_colors = {
 					["bg"] = { "bg", "Normal" },
 					["bg+"] = { "bg", "Normal" },
 					["gutter"] = { "bg", "Normal" },
+					["border"] = "#e0def4",
+					["label"] = "#e0def4",
+					["pointer"] = "#f7768e",
 				},
 			})
 			require("fzf-lua").register_ui_select()

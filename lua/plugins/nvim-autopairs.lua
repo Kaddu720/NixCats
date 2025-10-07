@@ -24,6 +24,7 @@ return {
 				check_comma = true,
 				highlight = "PmenuSel",
 				highlight_grey = "LineNr",
+				cursor_pos_before = false,
 			},
 		})
 	end,

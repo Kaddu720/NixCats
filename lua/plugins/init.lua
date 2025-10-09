@@ -5,7 +5,7 @@ require("lze").load({
 
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
-	{ import = "plugins.snacks-nvim" },
+	{ import = "plugins.indent-blankline" },
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },

@@ -112,7 +112,7 @@
 
           nvim-hlslens
           otter-nvim
-          snacks-nvim
+          indent-blankline-nvim
           trouble-nvim
           tmux-navigator
           which-key-nvim

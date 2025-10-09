@@ -22,7 +22,7 @@ require("lze").load({
 	{ import = "plugins.comfy-line-numbers" },
 
 	-- Git integration
-	{ import = "plugins.gitblame" },
+	{ import = "plugins.gitsigns" },
 
 	-- Editing enhancements
 	{ import = "plugins.nvim-autopairs" },

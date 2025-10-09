@@ -105,7 +105,7 @@
 
           oil-nvim
           flash-nvim
-          git-blame-nvim
+          gitsigns-nvim
           lualine-nvim
           ltex_extra-nvim
           nvim-autopairs

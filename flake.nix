@@ -91,7 +91,6 @@
           friendly-snippets
           
           pkgs.neovimPlugins.obsidian
-          rose-pine
 
           none-ls-nvim
           plenary-nvim

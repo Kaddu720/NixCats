@@ -43,8 +43,8 @@ return {
 			hl("Visual", { fg = colors.selection_fg, bg = colors.selection_bg })
 			
 			hl("@markup.heading.1.markdown", { fg = colors.orange, bold = true })
-			hl("@markup.heading.2.markdown", { fg = colors.red, bold = true })
-			hl("@markup.heading.3.markdown", { fg = colors.blue, bold = true })
+			hl("@markup.heading.2.markdown", { fg = colors.blue, bold = true })
+			hl("@markup.heading.3.markdown", { fg = colors.red, bold = true })
 			hl("@markup.heading.4.markdown", { fg = colors.yellow, bold = true })
 			hl("@markup.heading.5.markdown", { fg = colors.purple, bold = true })
 			hl("@markup.heading.6.markdown", { fg = colors.light_gray, bold = true })

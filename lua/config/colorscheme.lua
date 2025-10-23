@@ -6,7 +6,7 @@ local colors = {
   fg = "#e0def4",
   gray = "#908caa", 
   border = "#6e6a86",
-  red = "#eb6f92"
+	red = "#b4637a"
 }
 
 local function hl(group, opts)

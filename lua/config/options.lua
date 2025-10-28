@@ -25,7 +25,7 @@ vim.opt.splitbelow = true
 -- Appearence
 vim.opt.scrolloff = 10 -- minum number of lines abobve/bellow cursor
 vim.opt.conceallevel = 2 -- let obsidan conceal test with ui
-vim.opt.clipboard = "unnamedplus" -- system clipboard integration
+-- vim.opt.clipboard = "unnamedplus" -- system clipboard integration
 vim.opt.mouse = "a" -- mouse support
 vim.opt.signcolumn = "yes" -- always show sign column
 vim.opt.cursorline = true -- highlight current line

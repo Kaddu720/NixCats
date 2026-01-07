@@ -36,16 +36,16 @@ return {
 				workspaces = {
 					{
 						name = "Work_Brain",
-						path = "~/Vaults/Work_Brain",
+						path = "/mnt/c/Users/NoahWilson/Vaults/Work_Brain",
 						overrides = {
 							daily_notes = {
-								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
+								template = "/mnt/c/Users/NoahWilson/Vaults/Work_Brain/resources/templates/neovim/daily.md",
 							},
 						},
 					},
 					{
 						name = "Second_Brain",
-						path = "~/Vaults/Second_Brain",
+						path = "/mnt/c/Users/NoahWilson/Vaults/Second_Brain",
 						overrides = {
 							daily_notes = {
 								template = "~/Vaults/Second_Brain/resources/templates/neovim/daily.md",

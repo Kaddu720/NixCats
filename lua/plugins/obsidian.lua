@@ -36,10 +36,10 @@ return {
 				workspaces = {
 					{
 						name = "Work_Brain",
-						path = "/mnt/c/Users/NoahWilson/Vaults/Work_Brain",
+						path = "~/Vaults/Work_Brain",
 						overrides = {
 							daily_notes = {
-								template = "/mnt/c/Users/NoahWilson/Vaults/Work_Brain/resources/templates/neovim/daily.md",
+								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
 							},
 						},
 					},

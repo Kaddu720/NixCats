@@ -32,9 +32,11 @@ vim.opt.cursorline = true -- highlight current line
 
 -- Diagnostics
 vim.diagnostic.config({
-	virtual_lines = {
-		current_line = true,
-	},
+	-- Start with virtual_lines disabled for better performance during rapid edits
+	-- Toggle with 'cd' keymap when you need detailed diagnostics
+	virtual_lines = false,
+	-- Reduce diagnostic updates during rapid changes
+	update_in_insert = false,
 })
 
 -- Performance options
@@ -45,12 +47,13 @@ vim.opt.synmaxcol = 120 -- Performance: Reduced from 240 for faster syntax highl
 vim.opt.redrawtime = 1500 -- time limit for syntax highlighting
 vim.opt.ttyfast = true -- faster terminal rendering
 vim.opt.swapfile = false -- don't use swapfiles
-vim.opt.updatetime = 250 -- Performance: Increased from 100ms for better performance
+vim.opt.updatetime = 500 -- Performance: Increased for Claude Code compatibility (was 250ms)
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300 -- faster timeout for keymaps
 vim.opt.ttimeoutlen = 10 -- faster timeout for terminal keys
 vim.opt.maxmempattern = 1000 -- Performance: Limit memory usage for patterns
 vim.opt.undolevels = 1000
+vim.opt.lazyredraw = true -- Performance: Don't redraw during macros/operations (better for AI edits)
 vim.g.loaded_netrw = 1 -- Disable default Netrw if you use another file explorer
 vim.g.loaded_netrwPlugin = 1
 
@@ -62,8 +65,9 @@ vim.g.loaded_matchit = 1
 vim.opt.autoread = true
 
 -- Autocmd to check for file changes when events occur
+-- Removed CursorHold/CursorHoldI for better performance with Claude Code
 vim.api.nvim_create_autocmd(
-  { "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" },
+  { "FocusGained", "BufEnter" },
   {
     pattern = "*",
     callback = function()

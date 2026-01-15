@@ -1,4 +1,12 @@
 -- Language Specific settings
+
+-- Global LSP settings for better Claude Code performance
+vim.lsp.config("*", {
+	flags = {
+		debounce_text_changes = 500, -- Increased debounce for AI-assisted edits
+	},
+})
+
 -- lua
 vim.lsp.enable({ "luals" })
 

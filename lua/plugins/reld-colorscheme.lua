@@ -2,7 +2,7 @@ return {
 	{
 		"reld-colorscheme",
 		ft = "markdown",
-		before = function()
+		after = function()
 			local colors = {
 				bg = "#191724",
 				fg = "#e0def4",

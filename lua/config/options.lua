@@ -61,7 +61,17 @@ vim.diagnostic.config({
 	virtual_lines = false,
 	-- Reduce diagnostic updates during rapid changes
 	update_in_insert = false,
+	-- Rounded borders for diagnostic float windows
+	float = { border = "rounded" },
 })
+
+-- Rounded borders for all LSP floating windows (hover, signature help, etc.)
+local orig_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or "rounded"
+	return orig_open_floating_preview(contents, syntax, opts, ...)
+end
 
 -- Performance options
 vim.opt.hidden = true -- allow switching buffers without saving

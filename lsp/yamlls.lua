@@ -39,6 +39,12 @@ return {
 				},
 				-- Helm Chart.yaml
 				["https://json.schemastore.org/chart.json"] = "Chart.yaml",
+				-- Helmfile
+				["https://json.schemastore.org/helmfile.json"] = {
+					"helmfile.yaml",
+					"helmfile.d/*.yaml",
+					"**/helmfile.d/*.yaml",
+				},
 				-- Kustomization
 				["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
 				-- ArgoCD

@@ -22,8 +22,18 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- nix
-vim.lsp.enable({ "nil_ls", "nixd" })
+-- nix (load nil_ls first, then nixd after it attaches to avoid conflicts)
+vim.lsp.enable({ "nil_ls" })
+local nixd_enabled = false
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name == "nil_ls" and not nixd_enabled then
+			nixd_enabled = true
+			vim.lsp.enable({ "nixd" })
+		end
+	end,
+})
 
 -- markdown
 vim.lsp.enable({ "ltex_plus" })

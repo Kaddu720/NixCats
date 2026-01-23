@@ -12,6 +12,8 @@ This is a Nix-based Neovim configuration using nixCats for dependency management
 - Diagnostic and linting configurations that provide clear, actionable feedback
 - Keybindings and plugins that complement AI pair programming
 
+**Hardware Note**: The user uses a split keyboard. Ergonomic considerations matter - prefer left-hand number keys (1-5) for navigation counts when possible. Line numbers use a custom "comfy" display that converts relative numbers to only use digits 1-5 (bijective base-5).
+
 ## Build System
 
 This configuration uses Nix flakes for reproducible builds and dependency management:
@@ -67,12 +69,18 @@ Configuration for Selene is in `selene.toml`.
 
 ### Plugin Architecture
 
-Plugins are managed by `lze` (lazy-loading engine) defined in `lua/plugins/init.lua`. All plugins except `lze` itself are lazy-loaded using various triggers:
+Plugins are managed by `lze` (lazy-loading engine). All plugins except `lze` itself are lazy-loaded using various triggers:
 - Event-based loading (`InsertEnter`, `LspAttach`, `DeferredUIEnter`)
 - Filetype-based loading (`ft = "markdown"`)
 - Command or key-based loading
 
 Plugin configurations are modular, with each plugin in its own file under `lua/plugins/`.
+
+**Important**: When adding or removing plugins, you must update TWO places:
+1. `lua/plugins/<plugin-name>.lua` - The plugin's configuration file
+2. `lua/plugins/init.lua` - The plugin must be registered in the `require("lze").load()` call
+
+The `init.lua` file loads all plugin specs by requiring each plugin file.
 
 ### LSP Configuration
 
@@ -181,4 +189,4 @@ Dependencies are defined in `flake.nix`:
 - `categoryDefinitions.lspsAndRuntimeDeps`: External tools (LSPs, formatters, linters)
 - `categoryDefinitions.startupPlugins`: Plugins loaded at startup (only lze)
 - `categoryDefinitions.optionalPlugins`: Lazy-loaded plugins
-- Custom plugins from GitHub are added as flake inputs (e.g., ecolog, obsidian, comfy-line-numbers)
+- Custom plugins from GitHub are added as flake inputs (e.g., ecolog, obsidian)

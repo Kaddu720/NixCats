@@ -2,7 +2,7 @@ return {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-	single_file_support = false, -- Performance: Don't activate on single files
+	single_file_support = true, -- Allow Pyright to work on standalone .py files
 	formatters = {
 		ignoreComments = false,
 	},

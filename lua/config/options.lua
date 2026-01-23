@@ -1,6 +1,30 @@
--- Line numbers
-vim.wo.number = true
-vim.wo.relativenumber = true
+-- Line numbers with comfy display (left-hand digits only: 1,2,3,4,5)
+-- Converts relative line numbers to bijective base-5 for split keyboard ergonomics
+local function to_comfy(n)
+	if n == 0 then return "0" end
+	local result = ""
+	while n > 0 do
+		local digit = ((n - 1) % 5) + 1
+		result = tostring(digit) .. result
+		n = math.floor((n - 1) / 5)
+	end
+	return result
+end
+
+-- Make function globally accessible for statuscolumn
+_G.comfy_linenum = function()
+	local lnum = vim.v.lnum
+	local relnum = vim.v.relnum
+	if relnum == 0 then
+		return string.format("%3s ", lnum) -- Current line shows absolute number
+	else
+		return string.format("%3s ", to_comfy(relnum))
+	end
+end
+
+vim.wo.number = false
+vim.wo.relativenumber = false
+vim.opt.statuscolumn = "%!v:lua.comfy_linenum()"
 
 -- Indent
 vim.o.expandtab = true -- convert tabs to spaces

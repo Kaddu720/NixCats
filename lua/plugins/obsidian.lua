@@ -2,7 +2,6 @@ return {
 	{
 		"obsidian",
 		ft = "markdown",
-		dep = "reld-colorscheme",
 		after = function()
 			-- Get hostname to determine default workspace order
 			local hostname = vim.fn.hostname()

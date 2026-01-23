@@ -2,7 +2,6 @@ return {
 	{
 		"flash.nvim",
 		keys = {
-			{ "/", mode = { "n", "x", "o" }, desc = "Search for Text" },
 			{ "S", mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
 			{ "f", mode = { "n", "o", "x" } },
 			{ "F", mode = { "n", "o", "x" } },

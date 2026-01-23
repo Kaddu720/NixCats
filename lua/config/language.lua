@@ -3,65 +3,68 @@
 -- Global LSP settings for better Claude Code performance
 vim.lsp.config("*", {
 	flags = {
-		debounce_text_changes = 500, -- Increased debounce for AI-assisted edits
+		debounce_text_changes = 500,
 	},
 })
 
--- lua
-vim.lsp.enable({ "luals" })
+-- Defer LSP enabling to after startup (single consolidated call)
+vim.defer_fn(function()
+	vim.lsp.enable({
+		"luals",      -- lua
+		"pyright",    -- python
+		"ruff",       -- python
+		"nil_ls",     -- nix
+		"ltex_plus",  -- markdown
+		"bashls",     -- bash
+		"yamlls",     -- yaml
+		"terraformls",-- terraform
+		"dockerls",   -- docker
+		"helm_ls",    -- helm
+	})
 
--- python
-vim.lsp.enable({ "pyright", "ruff" })
+	-- Enable nixd after nil_ls attaches (only for nix files)
+	local nixd_enabled = false
+	vim.api.nvim_create_autocmd("LspAttach", {
+		pattern = { "*.nix" },
+		callback = function(args)
+			if nixd_enabled then return end
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
+			if client and client.name == "nil_ls" then
+				nixd_enabled = true
+				vim.lsp.enable({ "nixd" })
+			end
+		end,
+	})
+end, 0)
+
+-- Filetype-specific settings
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
 	callback = function()
-		vim.opt_local.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 4 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.tabstop = 4
+		vim.opt_local.expandtab = true
 	end,
 })
 
--- nix (load nil_ls first, then nixd after it attaches to avoid conflicts)
-vim.lsp.enable({ "nil_ls" })
-local nixd_enabled = false
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client and client.name == "nil_ls" and not nixd_enabled then
-			nixd_enabled = true
-			vim.lsp.enable({ "nixd" })
-		end
-	end,
-})
-
--- markdown
-vim.lsp.enable({ "ltex_plus" })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()
-		vim.opt_local.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.expandtab = true
 	end,
 })
 
--- bash
-vim.lsp.enable({ "bashls" })
-
--- yaml
-vim.lsp.enable({ "yamlls" })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "yaml",
 	callback = function()
-		vim.opt_local.cursorcolumn = true -- Highlight the current column
-		vim.opt_local.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-		vim.opt_local.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performing editing operations
-		vim.opt_local.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
-		vim.opt_local.expandtab = true -- Expand tab to 2 spaces
+		vim.opt_local.cursorcolumn = true
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.expandtab = true
 	end,
 })
-
--- terraform
-vim.lsp.enable({ "terraformls" })

@@ -8,8 +8,8 @@ return {
 				-- lua
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.diagnostics.selene.with({
-					cwd = function(_params)
-						return vim.fn.getcwd()
+					condition = function(utils)
+						return utils.root_has_file({ "selene.toml" })
 					end,
 				}),
 
@@ -28,7 +28,12 @@ return {
 				null_ls.builtins.diagnostics.dotenv_linter,
 
 				-- markdown
-				null_ls.builtins.diagnostics.vale,
+				null_ls.builtins.diagnostics.vale.with({
+					filetypes = { "markdown" },
+					condition = function(utils)
+						return utils.root_has_file({ ".vale.ini", "_vale.ini" })
+					end,
+				}),
 			},
 		})
 

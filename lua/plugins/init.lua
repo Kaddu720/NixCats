@@ -30,7 +30,6 @@ require("lze").load({
 
   -- Obsidian
 	{ import = "plugins.obsidian" },
-	{ import = "plugins.reld-colorscheme" },
 	{ import = "plugins.ltex_extra" },
 
 	-- Window management

@@ -15,11 +15,16 @@ return {
 						and not ltex_extra_setup_done
 					then
 						vim.schedule(function()
+							-- Re-check client is still valid after schedule
+							local current_client = vim.lsp.get_client_by_id(args.data.client_id)
+							if not current_client then
+								return
+							end
 							local ok, ltex_extra = pcall(require, "ltex_extra")
 							if ok then
 								pcall(ltex_extra.setup, {
 									load_langs = { "en-US" },
-									init_check = true,
+									init_check = false, -- Disable init_check to avoid errors on buffer switch
 									path = vim.fn.expand("~/.local/share/ltex"),
 									log_level = "none",
 								})

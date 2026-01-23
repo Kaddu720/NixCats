@@ -14,6 +14,10 @@ This is a Nix-based Neovim configuration using nixCats for dependency management
 
 **Hardware Note**: The user uses a split keyboard. Ergonomic considerations matter - prefer left-hand number keys (1-5) for navigation counts when possible. Line numbers use a custom "comfy" display that converts relative numbers to only use digits 1-5 (bijective base-5).
 
+**Philosophy**: Neovim should focus on editing and managing files only. Avoid plugins that manage external tools (git, kubectl, docker, etc.) - the user prefers to use those tools directly in the terminal. LSPs and syntax highlighting are welcome; tool wrappers are not.
+
+**Role**: The user is a senior SRE primarily managing Kubernetes clusters. Relevant file types include YAML (K8s manifests, Helm charts, Kustomize), Terraform, Dockerfiles, and shell scripts.
+
 ## Build System
 
 This configuration uses Nix flakes for reproducible builds and dependency management:
@@ -123,8 +127,10 @@ Configured languages with their LSP servers:
 - **Nix**: nil_ls, nixd
 - **Markdown**: ltex-ls-plus (grammar/spell checking)
 - **Terraform**: terraform-ls
-- **YAML**: yaml-language-server
+- **YAML**: yaml-language-server (with K8s, GitHub Actions, Docker Compose, Helm, Kustomize, ArgoCD schemas)
 - **Bash**: bash-language-server
+- **Docker**: dockerfile-language-server
+- **Helm**: helm_ls (Go template support in Helm charts)
 
 Python uses a division of responsibility: pyright for completions, ruff for linting/formatting, mypy for type checking.
 

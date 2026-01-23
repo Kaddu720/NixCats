@@ -31,9 +31,6 @@ require("lze").load({
 	{ import = "plugins.obsidian" },
 	{ import = "plugins.ltex_extra" },
 
-	-- Window management
-	{ import = "plugins.tmux-navigator" },
-
 	-- Diagnostics and help
 	{ import = "plugins.trouble" },
 	{ import = "plugins.which-key" },

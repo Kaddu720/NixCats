@@ -48,3 +48,19 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+-- Tmux navigation (deferred to avoid startup cost)
+vim.defer_fn(function()
+	local function nav(d)
+		local dirs = { h = "L", j = "D", k = "U", l = "R" }
+		local w = vim.api.nvim_get_current_win()
+		vim.cmd("wincmd " .. d)
+		if w == vim.api.nvim_get_current_win() and vim.env.TMUX then
+			vim.fn.system("tmux select-pane -" .. dirs[d])
+		end
+	end
+	vim.keymap.set("n", "<C-h>", function() nav("h") end)
+	vim.keymap.set("n", "<C-j>", function() nav("j") end)
+	vim.keymap.set("n", "<C-k>", function() nav("k") end)
+	vim.keymap.set("n", "<C-l>", function() nav("l") end)
+end, 0)

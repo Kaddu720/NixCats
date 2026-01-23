@@ -109,7 +109,6 @@
           otter-nvim
           indent-blankline-nvim
           trouble-nvim
-          tmux-navigator
           which-key-nvim
           pkgs.neovimPlugins.ecolog
         ];

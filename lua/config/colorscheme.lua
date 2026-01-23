@@ -105,30 +105,21 @@ local current_theme = nil
 set_mono_theme()
 current_theme = "mono"
 
--- Switch to reld theme for markdown
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.md", "*.markdown" },
-	callback = function()
-		if current_theme ~= "reld" then
-			set_reld_theme()
-			refresh_lualine_reld()
-			current_theme = "reld"
-		end
-	end,
-})
-
--- Switch back to mono theme for non-markdown files
+-- Single autocmd to handle theme switching based on filetype
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
 	callback = function()
-		local ft = vim.bo.filetype
 		local ext = vim.fn.expand("%:e")
-		if ft ~= "markdown" and ext ~= "md" and ext ~= "markdown" then
-			if current_theme ~= "mono" then
-				set_mono_theme()
-				refresh_lualine_mono()
-				current_theme = "mono"
-			end
+		local is_markdown = ext == "md" or ext == "markdown"
+
+		if is_markdown and current_theme ~= "reld" then
+			set_reld_theme()
+			refresh_lualine_reld()
+			current_theme = "reld"
+		elseif not is_markdown and current_theme ~= "mono" then
+			set_mono_theme()
+			refresh_lualine_mono()
+			current_theme = "mono"
 		end
 	end,
 })

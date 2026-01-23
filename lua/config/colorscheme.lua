@@ -32,19 +32,28 @@ local function set_shared_highlights()
 	hl("CursorLineNr", { fg = colors.fg, bg = "NONE", bold = true })
 end
 
+-- Set base colorscheme once at startup
+vim.cmd("colorscheme quiet")
+
 -- Mono colorscheme for code
 local function set_mono_theme()
-	vim.cmd("colorscheme quiet")
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("Keyword", { fg = colors.fg, bold = true })
 	hl("Constant", { fg = colors.gray })
 	hl("Comment", { fg = colors.red, italic = true })
+	hl("String", { fg = colors.fg })
+	hl("Function", { fg = colors.fg })
+	hl("Type", { fg = colors.fg })
+	hl("Identifier", { fg = colors.fg })
+	hl("Statement", { fg = colors.fg, bold = true })
+	hl("PreProc", { fg = colors.fg })
+	hl("Special", { fg = colors.fg })
+	hl("Operator", { fg = colors.fg })
 	set_shared_highlights()
 end
 
 -- Reld colorful colorscheme for markdown
 local function set_reld_theme()
-	vim.cmd("colorscheme quiet")
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("Keyword", { fg = colors.purple, bold = true })
 	hl("Constant", { fg = colors.orange })

@@ -53,7 +53,8 @@ vim.opt.timeoutlen = 300 -- faster timeout for keymaps
 vim.opt.ttimeoutlen = 10 -- faster timeout for terminal keys
 vim.opt.maxmempattern = 1000 -- Performance: Limit memory usage for patterns
 vim.opt.undolevels = 1000
-vim.opt.lazyredraw = true -- Performance: Don't redraw during macros/operations (better for AI edits)
+-- Note: lazyredraw disabled to ensure external file changes are visible immediately
+-- vim.opt.lazyredraw = true
 vim.g.loaded_netrw = 1 -- Disable default Netrw if you use another file explorer
 vim.g.loaded_netrwPlugin = 1
 
@@ -65,9 +66,9 @@ vim.g.loaded_matchit = 1
 vim.opt.autoread = true
 
 -- Autocmd to check for file changes when events occur
--- Removed CursorHold/CursorHoldI for better performance with Claude Code
+-- CursorHold fires after updatetime (500ms) of inactivity - good balance for AI edits
 vim.api.nvim_create_autocmd(
-  { "FocusGained", "BufEnter" },
+  { "FocusGained", "BufEnter", "CursorHold" },
   {
     pattern = "*",
     callback = function()

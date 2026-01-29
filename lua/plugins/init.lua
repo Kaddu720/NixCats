@@ -6,6 +6,7 @@ require("lze").load({
 	-- UI elements with lazy loading
 	{ import = "plugins.statusline" },
 	{ import = "plugins.indent-blankline" },
+	{ import = "plugins.comfy-line-numbers" },
 
 	-- Completion and LSP (load when needed)
 	{ import = "plugins.blink-cmp" },

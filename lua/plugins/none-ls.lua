@@ -34,7 +34,9 @@ return {
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "markdown",
 			callback = function()
-				if vale_registered then return end
+				if vale_registered then
+					return
+				end
 				-- Search up from current file for .vale.ini
 				local file_dir = vim.fn.expand("%:p:h")
 				local dir = file_dir
@@ -42,7 +44,9 @@ return {
 					if vim.fn.filereadable(dir .. "/.vale.ini") == 1 then
 						null_ls.register(null_ls.builtins.diagnostics.vale.with({
 							filetypes = { "markdown" },
-							cwd = function() return dir end,
+							cwd = function()
+								return dir
+							end,
 						}))
 						vale_registered = true
 						return

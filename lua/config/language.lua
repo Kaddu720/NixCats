@@ -20,6 +20,7 @@ vim.defer_fn(function()
 		"terraformls",-- terraform
 		"dockerls",   -- docker
 		"helm_ls",    -- helm
+		"nushell",    -- nushell
 	})
 
 	-- Enable nixd after nil_ls attaches (only for nix files)

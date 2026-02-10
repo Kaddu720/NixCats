@@ -5,10 +5,10 @@ return {
 		after = function()
 			-- Get hostname to determine default workspace order
 			local hostname = vim.fn.hostname()
-			local is_home = hostname == "Home-Box" or hostname == "Mobile-Box"
+			local is_personal = hostname == "Home-Box" or hostname == "Mobile-Box"
 			
 			local workspaces
-			if is_home then
+			if is_personal then
 				-- Second_Brain first (default) for home machines
 				workspaces = {
 					{
@@ -17,15 +17,6 @@ return {
 						overrides = {
 							daily_notes = {
 								template = "~/Vaults/Second_Brain/resources/templates/neovim/daily.md",
-							},
-						},
-					},
-					{
-						name = "Work_Brain",
-						path = "~/Vaults/Work_Brain",
-						overrides = {
-							daily_notes = {
-								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
 							},
 						},
 					},
@@ -39,15 +30,6 @@ return {
 						overrides = {
 							daily_notes = {
 								template = "~/Vaults/Work_Brain/resources/templates/neovim/daily.md",
-							},
-						},
-					},
-					{
-						name = "Second_Brain",
-						path = "/mnt/c/Users/NoahWilson/Vaults/Second_Brain",
-						overrides = {
-							daily_notes = {
-								template = "~/Vaults/Second_Brain/resources/templates/neovim/daily.md",
 							},
 						},
 					},

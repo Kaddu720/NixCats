@@ -5,6 +5,7 @@ return {
 		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
 	},
 	after = function()
+		local registry = require("config.keymaps_registry")
 		local trouble = require("trouble")
 		local symbols = trouble.statusline({
 			mode = "lsp_document_symbols",
@@ -20,7 +21,6 @@ return {
 		--   symbols.get,
 		--   cond = symbols.has,
 		-- })
-		vim.keymap.set("n", "<leader>tt", "<Cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>")
-		vim.keymap.set("n", "<leader>tf", "<Cmd>Trouble diagnostics focus=true<CR>")
+		registry.trouble()
 	end,
 }

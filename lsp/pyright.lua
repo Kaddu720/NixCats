@@ -1,3 +1,4 @@
+-- Completions only; type-checking disabled (handled by mypy via none-ls)
 return {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },

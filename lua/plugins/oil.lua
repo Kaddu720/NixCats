@@ -1,6 +1,7 @@
 return {
 	"oil.nvim",
 	after = function()
+		local registry = require("config.keymaps_registry")
 		require("oil").setup({
 			default_file_explorer = true,
 			view_options = {
@@ -18,6 +19,6 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "-", "<Cmd>Oil --float<CR>", {})
+		registry.oil()
 	end,
 }

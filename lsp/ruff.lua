@@ -1,3 +1,4 @@
+-- Linting and formatting; completions handled by pyright
 return {
 	name = "ruff",
 	cmd = { "ruff", "server" },

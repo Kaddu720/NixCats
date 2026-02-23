@@ -3,6 +3,19 @@ return {
 	event = "LspAttach",
 	after = function()
 		local null_ls = require("null-ls")
+		local registry = require("config.keymaps_registry")
+
+		local function find_vale_root(bufname)
+			if not bufname or bufname == "" then
+				return nil
+			end
+			local dir = vim.fn.fnamemodify(bufname, ":p:h")
+			local found = vim.fs.find(".vale.ini", { path = dir, upward = true })[1]
+			if not found then
+				return nil
+			end
+			return vim.fn.fnamemodify(found, ":h")
+		end
 
 		local sources = {
 			-- lua
@@ -23,41 +36,23 @@ return {
 			-- yaml
 			null_ls.builtins.diagnostics.yamllint,
 
+			-- markdown
+			null_ls.builtins.diagnostics.vale.with({
+				filetypes = { "markdown" },
+				runtime_condition = function(params)
+					return find_vale_root(params.bufname) ~= nil
+				end,
+				cwd = function(params)
+					return find_vale_root(params.bufname)
+				end,
+			}),
+
 			-- bash
 			null_ls.builtins.formatting.shfmt,
 			null_ls.builtins.diagnostics.dotenv_linter,
 		}
 
-		-- Only add Vale for markdown if we're in a directory with .vale.ini
-		-- This is registered dynamically when entering markdown files
-		local vale_registered = false
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "markdown",
-			callback = function()
-				if vale_registered then
-					return
-				end
-				-- Search up from current file for .vale.ini
-				local file_dir = vim.fn.expand("%:p:h")
-				local dir = file_dir
-				while dir ~= "/" and dir ~= "" do
-					if vim.fn.filereadable(dir .. "/.vale.ini") == 1 then
-						null_ls.register(null_ls.builtins.diagnostics.vale.with({
-							filetypes = { "markdown" },
-							cwd = function()
-								return dir
-							end,
-						}))
-						vale_registered = true
-						return
-					end
-					dir = vim.fn.fnamemodify(dir, ":h")
-				end
-			end,
-		})
-
 		null_ls.setup({ sources = sources })
-
-		vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "[F]or[M]at" })
+		registry.none_ls()
 	end,
 }

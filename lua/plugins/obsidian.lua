@@ -3,6 +3,7 @@ return {
 		"obsidian",
 		ft = "markdown",
 		after = function()
+			local registry = require("config.keymaps_registry")
 			-- Get hostname to determine default workspace order
 			local hostname = vim.fn.hostname()
 			local is_personal = hostname == "Home-Box" or hostname == "Mobile-Box"
@@ -87,15 +88,7 @@ return {
 				-- follow_url_func removed: vim.ui.open is now the default
 			})
 
-			vim.keymap.set("n", "<leader>os", "<Cmd>! ./sync<CR>", { desc = "[O]bsidian [S]ync" })
-			vim.keymap.set("n", "<leader>od", "<Cmd>Obsidian dailies<CR>", { desc = "[O]bsidian [D]aily" })
-			vim.keymap.set("n", "<leader>ot", "<Cmd>Obsidian template<CR>", { desc = "[O]bsidian [T]emplates" })
-			vim.keymap.set("n", "<leader>on", "<Cmd>Obsidian new<CR>", { desc = "[O]bsidian [N]ew Note" })
-			vim.keymap.set("n", "<leader>ob", "<Cmd>Obsidian backlinks<CR>", { desc = "[O]bsidian [B]acklinks" })
-			vim.keymap.set("n", "<leader>ow", "<Cmd>Obsidian workspace<CR>", { desc = "[O]bsidian [W]orkspace" })
-			vim.keymap.set("n", "<leader>fo", "<Cmd>Obsidian search<CR>", { desc = "[F]ind [O]bsidian file" })
-			vim.keymap.set("n", "<leader>ft", "<Cmd>Obsidian tags<CR>", { desc = "[F]ind Obsidian [T]ags" })
-			vim.keymap.set("n", "<leader>fl", "<Cmd>Obsidian follow_link<CR>", { desc = "[F]ollow Obsidian [L]ink" })
+			registry.obsidian()
 		end,
 	},
 }

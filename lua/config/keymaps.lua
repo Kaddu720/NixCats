@@ -2,65 +2,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- page Up and Down Navigation
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+local registry = require("config.keymaps_registry")
 
--- -- Center page when searching
-vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
-vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
+registry.core()
 
--- Traverse soft wrapped lines
-vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
-vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
-
--- Turn off Virtual line diagnostics
-vim.keymap.set("n", "cd", function()
-	-- Get the current diagnostic configuration
-	local current_config = vim.diagnostic.config()
-
-	-- Check if virtual_lines is a table and has current_line set to true
-	-- If virtual_lines is not a table (i.e., false or nil), current_line_is_on will be false
-	local current_line_is_on = type(current_config.virtual_lines) == "table"
-		and current_config.virtual_lines.current_line == true
-
-	if current_line_is_on then
-		-- If current_line is ON, turn OFF all virtual lines
-		vim.diagnostic.config({
-			virtual_lines = false, -- Setting to false disables all virtual lines
-		})
-	else
-		-- If current_line is OFF (or virtual_lines is false/nil), turn ON only the current line virtual line
-		vim.diagnostic.config({
-			virtual_lines = {
-				current_line = true,
-			},
-		})
-	end
-end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
-
--- Better indenting
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
-
--- LSP keymaps
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
-
--- Tmux navigation (deferred to avoid startup cost)
-vim.defer_fn(function()
-	local function nav(d)
-		local dirs = { h = "L", j = "D", k = "U", l = "R" }
-		local w = vim.api.nvim_get_current_win()
-		vim.cmd("wincmd " .. d)
-		if w == vim.api.nvim_get_current_win() and vim.env.TMUX then
-			vim.fn.system("tmux select-pane -" .. dirs[d])
-		end
-	end
-	vim.keymap.set("n", "<C-h>", function() nav("h") end)
-	vim.keymap.set("n", "<C-j>", function() nav("j") end)
-	vim.keymap.set("n", "<C-k>", function() nav("k") end)
-	vim.keymap.set("n", "<C-l>", function() nav("l") end)
-end, 0)
+-- LSP keymaps (buffer-local)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		registry.lsp(args.buf)
+	end,
+})

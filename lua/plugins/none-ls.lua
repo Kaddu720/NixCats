@@ -3,7 +3,6 @@ return {
 	event = "LspAttach",
 	after = function()
 		local null_ls = require("null-ls")
-		local registry = require("config.keymaps_registry")
 
 		local function find_vale_root(bufname)
 			if not bufname or bufname == "" then
@@ -53,6 +52,5 @@ return {
 		}
 
 		null_ls.setup({ sources = sources })
-		registry.none_ls()
 	end,
 }

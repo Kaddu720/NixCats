@@ -120,7 +120,6 @@
           otter-nvim
           indent-blankline-nvim
           trouble-nvim
-          which-key-nvim
           pkgs.neovimPlugins.ecolog
           pkgs.neovimPlugins.comfy-line-numbers
         ];

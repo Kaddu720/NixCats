@@ -17,7 +17,7 @@ end
 
 local specs = {
 	-- Core dependency ordering
-	{ "plenary.nvim", dep_of = { "none-ls.nvim" } },
+	{ "plenary.nvim", dep_of = { "obsidian" } },
 	{ "nvim-web-devicons", dep_of = { "fzf-lua" } },
 }
 vim.list_extend(specs, plugin_imports())

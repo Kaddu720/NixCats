@@ -99,7 +99,8 @@
           
           pkgs.neovimPlugins.obsidian
 
-          none-ls-nvim
+          conform-nvim
+          nvim-lint
           plenary-nvim
 
           fzf-lua

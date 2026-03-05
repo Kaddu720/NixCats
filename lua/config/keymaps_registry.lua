@@ -55,10 +55,13 @@ function M.core()
 	keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 	keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 	keymap.set("n", "<leader>cf", function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		local clients = vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/formatting" })
-		if #clients == 0 then
-			vim.notify("No formatter available for current buffer", vim.log.levels.WARN)
+		local ok, conform = pcall(require, "conform")
+		if ok then
+			local success = pcall(conform.format, { async = true, lsp_format = "fallback" })
+			if success then
+				return
+			end
+			pcall(conform.format, { async = true, lsp_fallback = true })
 			return
 		end
 		vim.lsp.buf.format({ async = true })

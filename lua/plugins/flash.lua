@@ -1,14 +1,7 @@
 return {
 	{
 		"flash.nvim",
-		keys = {
-			{ "S", mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
-			{ "f", mode = { "n", "x" } },
-			{ "F", mode = { "n", "x" } },
-			{ "r", mode = "o", desc = "Remote Flash" },
-			{ "R", mode = { "o", "x" }, desc = "Treesitter Search" },
-			{ "<c-s>", mode = { "c" }, desc = "Toggle Flash Search" },
-		},
+		keys = require("config.keymaps_registry").lazy_keys.flash,
 		after = function()
 			local registry = require("config.keymaps_registry")
 			require("flash").setup({

@@ -1,9 +1,6 @@
 return {
 	"trouble.nvim",
-	keys = {
-		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
-		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
-	},
+	keys = require("config.keymaps_registry").lazy_keys.trouble,
 	after = function()
 		local registry = require("config.keymaps_registry")
 		local trouble = require("trouble")

@@ -2,6 +2,37 @@ local keymap = require("utils.keymap")
 
 local M = {}
 
+-- Shared lazy-load key triggers used by plugin specs.
+-- Keep these as a single source of truth for plugin "keys" blocks.
+M.lazy_keys = {
+	flash = {
+		{ "S", mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
+		{ "f", mode = { "n", "x" } },
+		{ "F", mode = { "n", "x" } },
+		{ "r", mode = "o", desc = "Remote Flash" },
+		{ "R", mode = { "o", "x" }, desc = "Treesitter Search" },
+		{ "<c-s>", mode = { "c" }, desc = "Toggle Flash Search" },
+	},
+	fzf_lua = {
+		{ "<leader>fa", mode = "n", desc = "[F]zf [A]ppend" },
+		{ "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },
+		{ "<leader>fs", mode = "n", desc = "[F]zf Symbols list" },
+		{ "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
+		{ "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
+	},
+	trouble = {
+		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
+		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
+	},
+	hlslens = {
+		{ "/", mode = "n", desc = "Search in buffer" },
+		{ "*", mode = "n", desc = "Search word under cursor (forward)" },
+		{ "#", mode = "n", desc = "Search word under cursor (backward)" },
+		{ "g*", mode = "n", desc = "Search partial word (forward)" },
+		{ "g#", mode = "n", desc = "Search partial word (backward)" },
+	},
+}
+
 -- Core (non-plugin) keymaps
 function M.core()
 	keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Page down and center" })
@@ -23,6 +54,15 @@ function M.core()
 
 	keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 	keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+	keymap.set("n", "<leader>cf", function()
+		local bufnr = vim.api.nvim_get_current_buf()
+		local clients = vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/formatting" })
+		if #clients == 0 then
+			vim.notify("No formatter available for current buffer", vim.log.levels.WARN)
+			return
+		end
+		vim.lsp.buf.format({ async = true })
+	end, { desc = "[C]ode [F]ormat" })
 
 	vim.defer_fn(function()
 		local function nav(d)
@@ -46,11 +86,6 @@ function M.lsp(bufnr)
 	keymap.buf(bufnr, "n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 	keymap.buf(bufnr, "n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 	keymap.buf(bufnr, "n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
-end
-
--- Plugin: none-ls (lua/plugins/none-ls.lua)
-function M.none_ls()
-	keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "[F]or[M]at" })
 end
 
 -- Plugin: oil.nvim (lua/plugins/oil.lua)

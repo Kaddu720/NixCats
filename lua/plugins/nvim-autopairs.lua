@@ -1,9 +1,6 @@
 return {
 	"nvim-autopairs",
 	event = "InsertEnter",
-	keys = {
-		{ "<C-s>", mode = "i", desc = "Fast wrap with autopairs" },
-	},
 	after = function()
 		local npairs = require("nvim-autopairs")
 		npairs.setup({

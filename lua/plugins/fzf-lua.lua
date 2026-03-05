@@ -2,12 +2,7 @@ return {
 	{
 		"fzf-lua",
 		dep_of = { "obsidian" },
-		keys = {
-			{ "<leader>fa", mode = "n", desc = "[F]zf [A]ppend" },
-			{ "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },
-			{ "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
-			{ "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
-		},
+		keys = require("config.keymaps_registry").lazy_keys.fzf_lua,
 		after = function()
 			local registry = require("config.keymaps_registry")
 			require("fzf-lua").setup({

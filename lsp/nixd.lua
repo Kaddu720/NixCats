@@ -1,5 +1,5 @@
 return {
-  cmd = { 'nixd' },  -- 'nil' is the Nix language server
+  cmd = { 'nixd' },
   filetypes = { 'nix' },
   root_markers = { 'flake.nix', 'shell.nix', 'default.nix' },
   formatters = {

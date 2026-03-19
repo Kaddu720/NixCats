@@ -1,7 +1,20 @@
+local function yaml_root_dir(bufnr, on_dir)
+	local markers = { ".git" }
+	local name = vim.api.nvim_buf_get_name(bufnr)
+	if name == "" then
+		on_dir(vim.uv.cwd())
+		return
+	end
+
+	local root = vim.fs.root(name, markers)
+	on_dir(root or vim.fs.dirname(name))
+end
+
 return {
 	cmd = { "yaml-language-server", "--stdio" },
 	filetypes = { "yaml", "yml" },
-	root_markers = { ".git" },
+	root_dir = yaml_root_dir,
+	workspace_required = false,
 	formatters = {
 		ignoreComments = false,
 	},
@@ -47,8 +60,6 @@ return {
 				},
 				-- Kustomization
 				["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-				-- ArgoCD
-				["https://raw.githubusercontent.com/argoproj/argo-cd/master/pkg/apis/application/v1alpha1/types.go"] = "**/argocd/**/*.yaml",
 			},
 			validate = true,
 			schemaStore = {

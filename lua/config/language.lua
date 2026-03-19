@@ -16,7 +16,7 @@ local function list_lsp_servers()
 
 	local servers = {}
 	local disabled = {
-		nixd = true, -- enabled separately; must start after nil_ls attaches
+		nil_ls = true, -- retained for rollback, but nixd owns Nix LSP for now
 		pyright = true, -- retained for rollback, but ty owns Python LSP for now
 	}
 	for _, file in ipairs(files) do
@@ -31,20 +31,6 @@ end
 -- Defer LSP enabling to after startup (single consolidated call)
 vim.defer_fn(function()
 	vim.lsp.enable(list_lsp_servers())
-
-	-- Enable nixd after nil_ls attaches (only for nix files)
-	local nixd_enabled = false
-	vim.api.nvim_create_autocmd("LspAttach", {
-		pattern = { "*.nix" },
-		callback = function(args)
-			if nixd_enabled then return end
-			local client = vim.lsp.get_client_by_id(args.data.client_id)
-			if client and client.name == "nil_ls" then
-				nixd_enabled = true
-				vim.lsp.enable({ "nixd" })
-			end
-		end,
-	})
 end, 0)
 
 -- Filetype-specific settings

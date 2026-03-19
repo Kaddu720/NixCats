@@ -1,3 +1,4 @@
+-- Retained for rollback; currently deactivated in lua/config/language.lua.
 return {
   cmd = { 'nil' },
   filetypes = { 'nix' },
@@ -8,7 +9,7 @@ return {
   settings = {
     ['nil'] = {
       formatting = {
-        command = { "nixpkgs-fmt" }
+        command = { "alejandra" }
       },
       diagnostics = {
         -- Exclude specific files or inputs that cause issues

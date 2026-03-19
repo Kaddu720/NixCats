@@ -73,11 +73,12 @@
 
         # Bash
         bash-language-server
+        shellcheck
         shfmt
         dotenv-linter
 
         # Docker
-        dockerfile-language-server-nodejs
+        dockerfile-language-server
 
         # Helm
         helm-ls

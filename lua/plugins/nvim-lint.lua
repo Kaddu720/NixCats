@@ -6,7 +6,6 @@ return {
 
 		lint.linters_by_ft = {
 			lua = { "selene" },
-			python = { "mypy" },
 			nix = { "deadnix" },
 			yaml = { "yamllint" },
 			markdown = { "vale" },

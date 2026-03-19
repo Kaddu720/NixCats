@@ -1,4 +1,5 @@
--- Completions only; type-checking disabled (handled by mypy via none-ls)
+-- Retained for rollback; currently deactivated in lua/config/language.lua.
+-- Historical role: completions only, with type-checking disabled.
 return {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
@@ -17,7 +18,7 @@ return {
 		python = {
 			analysis = {
 				ignore = { "*" }, -- Using Ruff
-				typeCheckingMode = "off", -- Using mypy - completely disable
+				typeCheckingMode = "off", -- Using ty instead
 				autoSearchPaths = false, -- Performance: Disable auto path search
 				diagnosticMode = "openFilesOnly", -- Performance: Only check open files
 			},

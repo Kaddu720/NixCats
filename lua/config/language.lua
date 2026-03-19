@@ -15,9 +15,13 @@ local function list_lsp_servers()
 	table.sort(files)
 
 	local servers = {}
+	local disabled = {
+		nixd = true, -- enabled separately; must start after nil_ls attaches
+		pyright = true, -- retained for rollback, but ty owns Python LSP for now
+	}
 	for _, file in ipairs(files) do
 		local name = vim.fn.fnamemodify(file, ":t:r")
-		if name ~= "nixd" then -- enabled separately; must start after nil_ls attaches
+		if not disabled[name] then
 			table.insert(servers, name)
 		end
 	end

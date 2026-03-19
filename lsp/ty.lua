@@ -1,6 +1,7 @@
 local function python_root_dir(bufnr, on_dir)
 	local markers = {
 		"pyproject.toml",
+		"ty.toml",
 		"ruff.toml",
 		".ruff.toml",
 		"setup.py",
@@ -19,18 +20,17 @@ local function python_root_dir(bufnr, on_dir)
 	on_dir(root or vim.fs.dirname(name))
 end
 
--- Linting/formatting companion for Python; ty owns language intelligence now.
 return {
-	name = "ruff",
-	cmd = { "ruff", "server" },
+	cmd = { "ty", "server" },
 	filetypes = { "python" },
 	root_dir = python_root_dir,
 	workspace_required = false,
-	formatters = {
-		ignoreComments = false,
-	},
 	flags = {
 		debounce_text_changes = 300,
 	},
-	settings = {},
+	settings = {
+		ty = {
+			diagnosticMode = "workspace",
+		},
+	},
 }

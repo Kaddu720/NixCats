@@ -53,7 +53,7 @@
         # Python
         pyright
         ruff
-        mypy
+        ty
 
         #Nix
         nixd

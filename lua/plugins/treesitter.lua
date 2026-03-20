@@ -3,6 +3,19 @@ return {
 		"nvim-treesitter",
 		event = "DeferredUIEnter",
 		after = function()
+			local ok, nixCats = pcall(require, "nixCats")
+			if ok then
+				local grammar_path = nixCats.pawsible
+					and nixCats.pawsible.allPlugins
+					and nixCats.pawsible.allPlugins.ts_grammar_path
+				if grammar_path
+					and vim.fn.isdirectory(grammar_path) == 1
+					and not vim.o.runtimepath:find(grammar_path, 1, true)
+				then
+					vim.opt.runtimepath:append(grammar_path)
+				end
+			end
+
 			-- Enable treesitter highlighting for supported filetypes
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(args)

@@ -107,7 +107,27 @@
           fzf-lua
           nvim-web-devicons
 
-          nvim-treesitter
+          (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
+            bash
+            comment
+            dockerfile
+            helm
+            hcl
+            json
+            latex
+            lua
+            markdown
+            markdown_inline
+            nix
+            nu
+            python
+            query
+            terraform
+            toml
+            vim
+            vimdoc
+            yaml
+          ]))
           nvim-treesitter-textobjects
           nvim-treesitter-context
 

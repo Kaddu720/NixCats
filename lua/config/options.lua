@@ -21,6 +21,7 @@ vim.opt.splitbelow = true
 -- Appearence
 vim.opt.scrolloff = 10 -- minum number of lines abobve/bellow cursor
 vim.opt.conceallevel = 2 -- let obsidan conceal test with ui
+vim.cmd("syntax enable") -- fallback highlighting when a Tree-sitter parser is unavailable
 -- vim.opt.clipboard = "unnamedplus" -- system clipboard integration
 vim.opt.mouse = "a" -- mouse support
 vim.opt.signcolumn = "yes" -- always show sign column
@@ -95,4 +96,3 @@ vim.api.nvim_create_autocmd(
     end,
   }
 )
-

@@ -24,23 +24,66 @@ return {
 		custom_auto.command.a.fg = "#b4637a"
 		custom_auto.command.c.bg = "#191724"
 
-		local function diag_status()
-			if vim.diagnostic.status then
-				return vim.diagnostic.status()
+		local function current_lualine_mode()
+			local mode = vim.api.nvim_get_mode().mode
+			if mode:match("^[vV\22]") then return "visual" end
+			if mode:match("^i") or mode:match("^ic") then return "insert" end
+			if mode:match("^[Rr]") then return "replace" end
+			if mode:match("^[c]") then return "command" end
+			return "normal"
+		end
+
+		local function section_color(section)
+			local function to_hex(color)
+				if type(color) == "number" then
+					return string.format("#%06x", color)
+				end
+				return color
 			end
 
-			local levels = vim.diagnostic.severity
-			local e = #vim.diagnostic.get(0, { severity = levels.ERROR })
-			local w = #vim.diagnostic.get(0, { severity = levels.WARN })
-			local i = #vim.diagnostic.get(0, { severity = levels.INFO })
-			local h = #vim.diagnostic.get(0, { severity = levels.HINT })
+			local group = string.format("lualine_%s_%s", section, current_lualine_mode())
+			local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
+			if ok and hl then
+				return {
+					fg = to_hex(hl.fg),
+					bg = to_hex(hl.bg),
+				}
+			end
+			return { fg = nil, bg = "#191724" }
+		end
 
-			local parts = {}
-			if e > 0 then table.insert(parts, "E:" .. e) end
-			if w > 0 then table.insert(parts, "W:" .. w) end
-			if i > 0 then table.insert(parts, "I:" .. i) end
-			if h > 0 then table.insert(parts, "H:" .. h) end
-			return table.concat(parts, " ")
+		local function diagnostic_count(severity)
+			return #vim.diagnostic.get(0, { severity = severity })
+		end
+
+		local function diagnostic_pair(letter, severity)
+			return {
+				{
+					function() return letter .. ":" end,
+					cond = function() return diagnostic_count(severity) > 0 end,
+					color = function()
+						local c = section_color("c")
+						return { fg = "#b4637a", bg = c.bg }
+					end,
+					padding = { left = 1, right = 0 },
+				},
+				{
+					function() return tostring(diagnostic_count(severity)) end,
+					cond = function() return diagnostic_count(severity) > 0 end,
+					color = function() return section_color("c") end,
+					padding = { left = 0, right = 1 },
+				},
+			}
+		end
+
+		local lualine_x = {}
+		for _, pair in ipairs({
+			diagnostic_pair("E", vim.diagnostic.severity.ERROR),
+			diagnostic_pair("W", vim.diagnostic.severity.WARN),
+			diagnostic_pair("I", vim.diagnostic.severity.INFO),
+			diagnostic_pair("H", vim.diagnostic.severity.HINT),
+		}) do
+			vim.list_extend(lualine_x, pair)
 		end
 
 		local function progress_status()
@@ -49,6 +92,15 @@ return {
 			end
 			return ""
 		end
+
+		vim.list_extend(lualine_x, {
+			{ progress_status, cond = function() return progress_status() ~= "" end },
+			{ "filetype", colored = false },
+			"encoding",
+			"fileformat",
+			"progress",
+			"location",
+		})
 
 		require("lualine").setup({
 			options = {
@@ -74,15 +126,7 @@ return {
 				lualine_a = { "branch" },
 				lualine_b = {},
 				lualine_c = { "%f" },
-				lualine_x = {
-					{ diag_status, cond = function() return diag_status() ~= "" end },
-					{ progress_status, cond = function() return progress_status() ~= "" end },
-					{ "filetype", colored = false },
-					"encoding",
-					"fileformat",
-					"progress",
-					"location",
-				},
+				lualine_x = lualine_x,
 				lualine_y = {},
 				lualine_z = {},
 			},

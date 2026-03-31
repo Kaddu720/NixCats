@@ -38,13 +38,10 @@ vim.diagnostic.config({
 	float = { border = "rounded" },
 })
 
--- Rounded borders for all LSP floating windows (hover, signature help, etc.)
-local orig_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	opts.border = opts.border or "rounded"
-	return orig_open_floating_preview(contents, syntax, opts, ...)
-end
+-- Rounded borders for floating windows (0.12+)
+pcall(function()
+	vim.opt.winborder = "rounded"
+end)
 
 -- Performance options
 vim.opt.hidden = true -- allow switching buffers without saving

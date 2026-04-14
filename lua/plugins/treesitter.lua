@@ -3,6 +3,28 @@ return {
 		"nvim-treesitter",
 		event = "DeferredUIEnter",
 		after = function()
+			local function should_start_treesitter(bufnr)
+				if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
+					return false
+				end
+
+				local name = vim.api.nvim_buf_get_name(bufnr)
+				if name == "" then
+					return true
+				end
+
+				if name:match("/%.terraform/") then
+					return false
+				end
+
+				local ok, stat = pcall(vim.uv.fs_stat, name)
+				if ok and stat and stat.size and stat.size > 200 * 1024 then
+					return false
+				end
+
+				return true
+			end
+
 			local ok, nixCats = pcall(require, "nixCats")
 			if ok then
 				local grammar_path = nixCats.pawsible
@@ -19,7 +41,9 @@ return {
 			-- Enable treesitter highlighting for supported filetypes
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(args)
-					pcall(vim.treesitter.start, args.buf)
+					if should_start_treesitter(args.buf) then
+						pcall(vim.treesitter.start, args.buf)
+					end
 				end,
 			})
 		end,

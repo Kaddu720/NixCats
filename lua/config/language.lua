@@ -28,10 +28,8 @@ local function list_lsp_servers()
 	return servers
 end
 
--- Defer LSP enabling to after startup (single consolidated call)
-vim.defer_fn(function()
-	vim.lsp.enable(list_lsp_servers())
-end, 0)
+-- Enable LSP servers immediately so the initial buffer can attach correctly
+vim.lsp.enable(list_lsp_servers())
 
 -- Filetype-specific settings
 vim.api.nvim_create_autocmd("FileType", {

@@ -54,7 +54,7 @@ function M.core()
 
 	keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 	keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
-	keymap.set("n", "<leader>cf", function()
+	keymap.set({ "n", "v" }, "<leader>cf", function()
 		local ok, conform = pcall(require, "conform")
 		if ok then
 			local success = pcall(conform.format, { async = true, lsp_format = "fallback" })

@@ -1,9 +1,7 @@
 return {
 	"conform.nvim",
 	event = { "BufWritePre" },
-	keys = {
-		{ "<leader>cf", mode = { "n", "v" }, desc = "[C]ode [F]ormat" },
-	},
+	on_require = "conform",
 	cmd = { "ConformInfo" },
 	after = function()
 		require("conform").setup({

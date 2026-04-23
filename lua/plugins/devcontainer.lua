@@ -1,5 +1,6 @@
 return {
-	"nvim-dev-container",
+	"dev-container",
+	on_require = "devcontainer",
 	cmd = {
 		"DevcontainerStart",
 		"DevcontainerAttach",

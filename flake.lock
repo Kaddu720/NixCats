@@ -120,6 +120,22 @@
         "type": "github"
       }
     },
+    "plugins-dev-container": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771004042,
+        "narHash": "sha256-Ah0dd7ZkpY0JfCfMAKqRDdT/oqTq291mCd5lzFRp/PQ=",
+        "owner": "esensar",
+        "repo": "nvim-dev-container",
+        "rev": "87ea57f420b3460d0c45e239057ffc38fa32f886",
+        "type": "github"
+      },
+      "original": {
+        "owner": "esensar",
+        "repo": "nvim-dev-container",
+        "type": "github"
+      }
+    },
     "plugins-ecolog": {
       "flake": false,
       "locked": {
@@ -158,6 +174,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
         "plugins-comfy-line-numbers": "plugins-comfy-line-numbers",
+        "plugins-dev-container": "plugins-dev-container",
         "plugins-ecolog": "plugins-ecolog",
         "plugins-obsidian": "plugins-obsidian"
       }

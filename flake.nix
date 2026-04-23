@@ -20,6 +20,11 @@
       flake = false;
     };
 
+    "plugins-dev-container" = {
+      url = "github:esensar/nvim-dev-container";
+      flake = false;
+    };
+
   };
 
   # see :help nixCats.flake.outputs
@@ -144,6 +149,7 @@
           trouble-nvim
           pkgs.neovimPlugins.ecolog
           pkgs.neovimPlugins.comfy-line-numbers
+          pkgs.neovimPlugins.dev-container
         ];
       };
 

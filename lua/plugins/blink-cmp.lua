@@ -33,8 +33,8 @@ return {
 				sources = {
 					default = { "lsp", "path", "snippets", "buffer", "ecolog" },
 					providers = {
-						ecolog = { 
-							name = "ecolog", 
+						ecolog = {
+							name = "ecolog",
 							module = "ecolog.integrations.cmp.blink_cmp",
 							max_items = 5, -- Performance: Limit ecolog completions
 						},

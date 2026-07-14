@@ -31,6 +31,16 @@ M.lazy_keys = {
 		{ "g*", mode = "n", desc = "Search partial word (forward)" },
 		{ "g#", mode = "n", desc = "Search partial word (backward)" },
 	},
+	obsidian = {
+		{ "<leader>od", mode = "n", desc = "[O]bsidian [D]aily" },
+		{ "<leader>ot", mode = "n", desc = "[O]bsidian [T]emplate" },
+		{ "<leader>on", mode = "n", desc = "[O]bsidian [N]ew Note" },
+		{ "<leader>ob", mode = "n", desc = "[O]bsidian [B]acklinks" },
+		{ "<leader>ow", mode = "n", desc = "[O]bsidian [W]orkspace" },
+		{ "<leader>fo", mode = "n", desc = "[F]ind [O]bsidian file" },
+		{ "<leader>ft", mode = "n", desc = "[F]ind Obsidian [T]ags" },
+		{ "<leader>fl", mode = "n", desc = "[F]ollow Obsidian [L]ink" },
+	},
 }
 
 -- Core (non-plugin) keymaps
@@ -76,10 +86,18 @@ function M.core()
 				vim.fn.system("tmux select-pane -" .. dirs[d])
 			end
 		end
-		keymap.set("n", "<C-h>", function() nav("h") end, { desc = "Move to left split (tmux-aware)" })
-		keymap.set("n", "<C-j>", function() nav("j") end, { desc = "Move to split below (tmux-aware)" })
-		keymap.set("n", "<C-k>", function() nav("k") end, { desc = "Move to split above (tmux-aware)" })
-		keymap.set("n", "<C-l>", function() nav("l") end, { desc = "Move to right split (tmux-aware)" })
+		keymap.set("n", "<C-h>", function()
+			nav("h")
+		end, { desc = "Move to left split (tmux-aware)" })
+		keymap.set("n", "<C-j>", function()
+			nav("j")
+		end, { desc = "Move to split below (tmux-aware)" })
+		keymap.set("n", "<C-k>", function()
+			nav("k")
+		end, { desc = "Move to split above (tmux-aware)" })
+		keymap.set("n", "<C-l>", function()
+			nav("l")
+		end, { desc = "Move to right split (tmux-aware)" })
 	end, 0)
 end
 
@@ -203,12 +221,24 @@ function M.treesitter_textobjects()
 	end
 
 	local move = require("nvim-treesitter-textobjects.move")
-	keymap.set({ "n", "x", "o" }, "]f", function() move.goto_next_start("@function.outer", "textobjects") end, { desc = "Next function start" })
-	keymap.set({ "n", "x", "o" }, "]F", function() move.goto_next_end("@function.outer", "textobjects") end, { desc = "Next function end" })
-	keymap.set({ "n", "x", "o" }, "[f", function() move.goto_previous_start("@function.outer", "textobjects") end, { desc = "Prev function start" })
-	keymap.set({ "n", "x", "o" }, "[F", function() move.goto_previous_end("@function.outer", "textobjects") end, { desc = "Prev function end" })
-	keymap.set({ "n", "x", "o" }, "]C", function() move.goto_next_start("@class.outer", "textobjects") end, { desc = "Next class start" })
-	keymap.set({ "n", "x", "o" }, "[C", function() move.goto_previous_start("@class.outer", "textobjects") end, { desc = "Prev class start" })
+	keymap.set({ "n", "x", "o" }, "]f", function()
+		move.goto_next_start("@function.outer", "textobjects")
+	end, { desc = "Next function start" })
+	keymap.set({ "n", "x", "o" }, "]F", function()
+		move.goto_next_end("@function.outer", "textobjects")
+	end, { desc = "Next function end" })
+	keymap.set({ "n", "x", "o" }, "[f", function()
+		move.goto_previous_start("@function.outer", "textobjects")
+	end, { desc = "Prev function start" })
+	keymap.set({ "n", "x", "o" }, "[F", function()
+		move.goto_previous_end("@function.outer", "textobjects")
+	end, { desc = "Prev function end" })
+	keymap.set({ "n", "x", "o" }, "]C", function()
+		move.goto_next_start("@class.outer", "textobjects")
+	end, { desc = "Next class start" })
+	keymap.set({ "n", "x", "o" }, "[C", function()
+		move.goto_previous_start("@class.outer", "textobjects")
+	end, { desc = "Prev class start" })
 end
 
 return M

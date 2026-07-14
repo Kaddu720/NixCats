@@ -1,26 +1,16 @@
--- Retained for rollback; currently deactivated in lua/config/language.lua.
--- Historical role: completions only, with type-checking disabled.
 return {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-	single_file_support = true, -- Allow Pyright to work on standalone .py files
-	formatters = {
-		ignoreComments = false,
-	},
-	flags = {
-		debounce_text_changes = 300, -- Performance: Less frequent updates
-	},
+	single_file_support = true,
 	settings = {
-		pyright = {
-			disableOrganizeImports = true, -- Using Ruff
-		},
+		pyright = { disableOrganizeImports = true },
 		python = {
 			analysis = {
-				ignore = { "*" }, -- Using Ruff
-				typeCheckingMode = "off", -- Using ty instead
-				autoSearchPaths = false, -- Performance: Disable auto path search
-				diagnosticMode = "openFilesOnly", -- Performance: Only check open files
+				ignore = { "*" },
+				typeCheckingMode = "off",
+				autoSearchPaths = false,
+				diagnosticMode = "openFilesOnly",
 			},
 		},
 	},

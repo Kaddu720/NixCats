@@ -1,60 +1,39 @@
 return {
-	"nvim-lint",
-	event = { "BufReadPre", "BufNewFile" },
-	after = function()
-		local lint = require("lint")
+  "nvim-lint",
+  event = "BufReadPost",
+  after = function()
+    local lint = require("lint")
+    lint.linters_by_ft = {
+      lua = { "selene" },
+      nix = { "deadnix" },
+      yaml = { "yamllint" },
+      markdown = { "vale" },
+      sh = { "shellcheck" },
+      bash = { "shellcheck" },
+      dotenv = { "dotenv_linter" },
+    }
 
-		lint.linters_by_ft = {
-			lua = { "selene" },
-			nix = { "deadnix" },
-			yaml = { "yamllint" },
-			markdown = { "vale" },
-			sh = { "dotenv_linter" },
-			bash = { "dotenv_linter" },
-		}
+    local function lint_buffer(bufnr)
+      if vim.bo[bufnr].buftype ~= "" then return end
+      local name = vim.api.nvim_buf_get_name(bufnr)
+      local opts
+      if vim.bo[bufnr].filetype == "markdown" then
+        local config = name ~= "" and vim.fs.find(".vale.ini", { path = vim.fs.dirname(name), upward = true })[1]
+        if not config then return end
+        opts = { cwd = vim.fs.dirname(config) }
+      end
+      vim.api.nvim_buf_call(bufnr, function() lint.try_lint(nil, opts) end)
+    end
 
-		local function find_vale_root(bufname)
-			if not bufname or bufname == "" then
-				return nil
-			end
-			local dir = vim.fn.fnamemodify(bufname, ":p:h")
-			local found = vim.fs.find(".vale.ini", { path = dir, upward = true })[1]
-			if not found then
-				return nil
-			end
-			return vim.fn.fnamemodify(found, ":h")
-		end
-
-		local function try_lint_buf(bufnr)
-			if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) or not vim.api.nvim_buf_is_loaded(bufnr) then
-				return
-			end
-			if vim.bo[bufnr].buftype ~= "" then
-				return
-			end
-
-			local ft = vim.bo[bufnr].filetype
-			if ft == "markdown" and not find_vale_root(vim.api.nvim_buf_get_name(bufnr)) then
-				return
-			end
-
-			vim.api.nvim_buf_call(bufnr, function()
-				lint.try_lint()
-			end)
-		end
-
-		local group = vim.api.nvim_create_augroup("NvimLint", { clear = true })
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "FileType", "InsertLeave", "BufWritePost" }, {
-			group = group,
-			callback = function(args)
-				try_lint_buf(args.buf)
-			end,
-		})
-
-		vim.defer_fn(function()
-			for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-				try_lint_buf(bufnr)
-			end
-		end, 120)
-	end,
+    local group = vim.api.nvim_create_augroup("NvimLint", { clear = true })
+    vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
+      group = group,
+      callback = function(args) lint_buffer(args.buf) end,
+    })
+    vim.schedule(function()
+      for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(bufnr) then lint_buffer(bufnr) end
+      end
+    end)
+  end,
 }

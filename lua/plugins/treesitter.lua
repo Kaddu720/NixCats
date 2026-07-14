@@ -30,7 +30,8 @@ return {
 				local grammar_path = nixCats.pawsible
 					and nixCats.pawsible.allPlugins
 					and nixCats.pawsible.allPlugins.ts_grammar_path
-				if grammar_path
+				if
+					grammar_path
 					and vim.fn.isdirectory(grammar_path) == 1
 					and not vim.o.runtimepath:find(grammar_path, 1, true)
 				then

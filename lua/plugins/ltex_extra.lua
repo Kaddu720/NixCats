@@ -1,3 +1,7 @@
+if not require("nixCats")("writing") then
+	return {}
+end
+
 return {
 	{
 		"ltex_extra.nvim",

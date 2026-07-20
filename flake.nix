@@ -46,6 +46,7 @@
         categories = {
           core = true;
           devops = true;
+          writing = true;
         };
       };
       nvim-full = {pkgs, ...}: {

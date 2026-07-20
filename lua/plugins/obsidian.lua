@@ -1,6 +1,11 @@
+if not require("nixCats")("writing") then
+	return {}
+end
+
 return {
 	{
 		"obsidian",
+		ft = { "markdown" },
 		cmd = { "Obsidian" },
 		keys = require("config.keymaps_registry").lazy_keys.obsidian,
 		after = function()

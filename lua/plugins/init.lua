@@ -19,6 +19,13 @@ local specs = {
 	-- Core dependency ordering
 	{ "plenary.nvim", dep_of = { "obsidian" } },
 	{ "nvim-web-devicons", dep_of = { "fzf-lua" } },
+	{ "vim-tmux-navigator", dep_of = { "herdr-nvim-nav" } },
+	{
+		"herdr-nvim-nav",
+		after = function()
+			require("herdr-nvim-nav").setup()
+		end,
+	},
 }
 vim.list_extend(specs, plugin_imports())
 

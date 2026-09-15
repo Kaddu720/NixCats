@@ -14,6 +14,10 @@
       url = "github:mluders/comfy-line-numbers.nvim";
       flake = false;
     };
+    plugins-herdr-nvim-nav = {
+      url = "github:aimdevlee/herdr-nvim-nav/ec047fd6d8d0269d54a34e9405af28d8aad4c8f0";
+      flake = false;
+    };
   };
   outputs = {
     nixpkgs,
@@ -31,7 +35,7 @@
       };
       startupPlugins.core = with pkgs.vimPlugins; [lze];
       optionalPlugins = {
-        core = with pkgs.vimPlugins; [blink-cmp friendly-snippets conform-nvim nvim-lint plenary-nvim fzf-lua nvim-web-devicons (nvim-treesitter.withPlugins (plugins: with plugins; [bash comment dockerfile hcl json lua markdown markdown_inline nix nu python query terraform toml vim vimdoc yaml])) nvim-treesitter-textobjects nvim-treesitter-context oil-nvim flash-nvim gitsigns-nvim lualine-nvim nvim-autopairs nvim-hlslens otter-nvim indent-blankline-nvim trouble-nvim pkgs.neovimPlugins.ecolog pkgs.neovimPlugins.comfy-line-numbers];
+        core = with pkgs.vimPlugins; [blink-cmp friendly-snippets conform-nvim nvim-lint plenary-nvim fzf-lua nvim-web-devicons (nvim-treesitter.withPlugins (plugins: with plugins; [bash comment dockerfile hcl json lua markdown markdown_inline nix nu python query terraform toml vim vimdoc yaml])) nvim-treesitter-textobjects nvim-treesitter-context oil-nvim flash-nvim gitsigns-nvim lualine-nvim nvim-autopairs nvim-hlslens otter-nvim indent-blankline-nvim trouble-nvim vim-tmux-navigator pkgs.neovimPlugins.ecolog pkgs.neovimPlugins.comfy-line-numbers pkgs.neovimPlugins.herdr-nvim-nav];
         devops = with pkgs.vimPlugins; [];
         writing = with pkgs.vimPlugins; [pkgs.neovimPlugins.obsidian ltex_extra-nvim];
       };

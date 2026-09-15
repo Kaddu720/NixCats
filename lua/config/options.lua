@@ -34,6 +34,8 @@ vim.opt.ttimeoutlen = 10
 vim.opt.undolevels = 1000
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+-- herdr-nvim-nav owns Ctrl-h/j/k/l and delegates tmux edges to these commands.
+vim.g.tmux_navigator_no_mappings = 1
 
 vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {

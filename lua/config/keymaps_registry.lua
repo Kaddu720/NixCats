@@ -77,28 +77,6 @@ function M.core()
 		vim.lsp.buf.format({ async = true })
 	end, { desc = "[C]ode [F]ormat" })
 
-	vim.defer_fn(function()
-		local function nav(d)
-			local dirs = { h = "L", j = "D", k = "U", l = "R" }
-			local w = vim.api.nvim_get_current_win()
-			vim.cmd("wincmd " .. d)
-			if w == vim.api.nvim_get_current_win() and vim.env.TMUX then
-				vim.fn.system("tmux select-pane -" .. dirs[d])
-			end
-		end
-		keymap.set("n", "<C-h>", function()
-			nav("h")
-		end, { desc = "Move to left split (tmux-aware)" })
-		keymap.set("n", "<C-j>", function()
-			nav("j")
-		end, { desc = "Move to split below (tmux-aware)" })
-		keymap.set("n", "<C-k>", function()
-			nav("k")
-		end, { desc = "Move to split above (tmux-aware)" })
-		keymap.set("n", "<C-l>", function()
-			nav("l")
-		end, { desc = "Move to right split (tmux-aware)" })
-	end, 0)
 end
 
 -- LSP keymaps (buffer-local)

@@ -36,6 +36,10 @@ return {
 			group = group,
 			pattern = { "markdown", "nix" },
 			callback = function(args)
+				if vim.b[args.buf].otter_auto_activation_pending then
+					return
+				end
+				vim.b[args.buf].otter_auto_activation_pending = true
 				vim.schedule(function()
 					if not vim.api.nvim_buf_is_valid(args.buf) then
 						return
@@ -47,6 +51,7 @@ return {
 					vim.api.nvim_buf_call(args.buf, function()
 						otter.activate(languages, true, true)
 					end)
+					vim.b[args.buf].otter_auto_activation_pending = nil
 				end)
 			end,
 		})

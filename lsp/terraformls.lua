@@ -16,10 +16,7 @@ end
 
 return {
 	cmd = { "terraform-ls", "serve" },
-	filetypes = { "terraform", "tf", "terraform-vars" },
+	filetypes = { "terraform", "terraform-vars" },
 	root_dir = terraform_root_dir,
-	formatters = {
-		ignoreComments = false,
-	},
 	settings = {},
 }

@@ -7,8 +7,10 @@ local M = {}
 M.lazy_keys = {
 	flash = {
 		{ "S", mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
-		{ "f", mode = { "n", "x" } },
-		{ "F", mode = { "n", "x" } },
+		{ "f", mode = { "n", "x", "o" } },
+		{ "F", mode = { "n", "x", "o" } },
+		{ "t", mode = { "n", "x", "o" } },
+		{ "T", mode = { "n", "x", "o" } },
 		{ "r", mode = "o", desc = "Remote Flash" },
 		{ "R", mode = { "o", "x" }, desc = "Treesitter Search" },
 		{ "<c-s>", mode = { "c" }, desc = "Toggle Flash Search" },
@@ -26,12 +28,16 @@ M.lazy_keys = {
 	},
 	hlslens = {
 		{ "/", mode = "n", desc = "Search in buffer" },
+		{ "?", mode = "n", desc = "Search in buffer (backward)" },
+		{ "n", mode = "n", desc = "Next search result (center + lens)" },
+		{ "N", mode = "n", desc = "Prev search result (center + lens)" },
 		{ "*", mode = "n", desc = "Search word under cursor (forward)" },
 		{ "#", mode = "n", desc = "Search word under cursor (backward)" },
 		{ "g*", mode = "n", desc = "Search partial word (forward)" },
 		{ "g#", mode = "n", desc = "Search partial word (backward)" },
 	},
 	obsidian = {
+		{ "<leader>os", mode = "n", desc = "[O]bsidian [S]ync" },
 		{ "<leader>od", mode = "n", desc = "[O]bsidian [D]aily" },
 		{ "<leader>ot", mode = "n", desc = "[O]bsidian [T]emplate" },
 		{ "<leader>on", mode = "n", desc = "[O]bsidian [N]ew Note" },
@@ -67,11 +73,7 @@ function M.core()
 	keymap.set({ "n", "v" }, "<leader>cf", function()
 		local ok, conform = pcall(require, "conform")
 		if ok then
-			local success = pcall(conform.format, { async = true, lsp_format = "fallback" })
-			if success then
-				return
-			end
-			pcall(conform.format, { async = true, lsp_fallback = true })
+			conform.format({ async = true, lsp_format = "fallback" })
 			return
 		end
 		vim.lsp.buf.format({ async = true })
@@ -142,8 +144,21 @@ end
 -- Plugin: gitsigns.nvim (lua/plugins/gitsigns.lua)
 function M.gitsigns(bufnr, gs)
 	gs = gs or package.loaded.gitsigns
-	keymap.buf(bufnr, "n", "]c", gs.next_hunk, { desc = "Next hunk" })
-	keymap.buf(bufnr, "n", "[c", gs.prev_hunk, { desc = "Prev hunk" })
+	-- Keep native ]c/[c in diff mode
+	keymap.buf(bufnr, "n", "]c", function()
+		if vim.wo.diff then
+			vim.cmd.normal({ "]c", bang = true })
+		else
+			gs.nav_hunk("next")
+		end
+	end, { desc = "Next hunk" })
+	keymap.buf(bufnr, "n", "[c", function()
+		if vim.wo.diff then
+			vim.cmd.normal({ "[c", bang = true })
+		else
+			gs.nav_hunk("prev")
+		end
+	end, { desc = "Prev hunk" })
 	keymap.buf(bufnr, "n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
 	keymap.buf(bufnr, "n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })
 	keymap.buf(bufnr, "n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk" })

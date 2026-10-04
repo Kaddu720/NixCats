@@ -2,9 +2,6 @@ return {
 	cmd = { "nixd" },
 	filetypes = { "nix" },
 	root_markers = { "flake.nix", "shell.nix", "default.nix" },
-	formatters = {
-		ignoreComments = false,
-	},
 	settings = {
 		["nixd"] = {
 			formatting = {

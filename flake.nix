@@ -30,7 +30,7 @@
     categoryDefinitions = {pkgs, ...}: {
       lspsAndRuntimeDeps = {
         core = with pkgs; [bat fd ripgrep];
-        devops = with pkgs; [lua-language-server stylua selene pyright ruff ty nil nixd alejandra deadnix terraform-ls yaml-language-server yamllint bash-language-server shellcheck shfmt dotenv-linter dockerfile-language-server helm-ls];
+        devops = with pkgs; [lua-language-server stylua selene ruff ty nil nixd alejandra deadnix terraform-ls yaml-language-server yamllint bash-language-server shellcheck shfmt dotenv-linter dockerfile-language-server helm-ls];
         writing = with pkgs; [ltex-ls-plus vale];
       };
       startupPlugins.core = with pkgs.vimPlugins; [lze];

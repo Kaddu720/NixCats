@@ -26,9 +26,6 @@ return {
 	filetypes = { "python" },
 	root_dir = python_root_dir,
 	workspace_required = false,
-	formatters = {
-		ignoreComments = false,
-	},
 	flags = {
 		debounce_text_changes = 300,
 	},

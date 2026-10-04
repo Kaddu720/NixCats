@@ -39,14 +39,24 @@ return {
 				end
 			end
 
+			local function start(bufnr)
+				if vim.bo[bufnr].filetype ~= "" and should_start_treesitter(bufnr) then
+					pcall(vim.treesitter.start, bufnr)
+				end
+			end
+
 			-- Enable treesitter highlighting for supported filetypes
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(args)
-					if should_start_treesitter(args.buf) then
-						pcall(vim.treesitter.start, args.buf)
-					end
+					start(args.buf)
 				end,
 			})
+			-- Buffers opened before this plugin loaded already fired FileType
+			for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+				if vim.api.nvim_buf_is_loaded(bufnr) then
+					start(bufnr)
+				end
+			end
 		end,
 	},
 	{

@@ -10,7 +10,7 @@ return {
       markdown = { "vale" },
       sh = { "shellcheck" },
       bash = { "shellcheck" },
-      dotenv = { "dotenv_linter" },
+      env = { "dotenv_linter" },
     }
 
     local function lint_buffer(bufnr)

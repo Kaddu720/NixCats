@@ -12,12 +12,9 @@ end
 
 return {
 	cmd = { "yaml-language-server", "--stdio" },
-	filetypes = { "yaml", "yml" },
+	filetypes = { "yaml" },
 	root_dir = yaml_root_dir,
 	workspace_required = false,
-	formatters = {
-		ignoreComments = false,
-	},
 	flags = {
 		debounce_text_changes = 300,
 	},

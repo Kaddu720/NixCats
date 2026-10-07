@@ -38,14 +38,24 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.tmux_navigator_no_mappings = 1
 
 vim.opt.autoread = true
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-	pattern = "*",
-	callback = function()
-		if vim.fn.mode() ~= "c" then
-			vim.cmd("checktime")
+local function check_external_changes()
+	local mode = vim.api.nvim_get_mode()
+	if mode.mode == "n" and not mode.blocking and vim.fn.getcmdwintype() == "" then
+		local checked = {}
+		for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+			local buf = vim.api.nvim_win_get_buf(win)
+			if not checked[buf] then
+				checked[buf] = true
+				vim.cmd("checktime " .. buf)
+			end
 		end
-	end,
+	end
+end
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+	callback = check_external_changes,
 })
+-- Focus events alone miss agent edits while we stay in the same buffer.
+vim.fn.timer_start(1000, check_external_changes, { ["repeat"] = -1 })
 vim.api.nvim_create_autocmd("FileChangedShellPost", {
 	pattern = "*",
 	callback = function()

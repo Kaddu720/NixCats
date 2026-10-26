@@ -1,6 +1,6 @@
 return {
 	"gitsigns.nvim",
-	event = "BufReadPost",
+	event = { "BufReadPost", "BufNewFile" },
 	after = function()
 		local registry = require("config.keymaps_registry")
 		require("gitsigns").setup({
@@ -18,5 +18,7 @@ return {
 				registry.gitsigns(bufnr, package.loaded.gitsigns)
 			end,
 		})
+		-- The buffer that triggered the load has already fired BufReadPost; attach it explicitly.
+		require("gitsigns").attach()
 	end,
 }

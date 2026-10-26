@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792116957,
-        "narHash": "sha256-EjZqHKObBfIOeHZnMRVV87HB3pPq/WBkmRJWyFxmZu8=",
+        "lastModified": 1792842277,
+        "narHash": "sha256-pGPnZGi8y9d76xNeracniXO3dsYVROEmMkMc8jD0Ihc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f20cd90e28fe0403873f473b29e42662cd86e8c4",
+        "rev": "d3b13ad75cc492690728f9307e443dec9ef9a20e",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
     "plugins-obsidian": {
       "flake": false,
       "locked": {
-        "lastModified": 1792340024,
-        "narHash": "sha256-665IBrPAOLgdSPL4xVKT74/1h7C1M5YykKJ+MDepeI0=",
+        "lastModified": 1793001218,
+        "narHash": "sha256-ZtVT3eAoEOY7T6X0wkp8XFdN7krYytUp908CLj8MWuY=",
         "owner": "obsidian-nvim",
         "repo": "obsidian.nvim",
-        "rev": "4eec5b1319e15154002931ce4eaf4d8e2952c519",
+        "rev": "0986cf17be09cb94905ed82eb8477474155ed933",
         "type": "github"
       },
       "original": {

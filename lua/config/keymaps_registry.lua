@@ -81,12 +81,10 @@ function M.core()
 
 end
 
--- LSP keymaps (buffer-local)
+-- LSP keymaps (buffer-local). Built-ins cover the rest: grr references,
+-- grn rename, gra code action, gri implementation, grt type definition, K hover.
 function M.lsp(bufnr)
 	keymap.buf(bufnr, "n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-	keymap.buf(bufnr, "n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
-	keymap.buf(bufnr, "n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-	keymap.buf(bufnr, "n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 end
 
 -- Plugin: oil.nvim (lua/plugins/oil.lua)

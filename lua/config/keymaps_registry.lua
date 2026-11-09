@@ -6,13 +6,11 @@ local M = {}
 -- Keep these as a single source of truth for plugin "keys" blocks.
 M.lazy_keys = {
 	flash = {
-		{ "S", mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
 		{ "f", mode = { "n", "x", "o" } },
 		{ "F", mode = { "n", "x", "o" } },
 		{ "t", mode = { "n", "x", "o" } },
 		{ "T", mode = { "n", "x", "o" } },
 		{ "r", mode = "o", desc = "Remote Flash" },
-		{ "R", mode = { "o", "x" }, desc = "Treesitter Search" },
 		{ "<c-s>", mode = { "c" }, desc = "Toggle Flash Search" },
 	},
 	fzf_lua = {
@@ -121,18 +119,11 @@ function M.hlslens()
 end
 
 -- Plugin: flash.nvim (lua/plugins/flash.lua)
+-- Treesitter selection is built in: visual an/in grow/shrink, ]n/[n move, ]N/[N add siblings.
 function M.flash()
-	keymap.set({ "n", "x", "o" }, "S", function()
-		require("flash").treesitter()
-	end, { desc = "Flash Treesitter" })
-
 	keymap.set({ "o" }, "r", function()
 		require("flash").remote()
 	end, { desc = "Remote Flash" })
-
-	keymap.set({ "o", "x" }, "R", function()
-		require("flash").treesitter_search()
-	end, { desc = "Treesitter Search" })
 
 	keymap.set({ "c" }, "<c-s>", function()
 		require("flash").toggle()

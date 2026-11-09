@@ -31,13 +31,13 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
 
 ## 2. Helm support
 
-- [ ] Add `helm` (and optionally `regex`) to the `nvim-treesitter.withPlugins` list in
-      `flake.nix`. Helm buffers currently get no highlighting at all; the existing
-      FileType autocmd in `lua/plugins/treesitter.lua` will start the parser once installed
-- [ ] Replace `helm_root_dir` in `lsp/helm_ls.lua` with
-      `root_markers = { { "Chart.yaml", "Chart.yml" }, { "helmfile.yaml", "helmfile.yml" }, ".git" }`
-- [ ] Same `root_markers` simplification for `yaml_root_dir` in `lsp/yamlls.lua`
-- [ ] Decide whether per-server `flags.debounce_text_changes = 300` should stay
+- [x] Added `helm` and `regex` to the `nvim-treesitter.withPlugins` list in
+      `flake.nix`. Helm buffers previously had no highlighting at all; the existing
+      FileType autocmd in `lua/plugins/treesitter.lua` now starts the parser
+- [x] Replaced `helm_root_dir` in `lsp/helm_ls.lua` with a single equal-priority group (keeps nearest-marker behaviour):
+      `root_markers = { { "Chart.yaml", "Chart.yml", "helmfile.yaml", "helmfile.yml", ".git" } }`
+- [x] Same `root_markers` simplification for `yaml_root_dir` in `lsp/yamlls.lua`
+- [-] Kept per-server `flags.debounce_text_changes = 300`
       (it overrides the global 500 set in `lua/config/language.lua`)
 - Keep: `ftdetect/helm.lua` (pattern detection avoids attaching yamlls) and
   `after/ftplugin/helm.lua` (no `commentstring` from Neovim or the grammar)

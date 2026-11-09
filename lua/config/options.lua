@@ -16,7 +16,6 @@ vim.opt.cursorline = true
 vim.diagnostic.config({ virtual_lines = false, update_in_insert = false })
 vim.opt.winborder = "rounded"
 
-vim.opt.history = 100
 vim.opt.synmaxcol = 120
 vim.opt.redrawtime = 1500
 vim.opt.swapfile = false -- Intentional: this configuration does not use swap files.
@@ -24,6 +23,10 @@ vim.opt.updatetime = 500
 vim.opt.timeoutlen = 300
 vim.opt.ttimeoutlen = 10
 vim.g.loaded_netrw = 1
+vim.cmd.packadd("nvim.undotree") -- :Undotree
+vim.cmd.packadd("nvim.difftool") -- :DiffTool
+-- Experimental: avoids "Press ENTER" prompts (e.g. file-reload message).
+require("vim._core.ui2").enable({})
 vim.g.loaded_netrwPlugin = 1
 -- herdr-nvim-nav owns Ctrl-h/j/k/l and delegates tmux edges to these commands.
 vim.g.tmux_navigator_no_mappings = 1

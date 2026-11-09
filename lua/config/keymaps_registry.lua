@@ -76,7 +76,6 @@ function M.core()
 		end
 		vim.lsp.buf.format({ async = true })
 	end, { desc = "[C]ode [F]ormat" })
-
 end
 
 -- LSP keymaps (buffer-local). Built-ins cover the rest: grr references,

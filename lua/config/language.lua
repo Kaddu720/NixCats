@@ -12,6 +12,9 @@ local function list_lsp_servers()
 	return servers
 end
 vim.lsp.enable(list_lsp_servers())
+vim.lsp.document_color.enable()
+vim.lsp.linked_editing_range.enable()
+vim.lsp.codelens.enable() -- run with grx
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
 	callback = function()

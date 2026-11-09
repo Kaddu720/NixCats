@@ -14,7 +14,7 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
 - [-] Keep `mouse = "a"`: the default is `nvi`, so it is not redundant
 - [x] Set `winborder` directly instead of wrapping it in `pcall`
 - [x] Drop `float = { border = "rounded" }` from `vim.diagnostic.config` (covered by `winborder`)
-- [ ] Decide on `history = 100` (default is 10000) — keep only if intentional
+- [x] Removed `history = 100` (default 10000)
 - [-] Keep `termguicolors`: auto-detection can fail inside tmux/herdr, which would break the hex palette
 
 ### LSP keymaps — `lua/config/keymaps_registry.lua` (`M.lsp`)
@@ -60,10 +60,10 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
 
 ## 4. New 0.12 features to try
 
-- [ ] `:Undotree` (`packadd nvim.undotree`) and `:DiffTool`
-- [ ] ui2 (`require('vim._core.ui2').enable()`, experimental) — avoids "Press ENTER"
+- [x] `:Undotree` (`packadd nvim.undotree`) and `:DiffTool`
+- [x] ui2 (`require('vim._core.ui2').enable()`, experimental) — avoids "Press ENTER"
       prompts from the file-reload message
-- [ ] `vim.lsp.document_color.enable()`, `vim.lsp.linked_editing_range.enable()`,
+- [x] `vim.lsp.document_color.enable()`, `vim.lsp.linked_editing_range.enable()`,
       code lenses (`grx`)
 
 ## 5. Neovim 0.13 (unreleased — revisit when it ships)
@@ -92,7 +92,7 @@ Watch for on 0.13:
       config whose gitsigns and nvim-lint never load for the first file opened (only the second)
 - [ ] Renew the FlakeHub token (`determinate-nixd login`): the `nixpkgs` registry entry points at
       FlakeHub, so `nix shell nixpkgs#…` fails. Workaround: `nix shell --inputs-from . nixpkgs#…`
-- [ ] Remove the stray blank line before `end` in `M.core()` (`lua/config/keymaps_registry.lua`)
+- [x] Remove the stray blank line before `end` in `M.core()` (`lua/config/keymaps_registry.lua`)
       flagged by `stylua --check` (pre-existing)
 
 Startup benchmark (2026-11-08, TUI, 25 runs, process start → deferred plugins loaded):

@@ -49,7 +49,7 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
       `b:gitsigns_head`. Also removes the progress component in `lua/plugins/statusline.lua`
 - [x] **flash.nvim `S` / `R`** → built-in visual `an` / `in` / `]n` / `[n` / `]N` / `[N`
       treesitter selection (keep flash for `f`/`t`/remote `r`)
-- [ ] **nvim-hlslens** → native search count + plain `nzzzv` / `Nzzzv` mappings
+- [x] **nvim-hlslens** → native search count + plain `nzzzv` / `Nzzzv` mappings in `M.core()`
 - [ ] **trouble.nvim** → `vim.diagnostic.setloclist()` / `setqflist()` (now accept `format`)
 - [-] **blink.cmp** → native `'autocomplete'` / `vim.lsp.completion`: not worth it, would lose
       friendly-snippets, buffer source and ecolog

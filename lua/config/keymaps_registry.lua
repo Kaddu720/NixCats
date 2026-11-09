@@ -24,16 +24,6 @@ M.lazy_keys = {
 		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
 		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
 	},
-	hlslens = {
-		{ "/", mode = "n", desc = "Search in buffer" },
-		{ "?", mode = "n", desc = "Search in buffer (backward)" },
-		{ "n", mode = "n", desc = "Next search result (center + lens)" },
-		{ "N", mode = "n", desc = "Prev search result (center + lens)" },
-		{ "*", mode = "n", desc = "Search word under cursor (forward)" },
-		{ "#", mode = "n", desc = "Search word under cursor (backward)" },
-		{ "g*", mode = "n", desc = "Search partial word (forward)" },
-		{ "g#", mode = "n", desc = "Search partial word (backward)" },
-	},
 	obsidian = {
 		{ "<leader>os", mode = "n", desc = "[O]bsidian [S]ync" },
 		{ "<leader>od", mode = "n", desc = "[O]bsidian [D]aily" },
@@ -53,6 +43,9 @@ function M.core()
 	keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Page up and center" })
 	keymap.set("n", "j", "gj", { desc = "Down (wrap aware)" })
 	keymap.set("n", "k", "gk", { desc = "Up (wrap aware)" })
+	-- Not silent, so the built-in "[n/m]" search count still shows.
+	keymap.set("n", "n", "nzzzv", { desc = "Next search result (center)", silent = false })
+	keymap.set("n", "N", "Nzzzv", { desc = "Prev search result (center)", silent = false })
 
 	keymap.set("n", "cd", function()
 		local current_config = vim.diagnostic.config()
@@ -88,34 +81,6 @@ end
 -- Plugin: oil.nvim (lua/plugins/oil.lua)
 function M.oil()
 	keymap.set("n", "-", "<Cmd>Oil --float<CR>", { desc = "Open Oil (float)" })
-end
-
--- Plugin: nvim-hlslens (lua/plugins/nvim-hlslens.lua)
-function M.hlslens()
-	keymap.set(
-		"n",
-		"n",
-		[[<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		{ desc = "Next search result (center + lens)" }
-	)
-	keymap.set(
-		"n",
-		"N",
-		[[<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		{ desc = "Prev search result (center + lens)" }
-	)
-	keymap.set("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], {
-		desc = "Search word under cursor (forward)",
-	})
-	keymap.set("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], {
-		desc = "Search word under cursor (backward)",
-	})
-	keymap.set("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], {
-		desc = "Search partial word (forward)",
-	})
-	keymap.set("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], {
-		desc = "Search partial word (backward)",
-	})
 end
 
 -- Plugin: flash.nvim (lua/plugins/flash.lua)

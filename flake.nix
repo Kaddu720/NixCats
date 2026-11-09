@@ -35,7 +35,7 @@
       };
       startupPlugins.core = with pkgs.vimPlugins; [lze];
       optionalPlugins = {
-        core = with pkgs.vimPlugins; [blink-cmp friendly-snippets conform-nvim nvim-lint plenary-nvim fzf-lua nvim-web-devicons (nvim-treesitter.withPlugins (plugins: with plugins; [bash comment dockerfile hcl helm json lua markdown markdown_inline nix nu python query regex terraform toml vim vimdoc yaml])) nvim-treesitter-textobjects nvim-treesitter-context oil-nvim flash-nvim gitsigns-nvim nvim-autopairs nvim-hlslens otter-nvim indent-blankline-nvim trouble-nvim vim-tmux-navigator pkgs.neovimPlugins.ecolog pkgs.neovimPlugins.comfy-line-numbers pkgs.neovimPlugins.herdr-nvim-nav];
+        core = with pkgs.vimPlugins; [blink-cmp friendly-snippets conform-nvim nvim-lint plenary-nvim fzf-lua nvim-web-devicons (nvim-treesitter.withPlugins (plugins: with plugins; [bash comment dockerfile hcl helm json lua markdown markdown_inline nix nu python query regex terraform toml vim vimdoc yaml])) nvim-treesitter-textobjects nvim-treesitter-context oil-nvim flash-nvim gitsigns-nvim nvim-autopairs otter-nvim indent-blankline-nvim trouble-nvim vim-tmux-navigator pkgs.neovimPlugins.ecolog pkgs.neovimPlugins.comfy-line-numbers pkgs.neovimPlugins.herdr-nvim-nav];
         devops = with pkgs.vimPlugins; [];
         writing = with pkgs.vimPlugins; [pkgs.neovimPlugins.obsidian ltex_extra-nvim];
       };

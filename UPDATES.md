@@ -50,7 +50,7 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
 - [x] **flash.nvim `S` / `R`** → built-in visual `an` / `in` / `]n` / `[n` / `]N` / `[N`
       treesitter selection (keep flash for `f`/`t`/remote `r`)
 - [x] **nvim-hlslens** → native search count + plain `nzzzv` / `Nzzzv` mappings in `M.core()`
-- [ ] **trouble.nvim** → `vim.diagnostic.setloclist()` / `setqflist()` (now accept `format`)
+- [x] **trouble.nvim** → `<leader>tt` toggles buffer diagnostics in the loclist, `<leader>tf` opens all in quickfix
 - [-] **blink.cmp** → native `'autocomplete'` / `vim.lsp.completion`: not worth it, would lose
       friendly-snippets, buffer source and ecolog
 

@@ -20,10 +20,6 @@ M.lazy_keys = {
 		{ "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
 		{ "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
 	},
-	trouble = {
-		{ "<leader>tt", mode = "n", desc = "[T]rouble [T]oggle" },
-		{ "<leader>tf", mode = "n", desc = "[T]rouble [F]ocus" },
-	},
 	obsidian = {
 		{ "<leader>os", mode = "n", desc = "[O]bsidian [S]ync" },
 		{ "<leader>od", mode = "n", desc = "[O]bsidian [D]aily" },
@@ -58,6 +54,17 @@ function M.core()
 			vim.diagnostic.config({ virtual_lines = { current_line = true } })
 		end
 	end, { desc = "Toggle diagnostic virtual_lines: none vs current_line" })
+
+	keymap.set("n", "<leader>tt", function()
+		if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
+			vim.cmd.lclose()
+		else
+			vim.diagnostic.setloclist({ open = true })
+		end
+	end, { desc = "[T]oggle buffer diagnostics (loclist)" })
+	keymap.set("n", "<leader>tf", function()
+		vim.diagnostic.setqflist({ open = true })
+	end, { desc = "All diagnostics (quickfix)" })
 
 	keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 	keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
@@ -139,16 +146,6 @@ function M.obsidian()
 	keymap.set("n", "<leader>fo", "<Cmd>Obsidian search<CR>", { desc = "[F]ind [O]bsidian file" })
 	keymap.set("n", "<leader>ft", "<Cmd>Obsidian tags<CR>", { desc = "[F]ind Obsidian [T]ags" })
 	keymap.set("n", "<leader>fl", "<Cmd>Obsidian follow_link<CR>", { desc = "[F]ollow Obsidian [L]ink" })
-end
-
--- Plugin: trouble.nvim (lua/plugins/trouble.lua)
-function M.trouble()
-	keymap.set("n", "<leader>tt", "<Cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>", {
-		desc = "[T]rouble [T]oggle (buffer)",
-	})
-	keymap.set("n", "<leader>tf", "<Cmd>Trouble diagnostics focus=true<CR>", {
-		desc = "[T]rouble [F]ocus",
-	})
 end
 
 -- Plugin: nvim-treesitter-textobjects (lua/plugins/treesitter.lua)

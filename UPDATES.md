@@ -44,7 +44,7 @@ Status: `[ ]` pending · `[x]` done · `[-]` decided against
 
 ## 3. Optional plugin removals (taste calls)
 
-- [ ] **lualine.nvim** → native `vim.o.statusline`. The 0.12 default statusline already shows
+- [x] **lualine.nvim** → native statusline in `lua/config/statusline.lua` (same layout; highlight groups in `colorscheme.lua`). The 0.12 default statusline already shows
       `vim.diagnostic.status()`, `vim.ui.progress_status()` and busy state; branch via
       `b:gitsigns_head`. Also removes the progress component in `lua/plugins/statusline.lua`
 - [ ] **flash.nvim `S` / `R`** → built-in visual `an` / `in` / `]n` / `[n` / `]N` / `[N`

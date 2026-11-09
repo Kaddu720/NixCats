@@ -25,6 +25,9 @@ local function set_shared_highlights()
 	hl("WinSeparator", { fg = colors.border, bg = colors.bg, bold = true })
 	hl("CursorLine", { bg = "#26233a" })
 	hl("CursorLineNr", { fg = colors.fg, bg = "NONE", bold = true })
+	hl("StatusLine", { fg = colors.fg, bg = colors.bg })
+	hl("StatusLineNC", { fg = colors.gray, bg = colors.bg })
+	hl("StatusLineBranch", { fg = colors.red, bg = colors.bg, bold = true })
 end
 
 local function set_code_theme()

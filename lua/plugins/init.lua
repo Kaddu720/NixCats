@@ -17,7 +17,6 @@ end
 
 local specs = {
 	-- Core dependency ordering
-	{ "plenary.nvim", dep_of = { "obsidian" } },
 	{ "nvim-web-devicons", dep_of = { "fzf-lua" } },
 	{ "vim-tmux-navigator", dep_of = { "herdr-nvim-nav" } },
 	{

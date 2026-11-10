@@ -2,7 +2,6 @@ vim.opt.termguicolors = true
 vim.cmd.colorscheme("quiet")
 
 local colors = {
-	bg = "#191724",
 	fg = "#e0def4",
 	gray = "#908caa",
 	border = "#6e6a86",
@@ -18,16 +17,16 @@ local function hl(group, opts)
 end
 
 local function set_shared_highlights()
-	hl("Normal", { fg = colors.fg, bg = colors.bg })
-	hl("NormalFloat", { fg = colors.fg, bg = colors.bg })
-	hl("BlinkCmpKind", { fg = colors.fg, bg = colors.bg })
-	hl("FloatBorder", { fg = colors.border, bg = colors.bg })
-	hl("WinSeparator", { fg = colors.border, bg = colors.bg, bold = true })
+	hl("Normal", { fg = colors.fg, bg = "NONE" })
+	hl("NormalFloat", { fg = colors.fg, bg = "NONE" })
+	hl("BlinkCmpKind", { fg = colors.fg, bg = "NONE" })
+	hl("FloatBorder", { fg = colors.border, bg = "NONE" })
+	hl("WinSeparator", { fg = colors.border, bg = "NONE", bold = true })
 	hl("CursorLine", { bg = "#26233a" })
 	hl("CursorLineNr", { fg = colors.fg, bg = "NONE", bold = true })
-	hl("StatusLine", { fg = colors.fg, bg = colors.bg })
-	hl("StatusLineNC", { fg = colors.gray, bg = colors.bg })
-	hl("StatusLineBranch", { fg = colors.red, bg = colors.bg, bold = true })
+	hl("StatusLine", { fg = colors.fg, bg = "NONE" })
+	hl("StatusLineNC", { fg = colors.gray, bg = "NONE" })
+	hl("StatusLineBranch", { fg = colors.red, bg = "NONE", bold = true })
 end
 
 local function set_code_theme()

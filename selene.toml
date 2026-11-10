@@ -3,3 +3,6 @@ global_usage = "allow"
 shadowing = "allow"
 unused_variable = "allow"
 undefined_variable = "allow"
+
+mixed_table = "allow"
+unscoped_variables = "allow"

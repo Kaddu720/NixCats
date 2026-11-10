@@ -17,7 +17,6 @@ M.lazy_keys = {
 		{ "<leader>fa", mode = "n", desc = "[F]zf [A]ppend" },
 		{ "<leader>ff", mode = "n", desc = "[F]z[F] buffer list" },
 		{ "<leader>fs", mode = "n", desc = "[F]zf Symbols list" },
-		{ "<leader>ca", mode = { "n", "v" }, desc = "[C]ode [A]ctions" },
 		{ "<leader>fw", mode = "n", desc = "[F]ind [W]ord" },
 	},
 	obsidian = {
@@ -82,6 +81,10 @@ end
 -- grn rename, gra code action, gri implementation, grt type definition, K hover.
 function M.lsp(bufnr)
 	keymap.buf(bufnr, "n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+	keymap.buf(bufnr, { "n", "v" }, "<leader>ca", function()
+		require("lze").trigger_load("fzf-lua")
+		require("fzf-lua").lsp_code_actions()
+	end, { desc = "[C]ode [A]ctions" })
 end
 
 -- Plugin: oil.nvim (lua/plugins/oil.lua)
@@ -130,7 +133,6 @@ function M.fzf_lua()
 	keymap.set("n", "<leader>fa", require("fzf-lua").files, { desc = "[F]zf [A]ppend" })
 	keymap.set("n", "<leader>ff", require("fzf-lua").buffers, { desc = "[F]z[F] buffer list" })
 	keymap.set("n", "<leader>fs", require("fzf-lua").treesitter, { desc = "[F]zf Symbols list" })
-	keymap.set({ "n", "v" }, "<leader>ca", require("fzf-lua").lsp_code_actions, { desc = "[C]ode [A]ctions" })
 	keymap.set("n", "<leader>fw", require("fzf-lua").live_grep, { desc = "[F]ind [W]ord" })
 end
 

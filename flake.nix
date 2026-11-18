@@ -50,18 +50,6 @@
         categories = {
           core = true;
           devops = true;
-          writing = false;
-        };
-      };
-      nvim-full = {pkgs, ...}: {
-        settings = {
-          wrapRc = true;
-          aliases = ["vim"];
-          neovim-unwrapped = pkgs.neovim-unwrapped;
-        };
-        categories = {
-          core = true;
-          devops = true;
           writing = true;
         };
       };

@@ -7,9 +7,12 @@ return {
 			lua = { "selene" },
 			nix = { "deadnix" },
 			yaml = { "yamllint" },
-			markdown = { "vale" },
 			env = { "dotenv_linter" },
 		}
+		-- vale ships only in the writing category
+		if vim.fn.executable("vale") == 1 then
+			lint.linters_by_ft.markdown = { "vale" }
+		end
 
 		local function lint_buffer(bufnr)
 			if vim.bo[bufnr].buftype ~= "" then
